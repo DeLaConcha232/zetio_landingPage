@@ -1,0 +1,17 @@
+
+node_modules
+package-lock.json
+dist
+coverage
+.DS_Store
+.env
+.idea
+.vscode
+*.log
+*.tsbuildinfo
+*.bak
+*.tmp
+*.swp
+*.swo
+*.zip
+*.tar.gz
