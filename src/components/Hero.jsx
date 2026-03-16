@@ -1,6 +1,6 @@
 import { motion } from 'motion/react'
 import SplitText from '../bits/SplitText'
-import { Play } from 'lucide-react'
+import { APP_STORE_URL, PLAY_STORE_URL } from '../lib/appLinks'
 
 export default function Hero() {
     return (
@@ -16,19 +16,19 @@ export default function Hero() {
                     style={{ filter: 'brightness(0.52)' }}
                 />
                 {/* Left vignette — keeps text readable */}
-                <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/55 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-r from-bg via-bg/55 to-transparent" />
                 {/* Bottom fade into next section */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg" />
+                <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-bg" />
                 {/* Animated orb — top left */}
                 <motion.div
-                    className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full pointer-events-none"
+                    className="absolute -top-40 -left-40 w-150 h-150 rounded-full pointer-events-none"
                     style={{ background: 'radial-gradient(circle, rgba(153,204,153,0.18) 0%, transparent 70%)' }}
                     animate={{ scale: [1, 1.14, 1], opacity: [0.65, 1, 0.65] }}
                     transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
                 />
                 {/* Animated orb — bottom right */}
                 <motion.div
-                    className="absolute -bottom-24 -right-24 w-[420px] h-[420px] rounded-full pointer-events-none"
+                    className="absolute -bottom-24 -right-24 w-105 h-105 rounded-full pointer-events-none"
                     style={{ background: 'radial-gradient(circle, rgba(153,204,153,0.11) 0%, transparent 70%)' }}
                     animate={{ scale: [1, 1.2, 1], opacity: [0.45, 0.8, 0.45] }}
                     transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2.5 }}
@@ -47,7 +47,7 @@ export default function Hero() {
                     transition={{ duration: 0.55, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
                 >
                     <motion.span
-                        className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"
+                        className="w-1.5 h-1.5 rounded-full bg-primary shrink-0"
                         animate={{ scale: [1, 1.6, 1], opacity: [1, 0.5, 1] }}
                         transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
                     />
@@ -60,24 +60,24 @@ export default function Hero() {
                 <h1 className="font-black leading-[1.04] mb-5 sm:mb-7" style={{ fontSize: 'clamp(2.4rem, 7vw, 5rem)' }}>
                     <span className="block text-white">
                         <SplitText delay={0.25} stagger={0.09}>
-                            Zetio: El Pádel
+                            Merecen más
                         </SplitText>
                     </span>
-                    <span className="block text-primary">
+                    <span className="block text-primary text-5xl">
                         <SplitText delay={0.52} stagger={0.09}>
-                            en tus Manos
+                            que un grupo de WhatsApp.
                         </SplitText>
                     </span>
                 </h1>
 
                 {/* Subtitle */}
                 <motion.p
-                    className="text-white/55 text-sm sm:text-base lg:text-lg max-w-full sm:max-w-[400px] leading-relaxed mb-8 sm:mb-11"
+                    className="text-white/55 text-sm sm:text-base lg:text-lg max-w-full sm:max-w-xl leading-relaxed mb-8 sm:mb-11"
                     initial={{ opacity: 0, y: 18 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.65, delay: 0.92, ease: 'easeOut' }}
                 >
-                    Totalmente gratis. Organiza torneos, únete a clubes y entrena con profesionales en la plataforma más avanzada del mercado.
+                    Organiza torneos con tus amigos, únete a clubes y entrena con profesionales en la plataforma más avanzada del mercado.
                 </motion.p>
 
                 {/* CTAs */}
@@ -87,32 +87,26 @@ export default function Hero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.65, delay: 1.15, ease: 'easeOut' }}
                 >
-                    <section className="flex gap-6 w-full sm:w-auto">
-                        <motion.button
-                            className="bg-primary text-black font-black px-8 py-3.5 rounded-xl text-sm tracking-wider hover:bg-primary-light transition-colors duration-200 active:scale-95 w-full sm:w-auto relative overflow-hidden"
-                            style={{ boxShadow: 'var(--shadow-primary-md)' }}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
+                    <div className="flex items-center gap-4 flex-wrap">
+                        <a
+                            href={APP_STORE_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="transition-opacity duration-200 hover:opacity-80 active:opacity-60"
+                            aria-label="Descargar en App Store"
                         >
-                            <motion.span
-                                className="absolute inset-0 rounded-xl"
-                                style={{ background: 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15) 0%, transparent 70%)' }}
-                                animate={{ opacity: [0, 0.6, 0] }}
-                                transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-                            />
-                            EMPIEZA AHORA
-                        </motion.button>
-
-                        <button className="group flex items-center justify-center gap-3 text-white border border-white/15 bg-white/[0.04] px-7 py-3.5 rounded-xl text-sm font-medium hover:bg-white/[0.08] hover:border-white/25 transition-all duration-200 w-full sm:w-auto">
-                            <span className="w-8 h-8 rounded-full bg-white/10 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-white/15 transition-colors">
-                                <Play className="w-3.5 h-3.5 fill-white text-white" />
-                            </span>
-                            Ver Demo
-                        </button>
-                    </section>
-                    <section className="w-full sm:w-auto">
-                        <img src="/componente app store.png" alt="App Store" className="w-auto h-14" />
-                    </section>
+                            <img src="/app-store.webp" alt="Disponible en App Store" className="w-auto h-14" width="168" height="56" />
+                        </a>
+                        <a
+                            href={PLAY_STORE_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="transition-opacity duration-200 hover:opacity-80 active:opacity-60"
+                            aria-label="Descargar en Google Play"
+                        >
+                            <img src="/play-store.webp" alt="Disponible en Google Play" className="w-auto h-14" width="190" height="56" />
+                        </a>
+                    </div>
                 </motion.div>
             </div>
         </section>

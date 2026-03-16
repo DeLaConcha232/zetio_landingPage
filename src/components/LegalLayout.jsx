@@ -20,7 +20,7 @@ export default function LegalLayout({ badge, title, updated, children }) {
     return (
         <div className="bg-bg text-white min-h-screen">
             {/* ── Top bar ── */}
-            <header className="border-b border-white/[0.06] bg-bg/95 backdrop-blur-xl sticky top-0 z-40">
+            <header className="border-b border-white/6 bg-bg/95 backdrop-blur-xl sticky top-0 z-40">
                 <div className="max-w-3xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
                     <ZetioLogo />
                     <Link
@@ -35,7 +35,7 @@ export default function LegalLayout({ badge, title, updated, children }) {
 
             {/* ── Hero header ── */}
             <motion.div
-                className="max-w-3xl mx-auto px-4 sm:px-6 pt-14 pb-10 border-b border-white/[0.06]"
+                className="max-w-3xl mx-auto px-4 sm:px-6 pt-14 pb-10 border-b border-white/6"
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}

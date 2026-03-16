@@ -4,15 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Favicon -->
+    <!-- Favicons & PWA -->
     <link rel="icon" type="image/webp" href="/favicon.webp" />
+    <link rel="apple-touch-icon" href="/favicon.webp" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#0a0a0a" />
 
     <!-- Primary SEO -->
     <title>Zetio — El Pádel en tus Manos</title>
     <meta name="description" content="Totalmente gratis. Organiza torneos, únete a clubes y entrena con profesionales en la plataforma de pádel más avanzada del mercado." />
+    <meta name="author" content="Zetio" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://www.zetio.app/" />
-    <meta name="theme-color" content="#0a0a0a" />
 
     <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
     <meta property="og:type" content="website" />
@@ -22,14 +25,18 @@
     <meta property="og:image" content="https://www.zetio.app/og-image.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Zetio — La plataforma de pádel más avanzada" />
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content="Zetio" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@zetioapp" />
+    <meta name="twitter:creator" content="@zetioapp" />
     <meta name="twitter:title" content="Zetio — El Pádel en tus Manos" />
     <meta name="twitter:description" content="Totalmente gratis. Organiza torneos, únete a clubes y entrena con profesionales." />
     <meta name="twitter:image" content="https://www.zetio.app/og-image.webp" />
+    <meta name="twitter:image:alt" content="Zetio — La plataforma de pádel más avanzada" />
 
     <!-- Structured Data — SoftwareApplication -->
     <script type="application/ld+json">
@@ -39,28 +46,25 @@
       "name": "Zetio",
       "description": "Plataforma de pádel para organizar torneos, unirse a clubes y entrenar con coaches profesionales.",
       "applicationCategory": "SportsApplication",
-      "operatingSystem": "iOS, Android, Web",
+      "operatingSystem": "iOS, Android",
       "offers": {
         "@type": "Offer",
         "price": "0",
-        "priceCurrency": "MXN",
+        "priceCurrency": "MXN"
       },
       "url": "https://zetio.app/",
       "inLanguage": "es"
     }
     </script>
 
-    <!-- Fonts: preconnect first, then stylesheet -->
+    <!-- Fonts: preconnect → non-blocking async load -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" /></noscript>
 
     <!-- Preload LCP hero image -->
     <link rel="preload" as="image" href="/imagen2.webp" fetchpriority="high" />
-
-    <!-- DNS prefetch for third-party image domains -->
-    <link rel="dns-prefetch" href="https://i.pravatar.cc" />
-    <link rel="dns-prefetch" href="https://images.unsplash.com" />
   </head>
   <body>
     <div id="root"></div>

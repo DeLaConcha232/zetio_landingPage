@@ -30,7 +30,7 @@ export default function Privacy() {
             ['Comunicaciones', 'mensajes enviados a través de nuestra plataforma de soporte.'],
           ].map(([title, desc]) => (
             <li key={title} className="flex gap-2">
-              <span className="text-primary mt-1 flex-shrink-0">›</span>
+              <span className="text-primary mt-1 shrink-0">›</span>
               <span><span className="text-white/80 font-medium">{title}:</span> {desc}</span>
             </li>
           ))}
@@ -50,7 +50,7 @@ export default function Privacy() {
             'Cumplir con obligaciones legales aplicables.',
           ].map((item) => (
             <li key={item} className="flex gap-2">
-              <span className="text-primary mt-1 flex-shrink-0">›</span>
+              <span className="text-primary mt-1 shrink-0">›</span>
               <span>{item}</span>
             </li>
           ))}
@@ -69,7 +69,7 @@ export default function Privacy() {
             ['Obligación legal', 'para cumplir con requerimientos normativos.'],
           ].map(([title, desc]) => (
             <li key={title} className="flex gap-2">
-              <span className="text-primary mt-1 flex-shrink-0">›</span>
+              <span className="text-primary mt-1 shrink-0">›</span>
               <span><span className="text-white/80 font-medium">{title}:</span> {desc}</span>
             </li>
           ))}
@@ -88,7 +88,7 @@ export default function Privacy() {
             'Autoridades competentes cuando exista obligación legal.',
           ].map((item) => (
             <li key={item} className="flex gap-2">
-              <span className="text-primary mt-1 flex-shrink-0">›</span>
+              <span className="text-primary mt-1 shrink-0">›</span>
               <span>{item}</span>
             </li>
           ))}
@@ -116,7 +116,7 @@ export default function Privacy() {
             ['Limitación', 'solicitar que restrinjamos el tratamiento mientras se resuelve una reclamación.'],
           ].map(([title, desc]) => (
             <li key={title} className="flex gap-2">
-              <span className="text-primary mt-1 flex-shrink-0">›</span>
+              <span className="text-primary mt-1 shrink-0">›</span>
               <span><span className="text-white/80 font-medium">{title}:</span> {desc}</span>
             </li>
           ))}
@@ -142,7 +142,7 @@ export default function Privacy() {
         <p>
           Si tienes dudas o preguntas sobre esta política, puedes contactarnos en:
         </p>
-        <div className="mt-3 p-4 rounded-xl border border-white/[0.07] bg-white/[0.02] space-y-1">
+        <div className="mt-3 p-4 rounded-xl border border-white/7 bg-white/2 space-y-1">
           <p><span className="text-white/80 font-medium">Empresa:</span> Zetio Padel Software S.L.</p>
           <p><span className="text-white/80 font-medium">Email:</span> <a href="mailto:privacidad@zetio.app" className="text-primary hover:text-primary-light underline underline-offset-2 transition-colors">privacidad@zetio.app</a></p>
         </div>

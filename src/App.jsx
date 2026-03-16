@@ -7,6 +7,7 @@ import Features from './components/Features'
 import Stats from './components/Stats'
 import ValueProp from './components/ValueProp'
 import CTABanner from './components/CTABanner'
+import AppShowcase from './components/AppShowcase'
 import Footer from './components/Footer'
 
 // Legal pages are not on the critical path — load them only when navigated to
@@ -26,10 +27,11 @@ function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Features />
+        <AppShowcase />
         <Stats />
         <ValueProp />
         <Stats />
+        <Features />
         <CTABanner />
       </main>
       <Footer />

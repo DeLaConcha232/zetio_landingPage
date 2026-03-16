@@ -14,12 +14,12 @@ const highlights = [
   {
     icon: <Zap className="w-4 h-4" />,
     title: 'Interfaz Ultra Rápida',
-    description: 'Reserva en menos de 3 clics. Sin esperas, sin errores.',
+    description: 'Juega en menos de 3 clics. Sin esperas, sin errores.',
   },
   {
     icon: <Users className="w-4 h-4" />,
-    title: 'Comunidad Activa',
-    description: 'Encuentra pareja de juego según tu nivel de forma instantánea.',
+    title: 'Juegos rapidos',
+    description: 'Encuentra amigos y toma el control del juego desde la palma de tu mano.',
   },
 ]
 
@@ -78,10 +78,10 @@ export default function ValueProp() {
               {freeFeatures.map((feat) => (
                 <div
                   key={feat.label}
-                  className="flex items-center gap-2.5 bg-primary/[0.06] border border-primary/20 rounded-xl px-4 py-3 hover:border-primary/40 hover:bg-primary/[0.09] transition-all duration-200"
+                  className="flex items-center gap-2.5 bg-primary/6 border border-primary/20 rounded-xl px-4 py-3 hover:border-primary/40 hover:bg-primary/9 transition-all duration-200"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" style={{ boxShadow: '0 0 6px rgba(153,204,153,0.8)' }} />
-                  <span className="text-white/70 text-xs font-semibold tracking-[0.1em]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" style={{ boxShadow: '0 0 6px rgba(153,204,153,0.8)' }} />
+                  <span className="text-white/70 text-xs font-semibold tracking-widest">
                     {feat.label}
                   </span>
                 </div>
@@ -101,7 +101,7 @@ export default function ValueProp() {
             className="text-white font-black leading-tight mb-6"
             style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}
           >
-            Lleva tu Juego al Siguiente Nivel Hoy
+            Lleva tu nivel al siguiente juego
           </h2>
 
           <p className="text-white/45 text-sm leading-relaxed mb-10">
@@ -118,7 +118,7 @@ export default function ValueProp() {
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.55, delay: 0.5 + i * 0.16, ease: 'easeOut' }}
               >
-                <div className="w-9 h-9 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center flex-shrink-0 text-primary mt-0.5" style={{ boxShadow: '0 0 14px rgba(153,204,153,0.20)' }}>
+                <div className="w-9 h-9 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center shrink-0 text-primary mt-0.5" style={{ boxShadow: '0 0 14px rgba(153,204,153,0.20)' }}>
                   {h.icon}
                 </div>
                 <div>
