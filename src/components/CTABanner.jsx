@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'motion/react'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { APP_STORE_URL, PLAY_STORE_URL } from '../lib/appLinks'
 
 export default function CTABanner() {
   const ref = useRef(null)
@@ -17,13 +17,13 @@ export default function CTABanner() {
       />
       {/* Green radial orbs */}
       <motion.div
-        className="absolute -top-24 -left-24 w-[500px] h-[500px] rounded-full pointer-events-none"
+        className="absolute -top-24 -left-24 w-125 h-125 rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(153,204,153,0.22) 0%, transparent 65%)' }}
         animate={{ scale: [1, 1.1, 1], opacity: [0.7, 1, 0.7] }}
         transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
-        className="absolute -bottom-16 -right-16 w-[380px] h-[380px] rounded-full pointer-events-none"
+        className="absolute -bottom-16 -right-16 w-95 h-95 rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(153,204,153,0.15) 0%, transparent 65%)' }}
         animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.85, 0.5] }}
         transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut', delay: 3 }}
@@ -42,7 +42,7 @@ export default function CTABanner() {
       {/* ── Content ── */}
       <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
         {/* Badge */}
-        <motion.div
+        {/* <motion.div
           className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/35 bg-primary/10 mb-7"
           initial={{ opacity: 0, y: 16, scale: 0.9 }}
           animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
@@ -52,7 +52,7 @@ export default function CTABanner() {
           <span className="text-primary text-[11px] font-semibold tracking-[0.18em] uppercase">
             100% Gratuito · Sin tarjeta de crédito
           </span>
-        </motion.div>
+        </motion.div> */}
 
         {/* Headline */}
         <motion.h2
@@ -62,7 +62,7 @@ export default function CTABanner() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.65, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <span className="text-white">¿Listo para llevar </span>
+          <span className="text-white">El Pádel </span>
           <span
             style={{
               background: 'var(--gradient-primary-shine)',
@@ -71,7 +71,7 @@ export default function CTABanner() {
               backgroundClip: 'text',
             }}
           >
-            tu pádel al siguiente nivel?
+            en tus Manos
           </span>
         </motion.h2>
 
@@ -82,7 +82,7 @@ export default function CTABanner() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.22, ease: 'easeOut' }}
         >
-          Únete a más de 10,000 jugadores que ya gestionan sus torneos, estadísticas y reservas desde Zetio.
+          Crea fixtures en segundos, registra cada punto y revisa tu historial completo — sin capturas de pantalla, sin confusión.
         </motion.p>
 
         {/* CTA buttons */}
@@ -92,26 +92,28 @@ export default function CTABanner() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.34, ease: 'easeOut' }}
         >
-          <motion.button
-            className="relative flex items-center gap-2.5 bg-primary text-black font-black px-8 py-4 rounded-xl text-sm tracking-wider overflow-hidden w-full sm:w-auto"
-            style={{ boxShadow: 'var(--shadow-primary-lg)' }}
+          <motion.a
+            href={APP_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-opacity duration-200 hover:opacity-85 active:opacity-60"
+            aria-label="Descargar en App Store"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            {/* Shimmer */}
-            <motion.span
-              className="absolute inset-0"
-              style={{ background: 'linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.25) 50%, transparent 65%)' }}
-              animate={{ x: ['-100%', '200%'] }}
-              transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut', repeatDelay: 1.5 }}
-            />
-            DESCARGA LA APP
-            <ArrowRight className="w-4 h-4 relative z-10" />
-          </motion.button>
-
-          <button className="text-white/60 hover:text-white text-sm font-medium underline underline-offset-4 decoration-white/20 hover:decoration-white/50 transition-all duration-200">
-            Ver cómo funciona →
-          </button>
+            <img src="/app-store.webp" alt="Disponible en App Store" className="h-14 w-auto" width="168" height="56" />
+          </motion.a>
+          <motion.a
+            href={PLAY_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-opacity duration-200 hover:opacity-85 active:opacity-60"
+            aria-label="Descargar en Google Play"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <img src="/play-store.webp" alt="Disponible en Google Play" className="h-14 w-auto" width="190" height="56" />
+          </motion.a>
         </motion.div>
 
         {/* Trust pills */}
@@ -124,7 +126,7 @@ export default function CTABanner() {
           {['Sin anuncios', 'Sin comisiones', 'iOS & Android', 'Actualización constante'].map((pill) => (
             <span
               key={pill}
-              className="text-white/35 text-[11px] font-semibold tracking-[0.1em] px-3 py-1.5 rounded-full border border-white/[0.07] bg-white/[0.03]"
+              className="text-white/35 text-[11px] font-semibold tracking-widest px-3 py-1.5 rounded-full border border-white/7 bg-white/3"
             >
               {pill}
             </span>

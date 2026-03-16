@@ -3,9 +3,9 @@ import { motion, useInView } from 'motion/react'
 import CountUp from '../bits/CountUp'
 
 const stats = [
-  { to: 10, suffix: 'k+', label: 'JUGADORES ACTIVOS' },
-  { to: 500, suffix: '+', label: 'CLUBES FEDERADOS' },
-  { to: 1, suffix: 'k+', label: 'COACHES CERTIFICADOS' },
+  { to: 1, suffix: 'k+', label: 'JUGADORES ACTIVOS' },
+  { to: 20, suffix: '+', label: 'CLUBES FEDERADOS' },
+  { to: 10, suffix: '+', label: 'COACHES CERTIFICADOS' },
 ]
 
 export default function Stats() {
@@ -13,11 +13,11 @@ export default function Stats() {
   const isInView = useInView(ref, { once: true, margin: '-50px' })
 
   return (
-    <section ref={ref} className="relative border-y border-primary/20 overflow-hidden">
+    <section id="stats" ref={ref} className="relative border-y border-primary/20 overflow-hidden">
       {/* Gradient strip background */}
       <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(135deg, rgba(153,204,153,0.06) 0%, transparent 50%, rgba(153,204,153,0.04) 100%)' }} />
       {/* Center glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[200px] rounded-full blur-[80px] pointer-events-none" style={{ background: 'rgba(153,204,153,0.07)' }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-50 rounded-full blur-[80px] pointer-events-none" style={{ background: 'rgba(153,204,153,0.07)' }} />
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
         <div className="grid grid-cols-3 gap-2 sm:gap-8">
           {stats.map((stat, i) => (

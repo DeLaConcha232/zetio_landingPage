@@ -28,7 +28,7 @@ export default function Features() {
     const isInView = useInView(ref, { once: true, margin: '-80px' })
 
     return (
-        <section ref={ref} className="max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-24 lg:py-28">
+        <section id="features" ref={ref} className="max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-24 lg:py-28">
             {/* ── Section header ── */}
             <motion.div
                 className="flex items-center gap-5 mb-14"
@@ -61,7 +61,7 @@ export default function Features() {
                                 decoding="async"
                                 className="absolute inset-0 w-full h-full object-cover opacity-35 group-hover:opacity-45 group-hover:scale-105 transition-all duration-700"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-surface-dark via-surface-dark/50 to-transparent" />
+                            <div className="absolute inset-0 bg-linear-to-t from-surface-dark via-surface-dark/50 to-transparent" />
 
                             <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-7">
                                 <SectionTag label="Social" />
@@ -69,7 +69,7 @@ export default function Features() {
                                     Mini Torneos<br />con Amigos
                                 </h3>
                                 <p className="text-white/45 text-sm leading-relaxed max-w-xs">
-                                    Organiza partidas rápidas con integración directa en WhatsApp. Lleva el marcador punto a punto en tiempo real y genera estadísticas automáticas.
+                                    Organiza partidas rápidas con tus amigos. Lleva el marcador punto a punto en tiempo real y genera estadísticas automáticas.
                                 </p>
                             </div>
                         </SpotlightCard>
@@ -90,10 +90,10 @@ export default function Features() {
                                 decoding="async"
                                 className="absolute inset-0 w-full h-full object-cover opacity-35 group-hover:opacity-45 group-hover:scale-105 transition-all duration-700"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-surface-dark via-surface-dark/50 to-transparent" />
+                            <div className="absolute inset-0 bg-linear-to-t from-surface-dark via-surface-dark/50 to-transparent" />
 
                             <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-7">
-                                <SectionTag label="Oficial" />
+                                <SectionTag label="Oficial (PROXIMAMENTE)" />
                                 <h3 className="text-white font-black text-2xl sm:text-[1.55rem] leading-tight mb-2 sm:mb-3">
                                     Torneos<br />de Clubes
                                 </h3>
@@ -125,39 +125,54 @@ export default function Features() {
                             className="absolute inset-0 w-full h-full object-cover object-center opacity-40 transition-all duration-700"
                         />
                         {/* Left-to-right fade — keeps text readable, reveals image on the right */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-surface via-surface/90 to-surface/25" />
+                        <div className="absolute inset-0 bg-linear-to-r from-surface via-surface/90 to-surface/25" />
                         {/* Subtle green glow */}
                         <div className="absolute top-0 right-0 w-72 h-72 rounded-full blur-[80px] pointer-events-none" style={{ background: 'var(--color-primary-spotlight-xs)' }} />
 
                         <div className="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8 p-8 sm:p-10">
                             <div className="flex-1">
-                                <SectionTag label="Rendimiento" />
+                                <SectionTag label="Rendimiento (PROXIMAMENTE)" />
                                 <h3 className="text-white font-black text-3xl sm:text-4xl mt-2 mb-4">
                                     Coach Profesional
                                 </h3>
                                 <p className="text-white/45 text-sm leading-relaxed max-w-lg">
-                                    Reserva clases particulares con instructores certificados. Recibe planes de entrenamiento personalizados basados en tus estadísticas de juego y mapas de calor capturados por la app.
+                                    Reserva, encuentra y conecta con clases particulares con instructores certificados. Recibe planes de entrenamiento personalizados basados en tus estadísticas de juego e indicaciones registradas por tu coach.
                                 </p>
                             </div>
 
                             {/* Avatars */}
-                            <div className="flex flex-col items-center gap-2 flex-shrink-0">
+                            {/* <div className="flex flex-col items-center gap-2 shrink-0">
                                 <div className="flex -space-x-3.5">
-                                    {[7, 14, 21].map((seed) => (
-                                        <img
-                                            key={seed}
-                                            src={`https://i.pravatar.cc/52?img=${seed}`}
-                                            alt="Coach"
-                                            loading="lazy"
-                                            decoding="async"
-                                            width={52}
-                                            height={52}
-                                            className="rounded-full border-2 border-surface ring-1 ring-primary/20 object-cover"
-                                        />
+                                    {[
+                                        { initials: 'MC', bg: '#1a3a1a' },
+                                        { initials: 'AL', bg: '#1f4020' },
+                                        { initials: 'SR', bg: '#163016' },
+                                    ].map(({ initials, bg }) => (
+                                        <div
+                                            key={initials}
+                                            aria-label={`Coach ${initials}`}
+                                            style={{
+                                                width: 52,
+                                                height: 52,
+                                                borderRadius: '50%',
+                                                background: bg,
+                                                border: '2px solid var(--color-surface)',
+                                                outline: '1px solid rgba(153,204,153,0.2)',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                fontSize: '13px',
+                                                fontWeight: 700,
+                                                color: '#99CC99',
+                                                flexShrink: 0,
+                                            }}
+                                        >
+                                            {initials}
+                                        </div>
                                     ))}
                                 </div>
                                 <span className="text-white/35 text-xs font-semibold tracking-wide">+50 Coaches</span>
-                            </div>
+                            </div> */}
                         </div>
                     </SpotlightCard>
                 </motion.div>
