@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Instagram } from 'lucide-react'
+import { Instagram, Mail, ArrowUpRight } from 'lucide-react'
 
 function TiktokIcon({ className }) {
   return (
@@ -24,7 +24,7 @@ const productLinks = [
 ]
 const legalLinks = [
   { label: 'Privacidad', to: '/privacy' },
-  { label: 'Términos', to: '/terms' },
+  // { label: 'Términos', to: '/terms' },
 ]
 
 export default function Footer() {
@@ -32,7 +32,41 @@ export default function Footer() {
     <footer className="relative border-t border-primary/15">
       {/* Top glow line */}
       <div className="absolute top-0 left-[5%] right-[5%] h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(153,204,153,0.45) 30%, rgba(153,204,153,0.45) 70%, transparent)' }} />
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+
+      {/* Contact CTA */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-12 sm:pt-16 pb-10">
+        <div className="rounded-2xl border border-white/8 bg-white/[0.03] px-8 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div>
+            <p className="text-white/22 text-[10px] font-bold tracking-[0.2em] uppercase mb-2">Contacto</p>
+            <h3 className="text-white text-lg font-semibold leading-snug">
+              ¿Tienes alguna pregunta?
+            </h3>
+            <p className="text-white/40 text-sm mt-1">
+              Escríbenos y te respondemos a la brevedad.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+            <a
+              href="mailto:info@zetio.app"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary/15 border border-primary/25 text-primary text-sm font-medium hover:bg-primary/22 transition-all duration-200"
+            >
+              <Mail className="w-4 h-4" />
+              info@zetio.app
+              <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
+            </a>
+            <a
+              href="mailto:soporte@zetio.app"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/4 border border-white/8 text-white/50 text-sm font-medium hover:text-white/80 hover:bg-white/7 transition-all duration-200"
+            >
+              <Mail className="w-4 h-4" />
+              soporte@zetio.app
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Links */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-12 sm:pb-16">
         <div className="flex flex-col sm:flex-row justify-between gap-14">
           {/* Brand */}
           <div className="max-w-60">
@@ -42,7 +76,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Links */}
           <div className="flex gap-12 sm:gap-16">
             <div>
               <p className="text-white/22 text-[10px] font-bold tracking-[0.2em] uppercase mb-5">
