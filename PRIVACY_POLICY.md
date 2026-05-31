@@ -1,6 +1,6 @@
 # Política de Privacidad — Zetio
 
-**Última actualización:** 18 de abril de 2026
+**Última actualización:** 29 de mayo de 2026
 
 Bienvenido a **Zetio**. Esta Política de Privacidad describe cómo Diego Diaz ("nosotros", "nuestro" o "Zetio") recopila, usa, almacena y protege tu información cuando utilizas la aplicación móvil Zetio y los servicios asociados (en conjunto, el "Servicio").
 
@@ -22,7 +22,7 @@ Cuando te registras y usas Zetio, recopilamos la siguiente información:
 
 | Categoría | Datos | Propósito |
 |-----------|-------|-----------|
-| **Cuenta** | Correo electrónico, contraseña (almacenada como hash, nunca en texto plano) | Crear y autenticar tu cuenta |
+| **Cuenta** | Correo electrónico, contraseña (almacenada como hash, nunca en texto plano), o cuenta Google (OAuth) | Crear y autenticar tu cuenta |
 | **Perfil** | Nombre, apellido paterno, apellido materno | Identificarte como jugador en torneos, retas y sesiones de coaching |
 | **Datos personales** | Fecha de nacimiento, sexo | Validar tu elegibilidad en categorías de torneo por edad y género |
 
@@ -60,6 +60,22 @@ Cuando participas en los módulos Zetio Torneos y Zetio Play, generamos y almace
 - Jornadas, partidos, marcadores, rankings parciales y finales
 - Histórico del ranking final al cerrar la reta (snapshot agregado)
 
+**Modificación de la lista de jugadores por el host.** El usuario que crea una reta (host) puede, en cualquier momento — incluso después de que la reta haya comenzado y aun cuando ya existan partidos con resultados registrados — **reemplazar o quitar a cualquier participante distinto de sí mismo**. Esto incluye:
+
+- Cambiar a un amigo vinculado por otro amigo vinculado, por un nombre manual (jugador sin cuenta), o por un nombre genérico (`Jugador N`).
+- Quitar a un participante que se unió mediante el código de invitación.
+
+Esta capacidad es **exclusiva del host** y forma parte del control operativo sobre las retas que él mismo organiza.
+
+**Consecuencias para el participante removido o reemplazado:**
+
+- El **vínculo entre el usuario y la reta se rompe inmediatamente**: el `user_id` del usuario deja de estar asociado a ese slot.
+- La reta **deja de aparecer en su sección "Partidos donde participas"** y deja de poder visualizarla desde su cuenta, salvo que el host vuelva a incluirlo más tarde.
+- Los **resultados de los partidos ya jugados permanecen en la reta** bajo el slot del que fue removido. Los puntos están ligados a la posición del slot, no a la identidad del usuario que los introdujo; por integridad histórica de la reta no se borran. Estos resultados pasan a aparecer asociados al nuevo ocupante del slot (otro jugador, un nombre manual o el placeholder genérico).
+- El **nombre que se mostraba** en ese slot puede ser sustituido por el host por el nombre del nuevo participante o por un identificador genérico (`Jugador N`).
+
+Al unirte a una reta como amigo vinculado o mediante código de invitación, aceptas que el host conserva esta facultad. Si en algún momento dejas de tener acceso a una reta en la que participabas, lo más probable es que el host te haya removido o reemplazado. Esto no afecta a tu cuenta de Zetio ni a ningún otro torneo o reta en el que participes.
+
 **Sistema de amigos (`friend_code`):**
 
 Zetio asigna a cada usuario un **código de amigo** (`friend_code`) único. Este código es un **identificador público dentro de la plataforma**: cualquier otro usuario registrado que conozca tu código puede localizarte para enviarte una solicitud de amistad. El código **no es secreto**; compartirlo es una acción deliberada y equivalente a darle a alguien tu nombre de usuario público. Una solicitud de amistad **no** otorga acceso automático a tus datos: debe ser aceptada por ambas partes. Zetio **no accede a la libreta de contactos de tu dispositivo** en ningún momento.
@@ -93,6 +109,7 @@ Zetio Play permite acceder al módulo de retas casuales **sin necesidad de crear
 - **Datos que recopilamos:** Datos de sesión anónimos (sin vincular a un usuario identificado), ubicación aproximada del dispositivo (únicamente si concedes el permiso), y eventos de analítica interna anónimos para medir el uso de la funcionalidad.
 - **Datos que NO recopilamos:** Correo electrónico, contraseña, número de teléfono, fecha de nacimiento ni ningún otro dato de perfil personal.
 - **Unirse a una reta con código:** Un usuario en modo invitado puede unirse a una reta de Zetio Play utilizando únicamente el código de invitación (`invite_code`) y un **nombre temporal** introducido manualmente. Ese nombre se almacena asociado a la reta (no a un perfil) únicamente mientras la reta esté activa, y forma parte del historial agregado de la reta al cerrarse.
+- **El host puede removerte de la reta** en cualquier momento (ver sección 1.3, "Modificación de la lista de jugadores por el host"). Al ser removido como invitado, pierdes el acceso a la reta y, como tus datos de invitado no están vinculados a un perfil permanente, no quedará ninguna referencia identificable a ti en esa reta.
 - Los datos de invitado **no se asocian a ningún perfil permanente** y se eliminan al cerrar la sesión o al crear una cuenta.
 - Si decides crear una cuenta desde el modo invitado, se te solicitará proporcionar la información descrita en la sección 1.1.
 
@@ -154,6 +171,7 @@ Utilizamos tu información exclusivamente para:
 - **Notificaciones:** Informarte sobre actualizaciones de tus torneos, resultados de partidos, inscripciones, invitaciones de amistad, invitaciones de vínculo coach-jugador y eventos relevantes.
 - **Mejora del Servicio:** Resolver problemas técnicos y mejorar la experiencia de usuario mediante analítica interna.
 - **Comunicación:** Responder a tickets de soporte y consultas.
+- **Feedback:** Permitirte calificar la aplicación mediante el sistema nativo de calificaciones del sistema operativo.
 
 **No utilizamos tu información para:**
 - Publicidad dirigida o personalizada
@@ -197,9 +215,11 @@ Zetio utiliza los siguientes servicios de terceros para operar. Cada uno tiene s
 | Servicio | Propósito | Datos compartidos | Política de privacidad |
 |----------|-----------|-------------------|----------------------|
 | **Supabase** | Base de datos, autenticación, almacenamiento y Edge Functions | Datos de cuenta, perfil, torneos, retas, coaching y sesión | [supabase.com/privacy](https://supabase.com/privacy) |
+| **Google OAuth** | Autenticación con cuenta Google | Correo, nombre, foto de perfil | [google.com/privacy](https://google.com/privacy) |
 | **Firebase Cloud Messaging (Google)** | Notificaciones push en Android | Token del dispositivo | [firebase.google.com/support/privacy](https://firebase.google.com/support/privacy) |
 | **Apple Push Notification service (APNs)** | Notificaciones push en iOS | Token del dispositivo | [apple.com/legal/privacy](https://www.apple.com/legal/privacy/) |
 | **OpenStreetMap / Nominatim** | Geocodificación inversa (convertir coordenadas en nombre de ciudad) | Coordenadas de ubicación aproximada | [osmfoundation.org/wiki/Privacy_Policy](https://osmfoundation.org/wiki/Privacy_Policy) |
+| **Capacitor In-App Review** | Calificación in-app (iOS SKStoreReviewController / Android Play In-App Reviews API) | Ningún dato personal — el prompt es nativo del sistema operativo | [capacitorjs.com/docs/apis/in-app-review](https://capacitorjs.com/docs/apis/in-app-review) |
 
 Servicios adicionales que se consultan pero **no reciben datos personales:**
 - **restcountries.com** — Lista de países (solo lectura)
@@ -228,6 +248,7 @@ Servicios adicionales que se consultan pero **no reciben datos personales:**
   - Preferencias de idioma y tema
   - Una caché de tu ubicación aproximada (máximo 24 horas)
   - El módulo seleccionado por última vez
+  - Un dato **temporal de verificación pendiente** (tu correo electrónico y la marca de tiempo del registro) mientras confirmas tu cuenta con el código de verificación; se elimina automáticamente al verificar tu cuenta o al cancelar.
   - Estos datos se eliminan al cerrar sesión.
 - **Service Worker / PWA:** En la versión web y en la aplicación progresiva (PWA), un Service Worker (Workbox) almacena en caché archivos de la aplicación (JavaScript, CSS, fuentes, imágenes) para el funcionamiento sin conexión y un mejor rendimiento. Esta caché contiene únicamente activos estáticos de la aplicación, **no datos personales**.
 
@@ -235,7 +256,7 @@ Servicios adicionales que se consultan pero **no reciben datos personales:**
 
 - Las contraseñas se almacenan como hash criptográfico; nunca en texto plano.
 - Todas las comunicaciones entre la app y el servidor usan cifrado TLS/SSL.
-- La autenticación utiliza el flujo PKCE (Proof Key for Code Exchange) para máxima seguridad.
+- La autenticación utiliza el flujo OAuth para máxima seguridad.
 - **Row Level Security (RLS):** El acceso a tus datos personales, torneos, retas, métricas deportivas de Zetio Coach, notificaciones y tickets de soporte está restringido a nivel **servidor** mediante políticas de Row Level Security de Supabase. Esto significa que un usuario únicamente puede acceder a los datos a los que tiene permiso explícito (sus propios datos, datos de torneos o retas en los que participa como jugador o como anfitrión, o datos de los jugadores vinculados a él como coach tras la aceptación mutua). Estas políticas se aplican en la base de datos, no en el cliente, lo que impide el acceso cruzado entre usuarios incluso si la aplicación cliente fuera modificada.
 - Los tokens de sesión se renuevan periódicamente y se invalidan al cerrar sesión.
 - Los registros de depuración (logs) en la **versión de producción** están limitados a información operativa mínima y **no almacenan datos personales identificables** (correos, contraseñas, tokens, contenido de mensajes o ubicación precisa).
@@ -298,6 +319,8 @@ Al eliminar tu cuenta se realizan las siguientes acciones de forma inmediata e i
 
 Si tienes algún problema para eliminar tu cuenta desde la app, también puedes solicitarlo por correo a **soporte@zetio.app**.
 
+**Importante:** *Ser removido de una reta por el host* (ver sección 1.3) **no es lo mismo que eliminar tu cuenta**. Si el host te remueve de una reta, simplemente dejas de tener acceso a esa reta en particular; tu cuenta de Zetio, tu perfil, tus amigos, tu historial en otros torneos/retas y todos tus demás datos **permanecen intactos**. La eliminación de cuenta descrita en esta sección es una acción que solo tú puedes iniciar desde tus Ajustes.
+
 ---
 
 ## 7. Menores de edad
@@ -328,6 +351,7 @@ Zetio **no utiliza cookies propias de rastreo ni tecnologías de publicidad**. U
 - Guardar tus preferencias de idioma y tema (claro/oscuro)
 - Cachear tu ubicación para evitar consultas repetidas al GPS
 - Recordar tu módulo seleccionado
+- Recordar de forma temporal una verificación de cuenta pendiente (tu correo y la hora de registro) para permitirte retomar el ingreso del código; se elimina al completar o cancelar la verificación
 
 Estos datos son estrictamente funcionales, no se comparten con terceros y se eliminan al cerrar sesión.
 
