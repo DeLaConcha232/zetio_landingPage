@@ -1,12 +1,14 @@
 # Política de Privacidad — Zetio
 
-**Última actualización:** 29 de mayo de 2026
+**Última actualización:** 11 de agosto de 2026
 
 Bienvenido a **Zetio**. Esta Política de Privacidad describe cómo Diego Diaz ("nosotros", "nuestro" o "Zetio") recopila, usa, almacena y protege tu información cuando utilizas la aplicación móvil Zetio y los servicios asociados (en conjunto, el "Servicio").
 
+> **Alcance de este documento — Zetio Users.** Esta política cubre los productos orientados a jugadores y coaches individuales: **Zetio Tour**, **Zetio Play** y **Zetio Coach**. El tratamiento de datos de **Zetio Clubs** (dirigido a administradores de clubes/canchas) se documentará en una sección separada dentro de este mismo documento cuando ese producto esté disponible.
+
 Zetio es una plataforma de pádel compuesta por tres módulos, cada uno con tratamientos de datos específicos descritos en esta política:
 
-- **Zetio Torneos** — organización y participación en torneos estructurados con inscripciones, categorías, fases de grupos y eliminatorias.
+- **Zetio Tour** — organización y participación en torneos estructurados con inscripciones, categorías, fases de grupos y eliminatorias.
 - **Zetio Play** — retas casuales entre amigos con códigos de invitación, tabla de posiciones y resultados rápidos.
 - **Zetio Coach** — gestión de la relación entre coaches y jugadores, agenda de sesiones de entrenamiento, partidos supervisados y métricas deportivas.
 
@@ -44,9 +46,9 @@ Cuando te registras y usas Zetio, recopilamos la siguiente información:
 
 ### 1.3 Información de torneos, retas y partidos
 
-Cuando participas en los módulos Zetio Torneos y Zetio Play, generamos y almacenamos:
+Cuando participas en los módulos Zetio Tour y Zetio Play, generamos y almacenamos:
 
-**Zetio Torneos (torneos estructurados):**
+**Zetio Tour (torneos estructurados):**
 - Inscripciones a torneos y categorías
 - Parejas formadas (tú y tu compañero)
 - Resultados de partidos (marcadores por set)
@@ -106,7 +108,7 @@ En caso de que en el futuro Zetio integre un procesador de pagos externo (por ej
 
 Zetio Play permite acceder al módulo de retas casuales **sin necesidad de crear una cuenta**. En modo invitado:
 
-- **Datos que recopilamos:** Datos de sesión anónimos (sin vincular a un usuario identificado), ubicación aproximada del dispositivo (únicamente si concedes el permiso), y eventos de analítica interna anónimos para medir el uso de la funcionalidad.
+- **Datos que recopilamos:** Datos de sesión anónimos (sin vincular a un usuario identificado) y ubicación aproximada del dispositivo (únicamente si concedes el permiso). Nuestro sistema de analítica interna solo registra eventos vinculados a una cuenta autenticada; **hoy no se generan eventos de analítica en modo invitado**.
 - **Datos que NO recopilamos:** Correo electrónico, contraseña, número de teléfono, fecha de nacimiento ni ningún otro dato de perfil personal.
 - **Unirse a una reta con código:** Un usuario en modo invitado puede unirse a una reta de Zetio Play utilizando únicamente el código de invitación (`invite_code`) y un **nombre temporal** introducido manualmente. Ese nombre se almacena asociado a la reta (no a un perfil) únicamente mientras la reta esté activa, y forma parte del historial agregado de la reta al cerrarse.
 - **El host puede removerte de la reta** en cualquier momento (ver sección 1.3, "Modificación de la lista de jugadores por el host"). Al ser removido como invitado, pierdes el acceso a la reta y, como tus datos de invitado no están vinculados a un perfil permanente, no quedará ninguna referencia identificable a ti en esa reta.
@@ -140,7 +142,7 @@ El módulo **Zetio Coach** permite a un usuario actuar como *coach* (entrenador)
 
 - Un **coach** puede ver todos los datos deportivos (sesiones, partidos, estadísticas, notas) de los jugadores que han aceptado vincularse con él.
 - Un **jugador** puede ver sus propias métricas y el historial compartido con el coach con el que está vinculado.
-- **Los datos de Zetio Coach no son visibles para usuarios fuera del vínculo activo**, ni aparecen en el perfil público del jugador dentro de Zetio Play o Zetio Torneos.
+- **Los datos de Zetio Coach no son visibles para usuarios fuera del vínculo activo**, ni aparecen en el perfil público del jugador dentro de Zetio Play o Zetio Tour.
 - Si el vínculo se rompe, el acceso del coach a datos futuros del jugador cesa inmediatamente; los registros históricos permanecen asociados al coach que los creó salvo solicitud de eliminación (sección 6).
 
 **Notificaciones operativas de Coach.** Las invitaciones de vínculo y otros eventos de coaching se envían como notificaciones dentro de la app y, si están habilitados, como notificaciones push. Estas notificaciones son **operativas**, no publicitarias.
@@ -222,9 +224,9 @@ Zetio utiliza los siguientes servicios de terceros para operar. Cada uno tiene s
 | **Capacitor In-App Review** | Calificación in-app (iOS SKStoreReviewController / Android Play In-App Reviews API) | Ningún dato personal — el prompt es nativo del sistema operativo | [capacitorjs.com/docs/apis/in-app-review](https://capacitorjs.com/docs/apis/in-app-review) |
 
 Servicios adicionales que se consultan pero **no reciben datos personales:**
-- **restcountries.com** — Lista de países (solo lectura)
-- **countriesnow.space** — Lista de estados y ciudades (solo lectura)
 - **Unsplash** — Imágenes decorativas (solo se cargan imágenes, no se envían datos de usuario)
+
+La lista de países del selector de nacionalidad es una **lista estática incluida en la propia app** (no se consulta ningún servicio externo); el estado y la ciudad donde juegas se ingresan como texto libre. Zetio ya no depende de APIs externas de terceros para esta información.
 
 **Procesadores de pago.** Zetio **no utiliza actualmente ningún procesador de pagos externo** como parte del flujo operativo de la app (ver sección 1.4). Si en el futuro integramos un procesador (por ejemplo, Stripe), esta tabla y esta sección se actualizarán con al menos 30 días de anticipación.
 
@@ -244,12 +246,11 @@ Servicios adicionales que se consultan pero **no reciben datos personales:**
 
 - **Servidor:** Tus datos se almacenan en servidores de Supabase con cifrado en reposo y en tránsito (TLS/SSL).
 - **Dispositivo:** Se almacena localmente en tu dispositivo:
-  - Tu sesión de autenticación
-  - Preferencias de idioma y tema
+  - **Tu sesión de autenticación.** En **iOS y Android**, se guarda en almacenamiento cifrado a nivel de sistema operativo (**Keychain** en iOS, **Keystore** en Android, vía `@aparajita/capacitor-secure-storage`) — no en el almacenamiento web de la aplicación. En la **versión web/PWA**, se guarda en `localStorage` del navegador. Se elimina al cerrar sesión.
+  - Preferencias de idioma, tema, módulo seleccionado por última vez, rol de coach elegido y estado de notificaciones
   - Una caché de tu ubicación aproximada (máximo 24 horas)
-  - El módulo seleccionado por última vez
+  - Un **recordatorio de tus últimas 3 cuentas usadas** en este dispositivo (correo electrónico, nombre para mostrar y método de acceso) para agilizar el inicio de sesión. Hoy no existe un control dentro de la app para borrar este recordatorio de forma individual; se elimina si borras los datos de la aplicación o la desinstalas.
   - Un dato **temporal de verificación pendiente** (tu correo electrónico y la marca de tiempo del registro) mientras confirmas tu cuenta con el código de verificación; se elimina automáticamente al verificar tu cuenta o al cancelar.
-  - Estos datos se eliminan al cerrar sesión.
 - **Service Worker / PWA:** En la versión web y en la aplicación progresiva (PWA), un Service Worker (Workbox) almacena en caché archivos de la aplicación (JavaScript, CSS, fuentes, imágenes) para el funcionamiento sin conexión y un mejor rendimiento. Esta caché contiene únicamente activos estáticos de la aplicación, **no datos personales**.
 
 ### 5.2 Medidas de seguridad
@@ -291,7 +292,7 @@ Para ejercer tus derechos ARCO, envía un correo a **soporte@zetio.app** con:
 
 La copia de identificación que nos proporciones se utilizará **exclusivamente para verificar tu identidad** y se eliminará de forma segura tras completar la verificación, en un plazo máximo de **30 días**. No se conservará, no se utilizará para ningún otro fin ni se compartirá con terceros.
 
-Responderemos en un plazo máximo de **20 días hábiles** conforme a la ley.
+Responderemos en un plazo máximo de **20 días hábiles** conforme a la ley. Si tu solicitud procede, la haremos efectiva dentro de los **15 días hábiles** siguientes a la respuesta. Ambos plazos pueden ampliarse una sola vez por un período igual cuando las circunstancias del caso lo justifiquen.
 
 ### 6.2 Derechos extendidos (GDPR — Usuarios de la UE/EEE)
 
@@ -345,15 +346,15 @@ Tus datos pueden ser procesados en servidores ubicados fuera de México (princip
 
 ## 9. Cookies y tecnologías similares
 
-Zetio **no utiliza cookies propias de rastreo ni tecnologías de publicidad**. Utilizamos almacenamiento local del dispositivo (localStorage) exclusivamente para:
+Zetio **no utiliza cookies propias de rastreo ni tecnologías de publicidad**. Utilizamos almacenamiento local del dispositivo exclusivamente para:
 
-- Mantener tu sesión activa
-- Guardar tus preferencias de idioma y tema (claro/oscuro)
-- Cachear tu ubicación para evitar consultas repetidas al GPS
-- Recordar tu módulo seleccionado
+- Mantener tu sesión activa — en Keychain/Keystore (iOS/Android nativo) o `localStorage` (web); ver sección 5.1 para el detalle.
+- Guardar tus preferencias de idioma y tema (claro/oscuro), módulo seleccionado, rol de coach y estado de notificaciones
+- Cachear tu ubicación para evitar consultas repetidas al GPS (máximo 24 horas)
+- Recordar tus últimas 3 cuentas usadas en este dispositivo para agilizar el inicio de sesión
 - Recordar de forma temporal una verificación de cuenta pendiente (tu correo y la hora de registro) para permitirte retomar el ingreso del código; se elimina al completar o cancelar la verificación
 
-Estos datos son estrictamente funcionales, no se comparten con terceros y se eliminan al cerrar sesión.
+Estos datos son estrictamente funcionales y no se comparten con terceros. Los datos de sesión y de verificación pendiente se eliminan al cerrar sesión o completarse; las preferencias y el recordatorio de cuentas persisten hasta que borres los datos de la app o la desinstales.
 
 ---
 
@@ -376,7 +377,7 @@ Puedes desactivar las notificaciones en cualquier momento desde los ajustes de t
 
 ## 11. Analítica y publicidad
 
-- **Analítica propia:** Zetio utiliza un sistema de analítica **interno y propio** para medir el uso del Servicio. Registramos eventos de alto nivel como inicios de sesión, inscripciones a torneos, creación de retas en Zetio Play, partidos completados, invitaciones y aceptaciones de amigos, y eventos de la encuesta de experiencia. Junto a cada evento se almacena el identificador de sesión (anónimo en modo invitado), la plataforma del dispositivo y el código de país derivado de la ubicación aproximada. Estos datos se almacenan en nuestros propios servidores (Supabase) en la tabla `analytics_events`, **no se comparten con ningún tercero**, y se usan exclusivamente para mejorar el Servicio y entender cómo se utiliza. No utilizamos Google Analytics, Firebase Analytics, Mixpanel, Sentry, PostHog ni ninguna plataforma de analítica de terceros. Zetio también puede recopilar datos de uso de forma **agregada y no vinculada a la identidad del usuario**, especialmente en modo invitado. Estos datos no permiten identificarte personalmente y se utilizan exclusivamente para comprender patrones de uso a nivel de plataforma.
+- **Analítica propia:** Zetio utiliza un sistema de analítica **interno y propio** para medir el uso del Servicio. Registramos eventos de alto nivel como inicios de sesión, inscripciones a torneos, creación de retas en Zetio Play, partidos completados, invitaciones y aceptaciones de amigos, y eventos de la encuesta de experiencia — estos últimos pueden incluir el contenido concreto de tu respuesta (por ejemplo, la ciudad donde juegas) junto con el evento. Junto a cada evento se almacena el identificador de sesión, la plataforma del dispositivo y el código de país derivado de la ubicación aproximada. Estos eventos **requieren una cuenta autenticada** — el sistema de analítica no registra eventos en modo invitado. Estos datos se almacenan en nuestros propios servidores (Supabase) en la tabla `analytics_events`, **no se comparten con ningún tercero**, y se usan exclusivamente para mejorar el Servicio y entender cómo se utiliza. No utilizamos Google Analytics, Firebase Analytics, Mixpanel, Sentry, PostHog ni ninguna plataforma de analítica de terceros.
 - **Publicidad:** Zetio **no muestra publicidad de terceros** ni utiliza SDKs publicitarios (no usamos AdMob, Facebook Ads ni similares). No compartimos datos con redes publicitarias.
 - **Rastreo:** Zetio **no rastrea** a sus usuarios según la definición del App Tracking Transparency (ATT) de Apple. Los datos de analítica que recopilamos son de uso estrictamente interno y no se combinan con datos de otras aplicaciones o sitios web.
 
@@ -404,6 +405,8 @@ Como residente de California tienes derecho a:
 - **No ser discriminado** por ejercer cualquiera de estos derechos.
 
 Para ejercer tus derechos CCPA, contacta a **soporte@zetio.app**.
+
+**Señales de opt-out del navegador (Global Privacy Control).** Como Zetio no vende ni comparte información personal para publicidad conductual entre contextos, no hay ninguna venta/uso compartido del cual optar por no participar. Aun así, si tu navegador envía una señal de **Global Privacy Control (GPC)** u otra señal de preferencia de opt-out reconocida, la respetamos como si hubieras ejercido tu derecho a no participar — aunque, dado que no vendemos ni compartimos datos, esto no cambia ningún tratamiento activo de tu información.
 
 ---
 
@@ -438,7 +441,7 @@ Para usuarios en otras jurisdicciones, se aplicarán adicionalmente las siguient
 | **Unión Europea / EEE** | GDPR (Reglamento 2016/679) | Portabilidad, restricción del tratamiento, reclamación ante autoridad supervisora (sección 6.2) |
 | **Brasil** | LGPD (Lei Geral de Proteção de Dados — Lei nº 13.709/2018) | Derechos equivalentes al GDPR; contacto: soporte@zetio.app |
 | **California, EE.UU.** | CCPA / CPRA | Ver sección 12 |
-| **Argentina** | Ley 25.326 de Protección de Datos Personales | Derechos de acceso, rectificación, supresión |
+| **Argentina** | Ley 25.326 de Protección de Datos Personales (con estatus de adecuación reconocido por la Unión Europea desde enero de 2024) | Derechos de acceso, rectificación, supresión |
 | **Colombia** | Ley 1581 de 2012 | Derechos de acceso, corrección, supresión |
 | **Demás jurisdicciones** | Leyes locales de protección de datos aplicables | Contactar a soporte@zetio.app para solicitudes específicas |
 

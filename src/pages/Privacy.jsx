@@ -71,12 +71,18 @@ function StepList({ steps }) {
   )
 }
 
+function Code({ children }) {
+  return (
+    <code className="text-primary/80 text-xs bg-white/5 px-1 rounded">{children}</code>
+  )
+}
+
 export default function Privacy() {
   return (
     <LegalLayout
       badge="Legal · Privacidad"
-      title="Política de Privacidad"
-      updated="29 de mayo de 2026"
+      title="Aviso de Privacidad"
+      updated="11 de agosto de 2026"
     >
       {/* Intro */}
       <section>
@@ -84,9 +90,12 @@ export default function Privacy() {
           <p>
             Bienvenido a <strong className="text-white/80">Zetio</strong>. Esta Política de Privacidad describe cómo <strong className="text-white/80">Diego Diaz</strong> ("nosotros", "nuestro" o "Zetio") recopila, usa, almacena y protege tu información cuando utilizas la aplicación móvil Zetio y los servicios asociados (en conjunto, el "Servicio").
           </p>
-          <p>Zetio es una plataforma de pádel compuesta por tres módulos, cada uno con tratamientos de datos específicos:</p>
+          <LegalNote>
+            <strong className="text-white/75">Alcance de este documento — Zetio Users.</strong> Esta política cubre los productos orientados a jugadores y coaches individuales: <strong className="text-white/75">Zetio Tour</strong>, <strong className="text-white/75">Zetio Play</strong> y <strong className="text-white/75">Zetio Coach</strong>. El tratamiento de datos de <strong className="text-white/75">Zetio Clubs</strong> (dirigido a administradores de clubes/canchas) se documentará en una sección separada dentro de este mismo documento cuando ese producto esté disponible.
+          </LegalNote>
+          <p>Zetio es una plataforma de pádel compuesta por tres módulos, cada uno con tratamientos de datos específicos descritos en esta política:</p>
           <LegalList items={[
-            <><strong className="text-white/80">Zetio Torneos</strong> — organización y participación en torneos estructurados con inscripciones, categorías, fases de grupos y eliminatorias.</>,
+            <><strong className="text-white/80">Zetio Tour</strong> — organización y participación en torneos estructurados con inscripciones, categorías, fases de grupos y eliminatorias.</>,
             <><strong className="text-white/80">Zetio Play</strong> — retas casuales entre amigos con códigos de invitación, tabla de posiciones y resultados rápidos.</>,
             <><strong className="text-white/80">Zetio Coach</strong> — gestión de la relación entre coaches y jugadores, agenda de sesiones de entrenamiento, partidos supervisados y métricas deportivas.</>,
           ]} />
@@ -107,7 +116,7 @@ export default function Privacy() {
             [<strong className="text-white/75">Contacto</strong>, 'Número de teléfono', 'Información de perfil y contacto entre jugadores'],
             [<strong className="text-white/75">Ubicación del perfil</strong>, 'Nacionalidad, estado, ciudad', 'Mostrar tu ubicación en tu perfil'],
             [<strong className="text-white/75">Preferencias</strong>, 'Deporte preferido (ej. pádel)', 'Personalizar tu experiencia'],
-            [<strong className="text-white/75">Encuesta de experiencia</strong>, 'Ciudad, estado y país donde juegas pádel; club; estilo de juego; frecuencia semanal; cómo conociste Zetio; funcionalidades de interés; intención de participar en torneos', 'Personalizar el contenido y las funcionalidades. Su aportación es completamente voluntaria: puedes saltar cualquier pregunta sin que ello afecte al funcionamiento del Servicio'],
+            [<strong className="text-white/75">Encuesta de experiencia</strong>, 'Ciudad, estado y país donde juegas pádel; club donde juegas; estilo de juego (amigos, retas, torneos, clases); frecuencia semanal de juego; cómo conociste Zetio; funcionalidades de tu interés; intención de participar en torneos', 'Personalizar el contenido y las funcionalidades que te mostramos. Esta información se recopila de forma progresiva y su aportación es completamente voluntaria: puedes saltar cualquier pregunta en cualquier momento sin que ello afecte al funcionamiento del Servicio'],
           ]}
         />
         <LegalNote>
@@ -118,8 +127,8 @@ export default function Privacy() {
         <LegalTable
           headers={['Categoría', 'Datos', 'Propósito']}
           rows={[
-            [<strong className="text-white/75">Ubicación del dispositivo</strong>, 'Coordenadas aproximadas (latitud/longitud), ciudad, estado, país, código postal', 'Mostrarte torneos cercanos a tu zona. La ubicación se obtiene únicamente tras tu consentimiento explícito mediante el sistema de permisos del dispositivo (iOS/Android). Precisión reducida (red/WiFi, no GPS fino), actualizada máximo cada 24 horas.'],
-            [<strong className="text-white/75">Token de push</strong>, 'Identificador único del dispositivo para notificaciones, plataforma (iOS/Android)', 'Enviarte notificaciones operativas sobre torneos, retas, partidos, invitaciones de amistad y vínculo coach-jugador'],
+            [<strong className="text-white/75">Ubicación del dispositivo</strong>, 'Coordenadas aproximadas (latitud/longitud), ciudad, estado, país, código postal', <><strong className="text-white/75">Mostrarte torneos cercanos a tu zona.</strong> La ubicación se obtiene únicamente tras tu consentimiento explícito mediante el sistema de permisos del dispositivo (iOS/Android). La precisión es reducida (red/WiFi, no GPS fino) y se actualiza como máximo cada 24 horas. Puedes revocar este permiso en cualquier momento desde los ajustes del sistema operativo; al revocarlo, las funciones dependientes de ubicación dejarán de estar disponibles, sin afectar el resto del Servicio.</>],
+            [<strong className="text-white/75">Token de push</strong>, 'Identificador único del dispositivo para notificaciones, plataforma (iOS/Android)', 'Enviarte notificaciones operativas sobre tus torneos, retas, partidos, invitaciones de amistad y de vínculo coach-jugador'],
             [<strong className="text-white/75">Datos de sesión</strong>, 'Token de sesión, identificador de sesión (UUID), timestamps de actividad', 'Mantener tu sesión activa y segura'],
             [<strong className="text-white/75">Plataforma del dispositivo</strong>, 'Sistema operativo utilizado (iOS, Android o web)', 'Compatibilidad técnica y estadísticas internas de uso'],
             [<strong className="text-white/75">Código de país</strong>, 'País derivado de tu ubicación aproximada (p. ej. MX, US, ES)', 'Personalización regional y estadísticas internas'],
@@ -127,9 +136,9 @@ export default function Privacy() {
         />
 
         <SubHeading>1.3 Información de torneos, retas y partidos</SubHeading>
-        <p>Cuando participas en los módulos Zetio Torneos y Zetio Play, generamos y almacenamos:</p>
+        <p>Cuando participas en los módulos Zetio Tour y Zetio Play, generamos y almacenamos:</p>
 
-        <p className="text-white/70 font-medium mt-3">Zetio Torneos (torneos estructurados):</p>
+        <p className="text-white/70 font-medium mt-3">Zetio Tour (torneos estructurados):</p>
         <LegalList items={[
           'Inscripciones a torneos y categorías',
           'Parejas formadas (tú y tu compañero)',
@@ -141,8 +150,8 @@ export default function Privacy() {
         <p className="text-white/70 font-medium mt-3">Zetio Play (retas casuales):</p>
         <LegalList items={[
           'Retas que creas o en las que participas, con nombre, modalidad (número de jugadores), club indicado y estado',
-          <>Un <strong className="text-white/75">código de invitación</strong> (<code className="text-primary/80 text-xs bg-white/5 px-1 rounded">invite_code</code>) único por reta que puedes compartir con otros jugadores para que se unan. Cualquier persona con el código puede unirse a la reta, incluso usando el Modo Invitado descrito en la sección 1.5.</>,
-          <>Lista de jugadores de cada reta. Una reta puede incluir <strong className="text-white/75">jugadores manuales</strong> (sin cuenta en Zetio): en ese caso únicamente se almacena el nombre de texto libre que introduce el organizador, sin datos de contacto ni identificación adicional</>,
+          <>Un <strong className="text-white/75">código de invitación</strong> (<Code>invite_code</Code>) único por reta que puedes compartir con otros jugadores para que se unan. Cualquier persona con el código puede unirse a la reta, incluso usando el Modo Invitado descrito en la sección 1.5.</>,
+          <>Lista de jugadores de cada reta. Una reta puede incluir <strong className="text-white/75">jugadores manuales</strong> (sin cuenta en Zetio): en ese caso únicamente se almacena el nombre de texto libre que introduce el organizador, sin datos de contacto ni identificación adicional.</>,
           'Jornadas, partidos, marcadores, rankings parciales y finales',
           'Histórico del ranking final al cerrar la reta (snapshot agregado)',
         ]} />
@@ -152,7 +161,7 @@ export default function Privacy() {
           El usuario que crea una reta (host) puede, en cualquier momento — incluso después de que la reta haya comenzado y aun cuando ya existan partidos con resultados registrados — <strong className="text-white/75">reemplazar o quitar a cualquier participante distinto de sí mismo</strong>. Esto incluye:
         </p>
         <LegalList items={[
-          <>Cambiar a un amigo vinculado por otro amigo vinculado, por un nombre manual (jugador sin cuenta), o por un nombre genérico (<code className="text-primary/80 text-xs bg-white/5 px-1 rounded">Jugador N</code>).</>,
+          <>Cambiar a un amigo vinculado por otro amigo vinculado, por un nombre manual (jugador sin cuenta), o por un nombre genérico (<Code>Jugador N</Code>).</>,
           'Quitar a un participante que se unió mediante el código de invitación.',
         ]} />
         <p className="mt-2">
@@ -160,18 +169,18 @@ export default function Privacy() {
         </p>
         <p className="text-white/70 font-medium mt-3">Consecuencias para el participante removido o reemplazado:</p>
         <LegalList items={[
-          <>El <strong className="text-white/75">vínculo entre el usuario y la reta se rompe inmediatamente</strong>: el <code className="text-primary/80 text-xs bg-white/5 px-1 rounded">user_id</code> del usuario deja de estar asociado a ese slot.</>,
+          <>El <strong className="text-white/75">vínculo entre el usuario y la reta se rompe inmediatamente</strong>: el <Code>user_id</Code> del usuario deja de estar asociado a ese slot.</>,
           <>La reta <strong className="text-white/75">deja de aparecer en su sección "Partidos donde participas"</strong> y deja de poder visualizarla desde su cuenta, salvo que el host vuelva a incluirlo más tarde.</>,
           <>Los <strong className="text-white/75">resultados de los partidos ya jugados permanecen en la reta</strong> bajo el slot del que fue removido. Los puntos están ligados a la posición del slot, no a la identidad del usuario que los introdujo; por integridad histórica de la reta no se borran. Estos resultados pasan a aparecer asociados al nuevo ocupante del slot (otro jugador, un nombre manual o el placeholder genérico).</>,
-          <>El <strong className="text-white/75">nombre que se mostraba</strong> en ese slot puede ser sustituido por el host por el nombre del nuevo participante o por un identificador genérico (<code className="text-primary/80 text-xs bg-white/5 px-1 rounded">Jugador N</code>).</>,
+          <>El <strong className="text-white/75">nombre que se mostraba</strong> en ese slot puede ser sustituido por el host por el nombre del nuevo participante o por un identificador genérico (<Code>Jugador N</Code>).</>,
         ]} />
         <p className="mt-2">
           Al unirte a una reta como amigo vinculado o mediante código de invitación, aceptas que el host conserva esta facultad. Si en algún momento dejas de tener acceso a una reta en la que participabas, lo más probable es que el host te haya removido o reemplazado. Esto no afecta a tu cuenta de Zetio ni a ningún otro torneo o reta en el que participes.
         </p>
 
-        <p className="text-white/70 font-medium mt-3">Sistema de amigos (<code className="text-primary/80 text-xs bg-white/5 px-1 rounded">friend_code</code>):</p>
+        <p className="text-white/70 font-medium mt-3">Sistema de amigos (<Code>friend_code</Code>):</p>
         <p className="mt-2">
-          Zetio asigna a cada usuario un <strong className="text-white/75">código de amigo</strong> único. Este código es un <strong className="text-white/75">identificador público dentro de la plataforma</strong>: cualquier otro usuario registrado que conozca tu código puede localizarte para enviarte una solicitud de amistad. El código <strong className="text-white/75">no es secreto</strong>; compartirlo es una acción deliberada y equivalente a darle a alguien tu nombre de usuario público. Una solicitud de amistad <strong className="text-white/75">no</strong> otorga acceso automático a tus datos: debe ser aceptada por ambas partes. Zetio <strong className="text-white/75">no accede a la libreta de contactos de tu dispositivo</strong> en ningún momento.
+          Zetio asigna a cada usuario un <strong className="text-white/75">código de amigo</strong> (<Code>friend_code</Code>) único. Este código es un <strong className="text-white/75">identificador público dentro de la plataforma</strong>: cualquier otro usuario registrado que conozca tu código puede localizarte para enviarte una solicitud de amistad. El código <strong className="text-white/75">no es secreto</strong>; compartirlo es una acción deliberada y equivalente a darle a alguien tu nombre de usuario público. Una solicitud de amistad <strong className="text-white/75">no</strong> otorga acceso automático a tus datos: debe ser aceptada por ambas partes. Zetio <strong className="text-white/75">no accede a la libreta de contactos de tu dispositivo</strong> en ningún momento.
         </p>
 
         <p className="text-white/70 font-medium mt-4">Visibilidad del perfil y datos dentro de la plataforma</p>
@@ -191,45 +200,45 @@ export default function Privacy() {
         <SubHeading>1.4 Información de pagos</SubHeading>
         <p>Actualmente Zetio <strong className="text-white/75">no procesa pagos en línea</strong> dentro de la aplicación:</p>
         <LegalList items={[
-          'Las inscripciones a torneos se gestionan mediante un flujo de reservación sin cobro dentro de la app; cualquier pago asociado se coordina de forma externa entre el organizador del torneo y el jugador.',
-          'Los pagos de sesiones de Zetio Coach se registran internamente como una herramienta de seguimiento para el coach (marcar una sesión como "pendiente" o "pagada"), sin intervenir en ninguna transacción financiera real ni en el movimiento de dinero.',
-          'Zetio no recopila, almacena ni tiene acceso a datos de tarjetas, cuentas bancarias, credenciales de pago ni ningún dato financiero sensible.',
+          <>Las inscripciones a torneos se gestionan mediante un <strong className="text-white/75">flujo de reservación sin cobro</strong> dentro de la app; cualquier pago asociado se coordina de forma externa entre el organizador del torneo y el jugador.</>,
+          <>Los pagos de sesiones de Zetio Coach se registran internamente como una <strong className="text-white/75">herramienta de seguimiento para el coach</strong> (marcar una sesión como "pendiente" o "pagada"), sin intervenir en ninguna transacción financiera real ni en el movimiento de dinero.</>,
+          <><strong className="text-white/75">Zetio no recopila, almacena ni tiene acceso a datos de tarjetas, cuentas bancarias, credenciales de pago ni ningún dato financiero sensible.</strong></>,
         ]} />
         <p className="mt-2">
-          En caso de que en el futuro Zetio integre un procesador de pagos externo (por ejemplo, Stripe), actualizaremos esta Política de Privacidad con <strong className="text-white/75">al menos 30 días de anticipación</strong> antes de activar dicha integración.
+          En caso de que en el futuro Zetio integre un procesador de pagos externo (por ejemplo, Stripe), actualizaremos esta Política de Privacidad con <strong className="text-white/75">al menos 30 días de anticipación</strong> antes de activar dicha integración, describiendo qué datos se compartirán y con qué finalidad.
         </p>
 
         <SubHeading>1.5 Modo Invitado (Guest Mode)</SubHeading>
         <p>Zetio Play permite acceder al módulo de retas casuales <strong className="text-white/75">sin necesidad de crear una cuenta</strong>. En modo invitado:</p>
         <LegalList items={[
-          <><strong className="text-white/75">Datos que recopilamos:</strong> Datos de sesión anónimos (sin vincular a un usuario identificado), ubicación aproximada del dispositivo (únicamente si concedes el permiso), y eventos de analítica interna anónimos para medir el uso de la funcionalidad.</>,
+          <><strong className="text-white/75">Datos que recopilamos:</strong> Datos de sesión anónimos (sin vincular a un usuario identificado) y ubicación aproximada del dispositivo (únicamente si concedes el permiso). Nuestro sistema de analítica interna solo registra eventos vinculados a una cuenta autenticada; <strong className="text-white/75">hoy no se generan eventos de analítica en modo invitado</strong>.</>,
           <><strong className="text-white/75">Datos que NO recopilamos:</strong> Correo electrónico, contraseña, número de teléfono, fecha de nacimiento ni ningún otro dato de perfil personal.</>,
-          <>Unirse a una reta con código: un usuario en modo invitado puede unirse a una reta de Zetio Play utilizando únicamente el código de invitación (<code className="text-primary/80 text-xs bg-white/5 px-1 rounded">invite_code</code>) y un nombre temporal introducido manualmente. Ese nombre se almacena asociado a la reta (no a un perfil) únicamente mientras la reta esté activa, y forma parte del historial agregado de la reta al cerrarse.</>,
+          <>Unirse a una reta con código: un usuario en modo invitado puede unirse a una reta de Zetio Play utilizando únicamente el código de invitación (<Code>invite_code</Code>) y un <strong className="text-white/75">nombre temporal</strong> introducido manualmente. Ese nombre se almacena asociado a la reta (no a un perfil) únicamente mientras la reta esté activa, y forma parte del historial agregado de la reta al cerrarse.</>,
           <><strong className="text-white/75">El host puede removerte de la reta</strong> en cualquier momento (ver sección 1.3, "Modificación de la lista de jugadores por el host"). Al ser removido como invitado, pierdes el acceso a la reta y, como tus datos de invitado no están vinculados a un perfil permanente, no quedará ninguna referencia identificable a ti en esa reta.</>,
-          'Los datos de invitado no se asocian a ningún perfil permanente y se eliminan al cerrar la sesión o al crear una cuenta.',
+          <>Los datos de invitado <strong className="text-white/75">no se asocian a ningún perfil permanente</strong> y se eliminan al cerrar la sesión o al crear una cuenta.</>,
           'Si decides crear una cuenta desde el modo invitado, se te solicitará proporcionar la información descrita en la sección 1.1.',
         ]} />
 
         <SubHeading>1.6 Información específica de Zetio Coach</SubHeading>
         <p>
-          El módulo <strong className="text-white/75">Zetio Coach</strong> permite a un usuario actuar como <em>coach</em> (entrenador) y gestionar la relación con sus <em>jugadores</em>. Un mismo usuario puede desempeñar ambos roles simultáneamente.
+          El módulo <strong className="text-white/75">Zetio Coach</strong> permite a un usuario actuar como <em>coach</em> (entrenador) y gestionar la relación con sus <em>jugadores</em>. Un mismo usuario puede desempeñar ambos roles simultáneamente (ser coach de unos jugadores y jugador vinculado a otro coach). El tratamiento de datos específico de este módulo es el siguiente:
         </p>
 
         <p className="text-white/70 font-medium mt-3">Vínculo coach ↔ jugador (consentimiento explícito):</p>
         <StepList steps={[
-          <>El coach envía una invitación al jugador desde la app. El jugador recibe una notificación (tipo <code className="text-primary/80 text-xs bg-white/5 px-1 rounded">coach_invitation</code>) con el nombre del coach.</>,
-          'El vínculo permanece en estado pendiente hasta que el jugador lo acepta explícitamente. Mientras esté pendiente, no se comparten datos del jugador con el coach.',
-          'Al aceptar, el vínculo pasa a activo y el coach comienza a poder registrar información deportiva del jugador.',
-          'Tanto el coach como el jugador pueden romper el vínculo en cualquier momento desde la app, lo que detiene inmediatamente el acceso del coach a datos futuros del jugador.',
+          <>El coach envía una <strong className="text-white/75">invitación</strong> al jugador desde la app. El jugador recibe una notificación (tipo <Code>coach_invitation</Code>) con el nombre del coach.</>,
+          <>El vínculo permanece en estado <strong className="text-white/75">pendiente</strong> hasta que el jugador lo <strong className="text-white/75">acepta explícitamente</strong>. Mientras esté pendiente, no se comparten datos del jugador con el coach.</>,
+          <>Al aceptar, el vínculo pasa a <strong className="text-white/75">activo</strong> y el coach comienza a poder registrar información deportiva del jugador.</>,
+          <>Tanto el coach como el jugador pueden <strong className="text-white/75">romper el vínculo</strong> en cualquier momento desde la app, lo que detiene inmediatamente el acceso del coach a datos futuros del jugador.</>,
         ]} />
 
         <p className="text-white/70 font-medium mt-3">Datos que un coach registra sobre sus jugadores vinculados:</p>
         <LegalList items={[
-          'Sesiones de entrenamiento agendadas: fecha, hora y participantes de cada sesión.',
-          'Partidos supervisados: fecha, club/ubicación, tipo de partido, notas del coach, y participantes.',
-          'Estadísticas deportivas por jugador: sets jugados, puntuaciones, métricas de efectividad, agregados históricos y progresión.',
-          'Notas del coach asociadas a sesiones o partidos (texto libre introducido por el coach).',
-          'Jugadores manuales: un coach también puede registrar jugadores que no tienen cuenta en Zetio. En ese caso únicamente se almacena el nombre de texto libre introducido por el coach.',
+          <><strong className="text-white/75">Sesiones de entrenamiento agendadas:</strong> fecha, hora y participantes de cada sesión.</>,
+          <><strong className="text-white/75">Partidos supervisados:</strong> fecha, club/ubicación, tipo de partido, notas del coach, y participantes.</>,
+          <><strong className="text-white/75">Estadísticas deportivas por jugador:</strong> sets jugados, puntuaciones, métricas de efectividad, agregados históricos y progresión.</>,
+          <><strong className="text-white/75">Notas del coach</strong> asociadas a sesiones o partidos (texto libre introducido por el coach).</>,
+          <><strong className="text-white/75">Jugadores manuales:</strong> un coach también puede registrar jugadores "manuales" que no tienen cuenta en Zetio. En ese caso únicamente se almacena el nombre de texto libre introducido por el coach, sin datos de contacto ni identificación adicional.</>,
         ]} />
 
         <LegalNote>
@@ -237,15 +246,15 @@ export default function Privacy() {
         </LegalNote>
 
         <LegalNote>
-          <strong className="text-white/75">Registro interno de pagos de coaching.</strong> Zetio Coach incluye una funcionalidad para que el coach marque sesiones como <strong className="text-white/75">"pendiente" o "pagada"</strong> como herramienta de seguimiento propia. Este registro es estrictamente interno: <strong className="text-white/75">Zetio no procesa pagos reales, no recolecta datos bancarios, no maneja transferencias de dinero y no interviene en la relación económica entre coach y jugador.</strong> Los campos almacenados son únicamente el estado (<code className="text-primary/80 text-xs bg-white/5 px-1 rounded">pendiente</code>/<code className="text-primary/80 text-xs bg-white/5 px-1 rounded">pagado</code>) y la marca de tiempo de cambio de estado.
+          <strong className="text-white/75">Registro interno de pagos de coaching.</strong> Zetio Coach incluye una funcionalidad para que el coach marque sesiones como <strong className="text-white/75">"pendiente" o "pagada"</strong> como herramienta de seguimiento propia. Este registro es estrictamente interno: <strong className="text-white/75">Zetio no procesa pagos reales, no recolecta datos bancarios, no maneja transferencias de dinero y no interviene en la relación económica entre coach y jugador.</strong> Los campos almacenados son únicamente el estado (<Code>pendiente</Code>/<Code>pagado</Code>) y la marca de tiempo de cambio de estado.
         </LegalNote>
 
         <p className="text-white/70 font-medium mt-3">Visibilidad de los datos de Zetio Coach:</p>
         <LegalList items={[
-          'Un coach puede ver todos los datos deportivos (sesiones, partidos, estadísticas, notas) de los jugadores que han aceptado vincularse con él.',
-          'Un jugador puede ver sus propias métricas y el historial compartido con el coach con el que está vinculado.',
-          'Los datos de Zetio Coach no son visibles para usuarios fuera del vínculo activo, ni aparecen en el perfil público del jugador dentro de Zetio Play o Zetio Torneos.',
-          'Si el vínculo se rompe, el acceso del coach a datos futuros del jugador cesa inmediatamente; los registros históricos permanecen asociados al coach que los creó salvo solicitud de eliminación (sección 6).',
+          <>Un <strong className="text-white/75">coach</strong> puede ver todos los datos deportivos (sesiones, partidos, estadísticas, notas) de los jugadores que han aceptado vincularse con él.</>,
+          <>Un <strong className="text-white/75">jugador</strong> puede ver sus propias métricas y el historial compartido con el coach con el que está vinculado.</>,
+          <><strong className="text-white/75">Los datos de Zetio Coach no son visibles para usuarios fuera del vínculo activo</strong>, ni aparecen en el perfil público del jugador dentro de Zetio Play o Zetio Tour.</>,
+          <>Si el vínculo se rompe, el acceso del coach a datos futuros del jugador cesa inmediatamente; los registros históricos permanecen asociados al coach que los creó salvo solicitud de eliminación (sección 6).</>,
         ]} />
         <p className="mt-3">
           <strong className="text-white/75">Notificaciones operativas de Coach.</strong> Las invitaciones de vínculo y otros eventos de coaching se envían como notificaciones dentro de la app y, si están habilitados, como notificaciones push. Estas notificaciones son <strong className="text-white/75">operativas</strong>, no publicitarias.
@@ -257,7 +266,7 @@ export default function Privacy() {
         <SubHeading>1.7 Soporte y consultas</SubHeading>
         <p>Cuando abres un <strong className="text-white/75">ticket de soporte</strong> desde la app o nos escribes a nuestro correo de soporte, almacenamos los siguientes datos asociados al ticket:</p>
         <LegalList items={[
-          'Tipo de incidencia y prioridad',
+          <>Tipo de incidencia (<Code>issue_type</Code>) y prioridad (<Code>priority</Code>)</>,
           'Descripción del problema introducida por ti',
           'Identificador de tu cuenta de usuario (para poder responderte)',
           'Fecha y hora de creación del ticket',
@@ -271,7 +280,7 @@ export default function Privacy() {
         <LegalList items={[
           <><strong className="text-white/75">Proveer el Servicio:</strong> Crear tu cuenta, gestionar tu perfil, inscribirte en torneos, organizar retas casuales, emparejar jugadores y registrar resultados.</>,
           <><strong className="text-white/75">Funcionalidad de ubicación:</strong> Mostrar torneos y eventos cercanos a tu zona geográfica.</>,
-          <><strong className="text-white/75">Gestión de coaching (Zetio Coach):</strong> Facilitar la relación entre coaches y jugadores vinculados, registrar sesiones de entrenamiento, partidos supervisados y métricas deportivas, y enviar notificaciones operativas relacionadas con entrenamientos.</>,
+          <><strong className="text-white/75">Gestión de coaching (Zetio Coach):</strong> Facilitar la relación entre coaches y jugadores vinculados, registrar sesiones de entrenamiento, partidos supervisados y métricas deportivas, y enviar notificaciones operativas relacionadas con entrenamientos y partidos supervisados.</>,
           <><strong className="text-white/75">Personalización mediante encuesta:</strong> Las respuestas que aportas voluntariamente en la encuesta de onboarding y en las preguntas progresivas se utilizan para adaptar el contenido, sugerencias y funcionalidades que se te presentan dentro de la app (por ejemplo, mostrar torneos o eventos relevantes para tu zona de juego). En ningún caso estos datos se comparten con terceros ni se usan para publicidad.</>,
           <><strong className="text-white/75">Notificaciones:</strong> Informarte sobre actualizaciones de tus torneos, resultados de partidos, inscripciones, invitaciones de amistad, invitaciones de vínculo coach-jugador y eventos relevantes.</>,
           <><strong className="text-white/75">Mejora del Servicio:</strong> Resolver problemas técnicos y mejorar la experiencia de usuario mediante analítica interna.</>,
@@ -309,9 +318,9 @@ export default function Privacy() {
         <p className="text-white/70 font-medium mt-4">Usuarios en Latinoamérica.</p>
         <p>Para usuarios en Latinoamérica (incluyendo México, Argentina, Chile, Colombia y otros países de la región), el tratamiento de datos se basa principalmente en:</p>
         <LegalList items={[
-          'El consentimiento del usuario otorgado al registrarse y al aceptar los permisos solicitados por la app',
-          'La ejecución del servicio solicitado por el usuario (cuenta, torneos, retas, coaching)',
-          'El interés legítimo de Zetio para la mejora del Servicio, siempre subordinado a tus derechos fundamentales',
+          <>El <strong className="text-white/75">consentimiento</strong> del usuario otorgado al registrarse y al aceptar los permisos solicitados por la app</>,
+          <>La <strong className="text-white/75">ejecución del servicio</strong> solicitado por el usuario (cuenta, torneos, retas, coaching)</>,
+          <>El <strong className="text-white/75">interés legítimo</strong> de Zetio para la mejora del Servicio, siempre subordinado a tus derechos fundamentales</>,
         ]} />
         <p className="text-white/70 font-medium mt-3">Usuarios en España y Unión Europea.</p>
         <p>El tratamiento se rige adicionalmente por el GDPR conforme a lo descrito en esta sección y por la Ley Orgánica 3/2018 de Protección de Datos Personales y Garantía de los Derechos Digitales (LOPDGDD) en España.</p>
@@ -336,24 +345,25 @@ export default function Privacy() {
         />
         <p className="text-white/70 font-medium mt-4">Servicios adicionales que se consultan pero <strong className="text-white/75">no reciben datos personales:</strong></p>
         <LegalList items={[
-          <><strong className="text-white/75">restcountries.com</strong> — Lista de países (solo lectura)</>,
-          <><strong className="text-white/75">countriesnow.space</strong> — Lista de estados y ciudades (solo lectura)</>,
           <><strong className="text-white/75">Unsplash</strong> — Imágenes decorativas (solo se cargan imágenes, no se envían datos de usuario)</>,
         ]} />
+        <p className="mt-2">
+          La lista de países del selector de nacionalidad es una <strong className="text-white/75">lista estática incluida en la propia app</strong> (no se consulta ningún servicio externo); el estado y la ciudad donde juegas se ingresan como texto libre. Zetio ya no depende de APIs externas de terceros para esta información.
+        </p>
         <LegalNote>
-          <strong className="text-white/75">Procesadores de pago.</strong> Zetio <strong className="text-white/75">no utiliza actualmente ningún procesador de pagos externo</strong> como parte del flujo operativo de la app. Si en el futuro integramos un procesador (por ejemplo, Stripe), esta tabla y esta sección se actualizarán con al menos 30 días de anticipación.
+          <strong className="text-white/75">Procesadores de pago.</strong> Zetio <strong className="text-white/75">no utiliza actualmente ningún procesador de pagos externo</strong> como parte del flujo operativo de la app (ver sección 1.4). Si en el futuro integramos un procesador (por ejemplo, Stripe), esta tabla y esta sección se actualizarán con al menos 30 días de anticipación.
         </LegalNote>
         <p className="mt-3">
-          Todos los proveedores listados actúan como <strong className="text-white/75">encargados del tratamiento de datos (data processors)</strong> en los términos del Art. 28 del GDPR y los artículos aplicables de la LFPDPPP. Zetio <strong className="text-white/75">no vende ni comparte datos personales con terceros para fines comerciales o publicitarios</strong>, ni firma acuerdos de intercambio de datos para marketing cruzado entre aplicaciones.
+          <strong className="text-white/75">Rol como encargados del tratamiento.</strong> Todos los proveedores listados en la tabla anterior actúan como <strong className="text-white/75">encargados del tratamiento de datos (data processors)</strong> en los términos del Art. 28 del GDPR y los artículos aplicables de la LFPDPPP. Procesan la información únicamente bajo las instrucciones de Zetio y para la prestación del Servicio. Zetio <strong className="text-white/75">no vende ni comparte datos personales con terceros para fines comerciales o publicitarios</strong>, ni firma acuerdos de intercambio de datos para marketing cruzado entre aplicaciones.
         </p>
         <p className="mt-2">
-          Cuando los datos se transfieran fuera del Espacio Económico Europeo, se aplicarán las <strong className="text-white/75">Cláusulas Contractuales Tipo (SCCs)</strong> aprobadas por la Comisión Europea o garantías equivalentes, según corresponda.
+          <strong className="text-white/75">Transferencias internacionales.</strong> Cuando los datos se transfieran fuera del Espacio Económico Europeo, se aplicarán las <strong className="text-white/75">Cláusulas Contractuales Tipo (SCCs)</strong> aprobadas por la Comisión Europea o garantías equivalentes, según corresponda.
         </p>
         <LegalNote>
           <strong className="text-white/75">Firebase Analytics.</strong> Zetio utiliza Firebase Cloud Messaging únicamente para notificaciones push. Firebase Analytics está <strong className="text-white/75">desactivado de forma explícita</strong> en la configuración de la app y no recolecta eventos de uso.
         </LegalNote>
         <LegalNote>
-          <strong className="text-white/75">Función de compartir.</strong> La generación de imágenes para compartir ocurre <strong className="text-white/75">100 % en tu dispositivo</strong>; Zetio no envía esas imágenes a ningún servidor propio ni de terceros. La información compartida se entrega directamente por el sistema operativo a la aplicación de destino que tú elijas.
+          <strong className="text-white/75">Función de compartir.</strong> La función para compartir torneos, retas, tarjetas de resultados, perfiles y códigos de amigo utiliza el sistema nativo de compartir del dispositivo (<Code>@capacitor/share</Code>) o la Web Share API del navegador. La generación de imágenes para compartir ocurre <strong className="text-white/75">100 % en tu dispositivo</strong>; Zetio no envía esas imágenes a ningún servidor propio ni de terceros. La información compartida se entrega directamente por el sistema operativo a la aplicación de destino que tú elijas.
         </LegalNote>
       </LegalSection>
 
@@ -362,8 +372,32 @@ export default function Privacy() {
         <SubHeading>5.1 Dónde almacenamos tus datos</SubHeading>
         <LegalList items={[
           <><strong className="text-white/75">Servidor:</strong> Tus datos se almacenan en servidores de Supabase con cifrado en reposo y en tránsito (TLS/SSL).</>,
-          <><strong className="text-white/75">Dispositivo:</strong> Se almacena localmente en tu dispositivo tu sesión de autenticación, preferencias de idioma y tema, una caché de tu ubicación aproximada (máximo 24 horas), el módulo seleccionado por última vez, y un dato <strong className="text-white/75">temporal de verificación pendiente</strong> (tu correo electrónico y la marca de tiempo del registro) mientras confirmas tu cuenta con el código de verificación, que se elimina automáticamente al verificar tu cuenta o al cancelar. Estos datos se eliminan al cerrar sesión.</>,
-          <><strong className="text-white/75">Service Worker / PWA:</strong> Un Service Worker (Workbox) almacena en caché archivos de la aplicación (JavaScript, CSS, fuentes, imágenes) para el funcionamiento sin conexión. Esta caché contiene únicamente activos estáticos de la aplicación, <strong className="text-white/75">no datos personales</strong>.</>,
+          <>
+            <strong className="text-white/75">Dispositivo:</strong> Se almacena localmente en tu dispositivo:
+            <ul className="list-none space-y-2 mt-2">
+              <li className="flex gap-2">
+                <span className="text-primary mt-1 shrink-0">›</span>
+                <span><strong className="text-white/75">Tu sesión de autenticación.</strong> En <strong className="text-white/75">iOS y Android</strong>, se guarda en almacenamiento cifrado a nivel de sistema operativo (<strong className="text-white/75">Keychain</strong> en iOS, <strong className="text-white/75">Keystore</strong> en Android, vía <Code>@aparajita/capacitor-secure-storage</Code>) — no en el almacenamiento web de la aplicación. En la <strong className="text-white/75">versión web/PWA</strong>, se guarda en <Code>localStorage</Code> del navegador. Se elimina al cerrar sesión.</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="text-primary mt-1 shrink-0">›</span>
+                <span>Preferencias de idioma, tema, módulo seleccionado por última vez, rol de coach elegido y estado de notificaciones</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="text-primary mt-1 shrink-0">›</span>
+                <span>Una caché de tu ubicación aproximada (máximo 24 horas)</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="text-primary mt-1 shrink-0">›</span>
+                <span>Un <strong className="text-white/75">recordatorio de tus últimas 3 cuentas usadas</strong> en este dispositivo (correo electrónico, nombre para mostrar y método de acceso) para agilizar el inicio de sesión. Hoy no existe un control dentro de la app para borrar este recordatorio de forma individual; se elimina si borras los datos de la aplicación o la desinstalas.</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="text-primary mt-1 shrink-0">›</span>
+                <span>Un dato <strong className="text-white/75">temporal de verificación pendiente</strong> (tu correo electrónico y la marca de tiempo del registro) mientras confirmas tu cuenta con el código de verificación; se elimina automáticamente al verificar tu cuenta o al cancelar.</span>
+              </li>
+            </ul>
+          </>,
+          <><strong className="text-white/75">Service Worker / PWA:</strong> En la versión web y en la aplicación progresiva (PWA), un Service Worker (Workbox) almacena en caché archivos de la aplicación (JavaScript, CSS, fuentes, imágenes) para el funcionamiento sin conexión y un mejor rendimiento. Esta caché contiene únicamente activos estáticos de la aplicación, <strong className="text-white/75">no datos personales</strong>.</>,
         ]} />
 
         <SubHeading>5.2 Medidas de seguridad</SubHeading>
@@ -371,13 +405,11 @@ export default function Privacy() {
           'Las contraseñas se almacenan como hash criptográfico; nunca en texto plano.',
           'Todas las comunicaciones entre la app y el servidor usan cifrado TLS/SSL.',
           'La autenticación utiliza el flujo OAuth para máxima seguridad.',
-          <><strong className="text-white/75">Row Level Security (RLS):</strong> El acceso a tus datos personales, torneos, retas, métricas deportivas de Zetio Coach, notificaciones y tickets de soporte está restringido a nivel <strong className="text-white/75">servidor</strong> mediante políticas de Row Level Security de Supabase. Estas políticas se aplican en la base de datos, no en el cliente, lo que impide el acceso cruzado entre usuarios incluso si la aplicación cliente fuera modificada.</>,
+          <><strong className="text-white/75">Row Level Security (RLS):</strong> El acceso a tus datos personales, torneos, retas, métricas deportivas de Zetio Coach, notificaciones y tickets de soporte está restringido a nivel <strong className="text-white/75">servidor</strong> mediante políticas de Row Level Security de Supabase. Esto significa que un usuario únicamente puede acceder a los datos a los que tiene permiso explícito (sus propios datos, datos de torneos o retas en los que participa como jugador o como anfitrión, o datos de los jugadores vinculados a él como coach tras la aceptación mutua). Estas políticas se aplican en la base de datos, no en el cliente, lo que impide el acceso cruzado entre usuarios incluso si la aplicación cliente fuera modificada.</>,
           'Los tokens de sesión se renuevan periódicamente y se invalidan al cerrar sesión.',
           <>Los registros de depuración (logs) en la <strong className="text-white/75">versión de producción</strong> están limitados a información operativa mínima y <strong className="text-white/75">no almacenan datos personales identificables</strong> (correos, contraseñas, tokens, contenido de mensajes o ubicación precisa).</>,
+          <><strong className="text-white/75">Notificación de incidentes.</strong> En caso de un incidente que afecte la confidencialidad, integridad o disponibilidad de tus datos, Zetio notificará a la autoridad de protección de datos competente en un plazo máximo de <strong className="text-white/75">72 horas</strong> desde su detección, conforme al Art. 33 del GDPR y a la normativa local aplicable. Si el incidente representa un riesgo alto para tus derechos y libertades, te notificaremos también directamente.</>,
         ]} />
-        <LegalNote>
-          <strong className="text-white/75">Notificación de incidentes.</strong> En caso de un incidente que afecte la confidencialidad, integridad o disponibilidad de tus datos, Zetio notificará a la autoridad de protección de datos competente en un plazo máximo de <strong className="text-white/75">72 horas</strong> desde su detección, conforme al Art. 33 del GDPR. Si el incidente representa un riesgo alto para tus derechos y libertades, te notificaremos también directamente.
-        </LegalNote>
 
         <SubHeading>5.3 Retención de datos</SubHeading>
         <p>Conservamos tu información mientras mantengas una cuenta activa en Zetio. Si solicitas la eliminación de tu cuenta:</p>
@@ -408,7 +440,9 @@ export default function Privacy() {
         <LegalNote>
           La copia de identificación que nos proporciones se utilizará <strong className="text-white/75">exclusivamente para verificar tu identidad</strong> y se eliminará de forma segura tras completar la verificación, en un plazo máximo de <strong className="text-white/75">30 días</strong>. No se conservará, no se utilizará para ningún otro fin ni se compartirá con terceros.
         </LegalNote>
-        <p className="mt-2">Responderemos en un plazo máximo de <strong className="text-white/75">20 días hábiles</strong> conforme a la ley.</p>
+        <p className="mt-2">
+          Responderemos en un plazo máximo de <strong className="text-white/75">20 días hábiles</strong> conforme a la ley. Si tu solicitud procede, la haremos efectiva dentro de los <strong className="text-white/75">15 días hábiles</strong> siguientes a la respuesta. Ambos plazos pueden ampliarse una sola vez por un período igual cuando las circunstancias del caso lo justifiquen.
+        </p>
 
         <SubHeading>6.2 Derechos extendidos (GDPR — Usuarios de la UE/EEE)</SubHeading>
         <p>Si te encuentras en la Unión Europea o el Espacio Económico Europeo, además de los derechos ARCO, tienes derecho a:</p>
@@ -430,8 +464,8 @@ export default function Privacy() {
         <p className="mt-3">Al eliminar tu cuenta se realizan las siguientes acciones de forma inmediata e irreversible:</p>
         <LegalList items={[
           'Se borrarán tus datos de perfil, historial de partidos, amigos, tokens de push, preferencias, tickets de soporte y respuestas de encuestas.',
-          'Se borrarán tus métricas deportivas, sesiones de entrenamiento, partidos supervisados, notas del coach, registros internos de pagos de coaching y vínculos coach-jugador asociados a tu cuenta (tanto si actuabas como coach como si eras jugador vinculado).',
-          'Los resultados de torneos y retas en los que participaste se anonimizarán (se elimina la referencia a tu usuario) para mantener la integridad histórica de los torneos y rankings.',
+          <>Se borrarán tus <strong className="text-white/75">métricas deportivas, sesiones de entrenamiento, partidos supervisados, notas del coach, registros internos de pagos de coaching y vínculos coach-jugador</strong> asociados a tu cuenta (tanto si actuabas como coach como si eras jugador vinculado).</>,
+          <>Los resultados de torneos y retas en los que participaste se <strong className="text-white/75">anonimizarán</strong> (se elimina la referencia a tu usuario) para mantener la integridad histórica de los torneos y rankings.</>,
           'Los datos que debamos conservar por obligación legal aplicable se almacenarán únicamente por el período mínimo requerido por la legislación correspondiente.',
         ]} />
         <p className="mt-2">Si tienes algún problema para eliminar tu cuenta desde la app, también puedes solicitarlo por correo a <a href="mailto:soporte@zetio.app" className="text-primary hover:text-primary-light underline underline-offset-2 transition-colors">soporte@zetio.app</a>.</p>
@@ -449,10 +483,10 @@ export default function Privacy() {
           Los usuarios entre 13 y 17 años solo pueden utilizar Zetio con el consentimiento de un padre, madre o tutor legal. Este consentimiento debe ser otorgado fuera de la plataforma y es responsabilidad del usuario y de su tutor. Zetio no verifica de forma independiente la obtención de dicho consentimiento, pero se reserva el derecho de restringir, suspender o eliminar cuentas si detecta uso indebido por menores sin autorización o sin cumplimiento de la edad mínima aplicable en la jurisdicción del usuario (p. ej. 16 años en algunos países de la UE conforme al GDPR Art. 8).
         </p>
         <p className="text-white/70 font-medium mt-4">Menores en Zetio Coach</p>
-        <p>El módulo Zetio Coach permite que un coach establezca un vínculo con un jugador menor de edad. Cuando el jugador vinculado es menor de edad:</p>
+        <p>El módulo Zetio Coach permite que un coach establezca un vínculo con un jugador menor de edad para registrar sesiones, partidos y métricas deportivas. Cuando el jugador vinculado es menor de edad:</p>
         <LegalList items={[
-          'El consentimiento explícito del padre, madre o tutor legal es un requisito indispensable antes de que el jugador acepte la invitación de vínculo y antes de que el coach registre cualquier dato deportivo del menor.',
-          'El coach es responsable de obtener y conservar evidencia de dicho consentimiento, así como de informar al tutor sobre qué datos se registrarán y con qué finalidad.',
+          <>El <strong className="text-white/75">consentimiento explícito del padre, madre o tutor legal</strong> es un requisito indispensable antes de que el jugador acepte la invitación de vínculo y antes de que el coach registre cualquier dato deportivo del menor.</>,
+          <>El coach es <strong className="text-white/75">responsable de obtener y conservar evidencia</strong> de dicho consentimiento, así como de informar al tutor sobre qué datos se registrarán y con qué finalidad.</>,
           <>El padre, madre o tutor legal puede en cualquier momento solicitar el acceso, rectificación o eliminación de los datos del menor escribiendo a <a href="mailto:soporte@zetio.app" className="text-primary hover:text-primary-light underline underline-offset-2 transition-colors">soporte@zetio.app</a>, y puede solicitar la ruptura del vínculo con el coach desde la propia app a través de la cuenta del menor.</>,
         ]} />
       </LegalSection>
@@ -467,16 +501,18 @@ export default function Privacy() {
       {/* 9 */}
       <LegalSection number={9} title="Cookies y tecnologías similares">
         <p>
-          Zetio <strong className="text-white/80">no utiliza cookies propias de rastreo ni tecnologías de publicidad</strong>. Utilizamos almacenamiento local del dispositivo (localStorage) exclusivamente para:
+          Zetio <strong className="text-white/80">no utiliza cookies propias de rastreo ni tecnologías de publicidad</strong>. Utilizamos almacenamiento local del dispositivo exclusivamente para:
         </p>
         <LegalList items={[
-          'Mantener tu sesión activa',
-          'Guardar tus preferencias de idioma y tema (claro/oscuro)',
-          'Cachear tu ubicación para evitar consultas repetidas al GPS',
-          'Recordar tu módulo seleccionado',
+          <>Mantener tu sesión activa — en Keychain/Keystore (iOS/Android nativo) o <Code>localStorage</Code> (web); ver sección 5.1 para el detalle.</>,
+          'Guardar tus preferencias de idioma y tema (claro/oscuro), módulo seleccionado, rol de coach y estado de notificaciones',
+          'Cachear tu ubicación para evitar consultas repetidas al GPS (máximo 24 horas)',
+          'Recordar tus últimas 3 cuentas usadas en este dispositivo para agilizar el inicio de sesión',
           'Recordar de forma temporal una verificación de cuenta pendiente (tu correo y la hora de registro) para permitirte retomar el ingreso del código; se elimina al completar o cancelar la verificación',
         ]} />
-        <p className="mt-2">Estos datos son estrictamente funcionales, no se comparten con terceros y se eliminan al cerrar sesión.</p>
+        <p className="mt-2">
+          Estos datos son estrictamente funcionales y no se comparten con terceros. Los datos de sesión y de verificación pendiente se eliminan al cerrar sesión o completarse; las preferencias y el recordatorio de cuentas persisten hasta que borres los datos de la app o la desinstales.
+        </p>
       </LegalSection>
 
       {/* 10 */}
@@ -502,7 +538,7 @@ export default function Privacy() {
       {/* 11 */}
       <LegalSection number={11} title="Analítica y publicidad">
         <LegalList items={[
-          <><strong className="text-white/75">Analítica propia:</strong> Zetio utiliza un sistema de analítica <strong className="text-white/75">interno y propio</strong> para medir el uso del Servicio. Registramos eventos de alto nivel como inicios de sesión, inscripciones a torneos, creación de retas en Zetio Play, partidos completados, invitaciones y aceptaciones de amigos, y eventos de la encuesta de experiencia. Junto a cada evento se almacena el identificador de sesión (anónimo en modo invitado), la plataforma del dispositivo y el código de país derivado de la ubicación aproximada. Estos datos se almacenan en nuestros propios servidores (Supabase) en la tabla <code className="text-primary/80 text-xs bg-white/5 px-1 rounded">analytics_events</code>, <strong className="text-white/75">no se comparten con ningún tercero</strong>, y se usan exclusivamente para mejorar el Servicio y entender cómo se utiliza. No utilizamos Google Analytics, Firebase Analytics, Mixpanel, Sentry, PostHog ni ninguna plataforma de analítica de terceros. Zetio también puede recopilar datos de uso de forma <strong className="text-white/75">agregada y no vinculada a la identidad del usuario</strong>, especialmente en modo invitado. Estos datos no permiten identificarte personalmente y se utilizan exclusivamente para comprender patrones de uso a nivel de plataforma.</>,
+          <><strong className="text-white/75">Analítica propia:</strong> Zetio utiliza un sistema de analítica <strong className="text-white/75">interno y propio</strong> para medir el uso del Servicio. Registramos eventos de alto nivel como inicios de sesión, inscripciones a torneos, creación de retas en Zetio Play, partidos completados, invitaciones y aceptaciones de amigos, y eventos de la encuesta de experiencia — estos últimos pueden incluir el contenido concreto de tu respuesta (por ejemplo, la ciudad donde juegas) junto con el evento. Junto a cada evento se almacena el identificador de sesión, la plataforma del dispositivo y el código de país derivado de la ubicación aproximada. Estos eventos <strong className="text-white/75">requieren una cuenta autenticada</strong> — el sistema de analítica no registra eventos en modo invitado. Estos datos se almacenan en nuestros propios servidores (Supabase) en la tabla <Code>analytics_events</Code>, <strong className="text-white/75">no se comparten con ningún tercero</strong>, y se usan exclusivamente para mejorar el Servicio y entender cómo se utiliza. No utilizamos Google Analytics, Firebase Analytics, Mixpanel, Sentry, PostHog ni ninguna plataforma de analítica de terceros.</>,
           <><strong className="text-white/75">Publicidad:</strong> Zetio <strong className="text-white/75">no muestra publicidad de terceros</strong> ni utiliza SDKs publicitarios (no usamos AdMob, Facebook Ads ni similares). No compartimos datos con redes publicitarias.</>,
           <><strong className="text-white/75">Rastreo:</strong> Zetio <strong className="text-white/75">no rastrea</strong> a sus usuarios según la definición del App Tracking Transparency (ATT) de Apple. Los datos de analítica que recopilamos son de uso estrictamente interno y no se combinan con datos de otras aplicaciones o sitios web.</>,
         ]} />
@@ -534,6 +570,9 @@ export default function Privacy() {
           <><strong className="text-white/75">No ser discriminado</strong> por ejercer cualquiera de estos derechos.</>,
         ]} />
         <p className="mt-3">Para ejercer tus derechos CCPA, contacta a <a href="mailto:soporte@zetio.app" className="text-primary hover:text-primary-light underline underline-offset-2 transition-colors">soporte@zetio.app</a>.</p>
+        <p className="mt-2">
+          <strong className="text-white/75">Señales de opt-out del navegador (Global Privacy Control).</strong> Como Zetio no vende ni comparte información personal para publicidad conductual entre contextos, no hay ninguna venta/uso compartido del cual optar por no participar. Aun así, si tu navegador envía una señal de <strong className="text-white/75">Global Privacy Control (GPC)</strong> u otra señal de preferencia de opt-out reconocida, la respetamos como si hubieras ejercido tu derecho a no participar — aunque, dado que no vendemos ni compartimos datos, esto no cambia ningún tratamiento activo de tu información.
+        </p>
       </LegalSection>
 
       {/* 13 */}
@@ -569,7 +608,7 @@ export default function Privacy() {
             [<strong className="text-white/75">Unión Europea / EEE</strong>, 'GDPR (Reglamento 2016/679)', 'Portabilidad, restricción del tratamiento, reclamación ante autoridad supervisora (sección 6.2)'],
             [<strong className="text-white/75">Brasil</strong>, 'LGPD (Lei Geral de Proteção de Dados — Lei nº 13.709/2018)', <>Derechos equivalentes al GDPR; contacto: <a href="mailto:soporte@zetio.app" className="text-primary hover:text-primary-light underline underline-offset-2 transition-colors">soporte@zetio.app</a></>],
             [<strong className="text-white/75">California, EE.UU.</strong>, 'CCPA / CPRA', 'Ver sección 12'],
-            [<strong className="text-white/75">Argentina</strong>, 'Ley 25.326 de Protección de Datos Personales', 'Derechos de acceso, rectificación, supresión'],
+            [<strong className="text-white/75">Argentina</strong>, 'Ley 25.326 de Protección de Datos Personales (con estatus de adecuación reconocido por la Unión Europea desde enero de 2024)', 'Derechos de acceso, rectificación, supresión'],
             [<strong className="text-white/75">Colombia</strong>, 'Ley 1581 de 2012', 'Derechos de acceso, corrección, supresión'],
             [<strong className="text-white/75">Demás jurisdicciones</strong>, 'Leyes locales de protección de datos aplicables', <>Contactar a <a href="mailto:soporte@zetio.app" className="text-primary hover:text-primary-light underline underline-offset-2 transition-colors">soporte@zetio.app</a> para solicitudes específicas</>],
           ]}

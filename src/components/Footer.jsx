@@ -22,9 +22,13 @@ const productLinks = [
   { label: 'Precios', href: '#stats' },
   { label: 'App Mobile', href: '#app-showcase' },
 ]
-const legalLinks = [
+const legalUsersLinks = [
   { label: 'Privacidad', to: '/privacy' },
-  // { label: 'Términos', to: '/terms' },
+  { label: 'Términos', to: '/terms' },
+]
+const legalClubsLinks = [
+  { label: 'Privacidad', to: '/privacyclubs' },
+  { label: 'Términos', to: '/termsclubs' },
 ]
 
 export default function Footer() {
@@ -99,18 +103,42 @@ export default function Footer() {
               <p className="text-white/22 text-[10px] font-bold tracking-[0.2em] uppercase mb-5">
                 Legal
               </p>
-              <ul className="space-y-3">
-                {legalLinks.map(({ label, to }) => (
-                  <li key={label}>
-                    <Link
-                      to={to}
-                      className="text-white/50 hover:text-white text-sm transition-colors duration-200"
-                    >
-                      {label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-white/35 text-[10px] font-semibold tracking-[0.16em] uppercase mb-2.5">
+                    Zetio Users
+                  </p>
+                  <ul className="space-y-3">
+                    {legalUsersLinks.map(({ label, to }) => (
+                      <li key={label}>
+                        <Link
+                          to={to}
+                          className="text-white/50 hover:text-white text-sm transition-colors duration-200"
+                        >
+                          {label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <p className="text-white/35 text-[10px] font-semibold tracking-[0.16em] uppercase mb-2.5">
+                    Zetio Clubs
+                  </p>
+                  <ul className="space-y-3">
+                    {legalClubsLinks.map(({ label, to }) => (
+                      <li key={label}>
+                        <Link
+                          to={to}
+                          className="text-white/50 hover:text-white text-sm transition-colors duration-200"
+                        >
+                          {label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -124,12 +152,14 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-3">
             {[
-              { icon: <TiktokIcon className="w-3.5 h-3.5" />, label: 'Tiktok', href: 'https://www.tiktok.com/@zetioapp' },
-              { icon: <Instagram className="w-3.5 h-3.5" />, label: 'Instagram', href: 'https://www.instagram.com/zetioapp/' },
-            ].map(({ icon, label, href }) => (
+              { icon: <TiktokIcon className="w-3.5 h-3.5" />, label: 'Tiktok', blank: true, href: 'https://www.tiktok.com/@zetioapp' },
+              { icon: <Instagram className="w-3.5 h-3.5" />, label: 'Instagram', blank: true, href: 'https://www.instagram.com/zetio_oficial/' },
+            ].map(({ icon, label, href, blank }) => (
               <a
                 key={label}
                 href={href}
+                target={blank ? '_blank' : undefined}
+                rel={blank ? 'noopener noreferrer' : undefined}
                 aria-label={label}
                 className="w-8 h-8 rounded-lg bg-white/4 border border-white/6 flex items-center justify-center text-white/30 hover:text-white/70 hover:bg-white/8 transition-all duration-200"
               >

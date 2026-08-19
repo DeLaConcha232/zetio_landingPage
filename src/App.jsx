@@ -13,6 +13,8 @@ import Footer from './components/Footer'
 // Legal pages are not on the critical path — load them only when navigated to
 const Privacy = lazy(() => import('./pages/Privacy'))
 const Terms = lazy(() => import('./pages/Terms'))
+const PrivacyClubs = lazy(() => import('./pages/PrivacyClubs'))
+const TermsClubs = lazy(() => import('./pages/TermsClubs'))
 
 // Scroll to top on every route change
 function ScrollToTop() {
@@ -48,6 +50,8 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/privacyclubs" element={<PrivacyClubs />} />
+          <Route path="/termsclubs" element={<TermsClubs />} />
         </Routes>
       </Suspense>
     </BrowserRouter>
