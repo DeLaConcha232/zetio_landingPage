@@ -6,7 +6,7 @@ Bienvenido a **Zetio**. Esta Política de Privacidad describe cómo Diego Diaz (
 
 > **Alcance de este documento — Zetio Users.** Esta política cubre los productos orientados a jugadores y coaches individuales: **Zetio Tour**, **Zetio Play** y **Zetio Coach**. El tratamiento de datos de **Zetio Clubs** (dirigido a administradores de clubes/canchas) se documentará en una sección separada dentro de este mismo documento cuando ese producto esté disponible.
 
-Zetio es una plataforma de pádel compuesta por tres módulos, cada uno con tratamientos de datos específicos descritos en esta política:
+Zetio es una plataforma de deportes de raqueta (pádel, tenis y otros) compuesta por tres módulos, cada uno con tratamientos de datos específicos descritos en esta política:
 
 - **Zetio Tour** — organización y participación en torneos estructurados con inscripciones, categorías, fases de grupos y eliminatorias.
 - **Zetio Play** — retas casuales entre amigos con códigos de invitación, tabla de posiciones y resultados rápidos.
@@ -31,8 +31,8 @@ Cuando te registras y usas Zetio, recopilamos la siguiente información:
 > El dato de **sexo** se considera categoría especial bajo el Art. 9 del GDPR. Se trata con base en tu **consentimiento explícito** otorgado al registrarte y se utiliza únicamente para determinar elegibilidad en categorías por género en torneos y retas.
 | **Contacto** | Número de teléfono | Información de perfil y contacto entre jugadores |
 | **Ubicación del perfil** | Nacionalidad, estado, ciudad | Mostrar tu ubicación en tu perfil |
-| **Preferencias** | Deporte preferido (ej. pádel) | Personalizar tu experiencia |
-| **Encuesta de experiencia** | Ciudad, estado y país donde juegas pádel; club donde juegas; estilo de juego (amigos, retas, torneos, clases); frecuencia semanal de juego; cómo conociste Zetio; funcionalidades de tu interés; intención de participar en torneos | Personalizar el contenido y las funcionalidades que te mostramos. Esta información se recopila de forma progresiva y **su aportación es completamente voluntaria**: puedes saltar cualquier pregunta en cualquier momento sin que ello afecte al funcionamiento del Servicio |
+| **Preferencias** | Deporte preferido (ej. pádel, tenis) | Personalizar tu experiencia |
+| **Encuesta de experiencia** | Ciudad, estado y país donde practicas tu deporte de raqueta; club donde juegas; estilo de juego (amigos, retas, torneos, clases); frecuencia semanal de juego; cómo conociste Zetio; funcionalidades de tu interés; intención de participar en torneos | Personalizar el contenido y las funcionalidades que te mostramos. Esta información se recopila de forma progresiva y **su aportación es completamente voluntaria**: puedes saltar cualquier pregunta en cualquier momento sin que ello afecte al funcionamiento del Servicio |
 
 ### 1.2 Información recopilada automáticamente
 
@@ -425,7 +425,7 @@ Si tienes preguntas, comentarios o solicitudes relacionadas con esta Política d
 
 - **Email:** soporte@zetio.app
 - **Titular:** Diego Diaz
-- **Aplicación:** Zetio — plataforma de pádel: torneos estructurados, retas casuales y gestión de coach-jugador
+- **Aplicación:** Zetio — plataforma de deportes de raqueta: torneos estructurados, retas casuales y gestión de coach-jugador
 - **Sitio web:** [https://zetio.app](https://zetio.app)
 
 ---

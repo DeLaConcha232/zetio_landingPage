@@ -66,7 +66,7 @@ export default function TermsClubs() {
       {/* 2 */}
       <LegalSection number={2} title="Definiciones">
         <LegalList items={[
-          <><strong className="text-white/75">Club</strong>: la organización deportiva (club de pádel/tenis) registrada en la Plataforma, representada por al menos un Propietario.</>,
+          <><strong className="text-white/75">Club</strong>: la organización deportiva (club de deportes de raqueta: pádel, tenis, etc.) registrada en la Plataforma, representada por al menos un Propietario.</>,
           <><strong className="text-white/75">Torneo</strong>: evento deportivo organizado por un Club a través de la Plataforma, compuesto por una o más Categorías.</>,
           <><strong className="text-white/75">Categoría</strong>: subdivisión de un Torneo por nivel, sexo y/o edad, definida por el Club.</>,
           <><strong className="text-white/75">Pareja</strong>: dupla de dos Jugadores inscrita en una Categoría. Puede estar formada por Jugadores con Cuenta propia en Zetio o por Jugadores sin cuenta ("genéricos"), registrados únicamente con su nombre por el Club.</>,
@@ -82,7 +82,7 @@ export default function TermsClubs() {
       {/* 3 */}
       <LegalSection number={3} title="Objeto y descripción del Servicio">
         <p>
-          Zetio Club es un software como servicio ("SaaS") dirigido a clubes de pádel y tenis, que permite a un Club:
+          Zetio Club es un software como servicio ("SaaS") dirigido a clubes de deportes de raqueta (pádel, tenis y otros), que permite a un Club:
         </p>
         <LegalList items={[
           'Crear y administrar el perfil público de su Club (nombre, ubicación, canchas, identidad visual).',
@@ -177,9 +177,9 @@ export default function TermsClubs() {
         <LegalTable
           headers={['Plan', 'MXN/mes', 'Créditos/mes', 'Torneos Relámpago incluidos/mes']}
           rows={[
-            ['Inicial', '$999', '80', '2'],
-            ['Competidor', '$2,299', '220', '5'],
-            ['Élite', '$4,999', '500', '12'],
+            ['Inicial', '$999', '80', '1'],
+            ['Competidor', '$2,299', '220', '2'],
+            ['Élite', '$4,999', '500', '4'],
           ]}
         />
         <p>

@@ -93,7 +93,7 @@ export default function Privacy() {
           <LegalNote>
             <strong className="text-white/75">Alcance de este documento — Zetio Users.</strong> Esta política cubre los productos orientados a jugadores y coaches individuales: <strong className="text-white/75">Zetio Tour</strong>, <strong className="text-white/75">Zetio Play</strong> y <strong className="text-white/75">Zetio Coach</strong>. El tratamiento de datos de <strong className="text-white/75">Zetio Clubs</strong> (dirigido a administradores de clubes/canchas) se documentará en una sección separada dentro de este mismo documento cuando ese producto esté disponible.
           </LegalNote>
-          <p>Zetio es una plataforma de pádel compuesta por tres módulos, cada uno con tratamientos de datos específicos descritos en esta política:</p>
+          <p>Zetio es una plataforma de deportes de raqueta (pádel, tenis y otros) compuesta por tres módulos, cada uno con tratamientos de datos específicos descritos en esta política:</p>
           <LegalList items={[
             <><strong className="text-white/80">Zetio Tour</strong> — organización y participación en torneos estructurados con inscripciones, categorías, fases de grupos y eliminatorias.</>,
             <><strong className="text-white/80">Zetio Play</strong> — retas casuales entre amigos con códigos de invitación, tabla de posiciones y resultados rápidos.</>,
@@ -115,8 +115,8 @@ export default function Privacy() {
             [<strong className="text-white/75">Datos personales</strong>, 'Fecha de nacimiento, sexo', 'Validar tu elegibilidad en categorías de torneo por edad y género'],
             [<strong className="text-white/75">Contacto</strong>, 'Número de teléfono', 'Información de perfil y contacto entre jugadores'],
             [<strong className="text-white/75">Ubicación del perfil</strong>, 'Nacionalidad, estado, ciudad', 'Mostrar tu ubicación en tu perfil'],
-            [<strong className="text-white/75">Preferencias</strong>, 'Deporte preferido (ej. pádel)', 'Personalizar tu experiencia'],
-            [<strong className="text-white/75">Encuesta de experiencia</strong>, 'Ciudad, estado y país donde juegas pádel; club donde juegas; estilo de juego (amigos, retas, torneos, clases); frecuencia semanal de juego; cómo conociste Zetio; funcionalidades de tu interés; intención de participar en torneos', 'Personalizar el contenido y las funcionalidades que te mostramos. Esta información se recopila de forma progresiva y su aportación es completamente voluntaria: puedes saltar cualquier pregunta en cualquier momento sin que ello afecte al funcionamiento del Servicio'],
+            [<strong className="text-white/75">Preferencias</strong>, 'Deporte preferido (ej. pádel, tenis)', 'Personalizar tu experiencia'],
+            [<strong className="text-white/75">Encuesta de experiencia</strong>, 'Ciudad, estado y país donde practicas tu deporte de raqueta; club donde juegas; estilo de juego (amigos, retas, torneos, clases); frecuencia semanal de juego; cómo conociste Zetio; funcionalidades de tu interés; intención de participar en torneos', 'Personalizar el contenido y las funcionalidades que te mostramos. Esta información se recopila de forma progresiva y su aportación es completamente voluntaria: puedes saltar cualquier pregunta en cualquier momento sin que ello afecte al funcionamiento del Servicio'],
           ]}
         />
         <LegalNote>
@@ -591,7 +591,7 @@ export default function Privacy() {
         <div className="mt-3 p-4 rounded-xl border border-white/7 bg-white/2 space-y-1.5">
           <p><span className="text-white/80 font-medium">Email:</span>{' '}<a href="mailto:soporte@zetio.app" className="text-primary hover:text-primary-light underline underline-offset-2 transition-colors">soporte@zetio.app</a></p>
           <p><span className="text-white/80 font-medium">Titular:</span> Diego Diaz</p>
-          <p><span className="text-white/80 font-medium">Aplicación:</span> Zetio — plataforma de pádel: torneos estructurados, retas casuales y gestión de coach-jugador</p>
+          <p><span className="text-white/80 font-medium">Aplicación:</span> Zetio — plataforma de deportes de raqueta: torneos estructurados, retas casuales y gestión de coach-jugador</p>
           <p><span className="text-white/80 font-medium">Sitio web:</span>{' '}<a href="https://zetio.app" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-light underline underline-offset-2 transition-colors">zetio.app</a></p>
         </div>
       </LegalSection>

@@ -12,7 +12,7 @@ Estos Términos deben leerse junto con nuestra [Política de Privacidad](https:/
 
 ## 1. Descripción del Servicio
 
-Zetio es una plataforma de pádel compuesta por tres módulos:
+Zetio es una plataforma de deportes de raqueta (pádel, tenis y otros) compuesta por tres módulos:
 
 - **Zetio Tour** — organización y participación en torneos estructurados: inscripciones, categorías, fases de grupos y eliminatorias.
 - **Zetio Play** — retas casuales entre amigos, con códigos de invitación, tabla de posiciones y resultados rápidos.
@@ -59,10 +59,10 @@ Zetio es una **herramienta de organización y registro**. No somos dueños ni op
 
 ## 6. Riesgos físicos y actividad deportiva
 
-El pádel es un deporte de contacto indirecto que se juega en una cancha cerrada compartida por cuatro jugadores, con riesgos inherentes que incluyen, entre otros: esguinces y torceduras, colisiones entre jugadores (particularmente entre compañeros de pareja al disputar la misma pelota), impactos de pelota o pala, caídas, y el esfuerzo físico propio de la actividad deportiva.
+Los deportes de raqueta que ofrecemos en la plataforma (incluyendo pádel, tenis y otras modalidades similares) conllevan riesgos físicos inherentes a la actividad, que incluyen, entre otros: esguinces y torceduras, colisiones entre jugadores (particularmente en modalidades de cancha compartida como el pádel, al disputar la misma pelota), impactos de pelota o raqueta/pala, caídas, y el esfuerzo físico propio de la actividad deportiva.
 
 - **Zetio es un software de organización.** No operamos canchas ni instalaciones, no supervisamos físicamente los partidos (salvo cuando un coach está presente, en cuyo caso esa supervisión es responsabilidad del coach, no de Zetio), no evaluamos tu condición física o nivel de habilidad, y no garantizamos el estado o la seguridad de ninguna instalación deportiva de terceros.
-- Al participar en un torneo, reta o sesión organizada a través de Zetio, **reconoces y asumes los riesgos físicos inherentes a la práctica del pádel**, y confirmas que participas de forma voluntaria y bajo tu propia responsabilidad y la de los demás participantes, el club o la instalación donde se juegue.
+- Al participar en un torneo, reta o sesión organizada a través de Zetio, **reconoces y asumes los riesgos físicos inherentes a la práctica de deportes de raqueta**, y confirmas que participas de forma voluntaria y bajo tu propia responsabilidad y la de los demás participantes, el club o la instalación donde se juegue.
 - Esto no limita ni excluye la responsabilidad de Zetio por fallas propias del Servicio como software (ver Sección 11); se refiere específicamente a lo que ocurre físicamente en la cancha, fuera de nuestro control.
 
 ---

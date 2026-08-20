@@ -1,11 +1,11 @@
 {
-  "name": "Zetio — El Pádel en tus Manos",
+  "name": "Zetio — Deportes de Raqueta en tus Manos",
   "short_name": "Zetio",
   "description": "Organiza torneos, únete a clubes y entrena con profesionales.",
   "start_url": "/",
   "display": "browser",
-  "background_color": "#0a0a0a",
-  "theme_color": "#99CC99",
+  "background_color": "#000000",
+  "theme_color": "#16c24f",
   "lang": "es",
   "icons": [
     {

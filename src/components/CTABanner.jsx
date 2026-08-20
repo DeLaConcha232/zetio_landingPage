@@ -1,138 +1,70 @@
-import { useRef } from 'react'
-import { motion, useInView } from 'motion/react'
+import { motion } from 'motion/react'
+import GreenGlow from '../bits/GreenGlow'
 import { APP_STORE_URL, PLAY_STORE_URL } from '../lib/appLinks'
 
 export default function CTABanner() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-60px' })
-
   return (
-    <section ref={ref} className="relative overflow-hidden py-20 sm:py-28 mx-4 sm:mx-6 my-8 rounded-3xl">
-      {/* ── Gradient mesh background ── */}
+    <section className="relative py-24 sm:py-32 px-4 sm:px-6 text-center overflow-hidden">
       <div
-        className="absolute inset-0 rounded-3xl"
+        aria-hidden="true"
+        className="absolute top-[-30%] left-1/2 -translate-x-1/2 w-[110%] h-[140%] pointer-events-none"
         style={{
-          background: 'linear-gradient(135deg, #0e1a0e 0%, #0d150d 40%, #0a0a0a 70%, #0a0a0a 100%)',
+          backgroundImage: 'url(/gradient-2.webp)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          opacity: 0.45,
+          mixBlendMode: 'screen',
+          filter: 'blur(4px)',
         }}
       />
-      {/* Green radial orbs */}
-      <motion.div
-        className="absolute -top-24 -left-24 w-125 h-125 rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(153,204,153,0.22) 0%, transparent 65%)' }}
-        animate={{ scale: [1, 1.1, 1], opacity: [0.7, 1, 0.7] }}
-        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div
-        className="absolute -bottom-16 -right-16 w-95 h-95 rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(153,204,153,0.15) 0%, transparent 65%)' }}
-        animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.85, 0.5] }}
-        transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut', delay: 3 }}
-      />
-      {/* Border with glow */}
+      <GreenGlow opacity={0.32} />
       <div
-        className="absolute inset-0 rounded-3xl pointer-events-none"
-        style={{ border: '1px solid rgba(153,204,153,0.20)', boxShadow: 'inset 0 0 80px rgba(153,204,153,0.05)' }}
-      />
-      {/* Top accent line */}
-      <div
-        className="absolute top-0 left-[10%] right-[10%] h-px pointer-events-none"
-        style={{ background: 'linear-gradient(90deg, transparent, rgba(153,204,153,0.6) 30%, rgba(153,204,153,0.6) 70%, transparent)' }}
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: 'linear-gradient(180deg, transparent, rgba(22,194,79,0.06), transparent)' }}
       />
 
-      {/* ── Content ── */}
-      <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
-        {/* Badge */}
-        {/* <motion.div
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/35 bg-primary/10 mb-7"
-          initial={{ opacity: 0, y: 16, scale: 0.9 }}
-          animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-          transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+      <motion.div
+        className="relative z-10 max-w-xl mx-auto"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+      >
+        <img src="/zetio-icon.webp" alt="Zetio" className="w-22 h-22 rounded-[20px] mx-auto" width="88" height="88" />
+
+        <h2
+          className="font-extrabold text-white mt-8 mb-4"
+          style={{ fontSize: 'clamp(2.25rem, 5.5vw, 4.25rem)', letterSpacing: '-0.035em' }}
         >
-          <Sparkles className="w-3.5 h-3.5 text-primary" />
-          <span className="text-primary text-[11px] font-semibold tracking-[0.18em] uppercase">
-            100% Gratuito · Sin tarjeta de crédito
+          Tu próximo partido{' '}
+          <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(90deg, var(--color-primary-light), var(--color-primary))' }}>
+            empieza aquí.
           </span>
-        </motion.div> */}
+        </h2>
+        <p className="text-white/45 text-base sm:text-lg mb-9">Play, Coach y Tour — gratis, en una sola app.</p>
 
-        {/* Headline */}
-        <motion.h2
-          className="font-black leading-tight mb-5"
-          style={{ fontSize: 'clamp(2rem, 5vw, 3.8rem)' }}
-          initial={{ opacity: 0, y: 24 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.65, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-        >
-          <span className="text-white">El Pádel </span>
-          <span
-            style={{
-              background: 'var(--gradient-primary-shine)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}
-          >
-            en tus Manos
-          </span>
-        </motion.h2>
-
-        {/* Sub */}
-        <motion.p
-          className="text-white/50 text-base sm:text-lg leading-relaxed mb-10 max-w-xl mx-auto"
-          initial={{ opacity: 0, y: 16 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.22, ease: 'easeOut' }}
-        >
-          Crea fixtures en segundos, registra cada punto y revisa tu historial completo — sin capturas de pantalla, sin confusión.
-        </motion.p>
-
-        {/* CTA buttons */}
-        <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          initial={{ opacity: 0, y: 16 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.34, ease: 'easeOut' }}
-        >
-          <motion.a
+        <div className="flex items-center gap-4 justify-center flex-wrap">
+          <a
             href={APP_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="transition-opacity duration-200 hover:opacity-85 active:opacity-60"
+            className="transition-opacity duration-200 hover:opacity-80 active:opacity-60"
             aria-label="Descargar en App Store"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
           >
-            <img src="/app-store.webp" alt="Disponible en App Store" className="h-14 w-auto" width="168" height="56" />
-          </motion.a>
-          <motion.a
+            <img src="/app-store.webp" alt="Disponible en App Store" className="w-auto h-14" width="168" height="56" />
+          </a>
+          <a
             href={PLAY_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="transition-opacity duration-200 hover:opacity-85 active:opacity-60"
+            className="transition-opacity duration-200 hover:opacity-80 active:opacity-60"
             aria-label="Descargar en Google Play"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
           >
-            <img src="/play-store.webp" alt="Disponible en Google Play" className="h-14 w-auto" width="190" height="56" />
-          </motion.a>
-        </motion.div>
-
-        {/* Trust pills */}
-        <motion.div
-          className="flex flex-wrap gap-3 justify-center mt-10"
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.5 }}
-        >
-          {['Sin anuncios', 'Sin comisiones', 'iOS & Android', 'Actualización constante'].map((pill) => (
-            <span
-              key={pill}
-              className="text-white/35 text-[11px] font-semibold tracking-widest px-3 py-1.5 rounded-full border border-white/7 bg-white/3"
-            >
-              {pill}
-            </span>
-          ))}
-        </motion.div>
-      </div>
+            <img src="/play-store.webp" alt="Disponible en Google Play" className="w-auto h-14" width="190" height="56" />
+          </a>
+        </div>
+      </motion.div>
     </section>
   )
 }

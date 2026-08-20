@@ -22,7 +22,7 @@ no implicará cambios en los términos económicos ni en las condiciones ya pact
 
 ## 2. Definiciones
 
-- **Club**: la organización deportiva (club de pádel/tenis) registrada en la Plataforma,
+- **Club**: la organización deportiva (club de deportes de raqueta: pádel, tenis, etc.) registrada en la Plataforma,
   representada por al menos un Propietario.
 - **Torneo**: evento deportivo organizado por un Club a través de la Plataforma, compuesto por una
   o más Categorías.
@@ -44,8 +44,8 @@ no implicará cambios en los términos económicos ni en las condiciones ya pact
 
 ## 3. Objeto y descripción del Servicio
 
-Zetio Club es un software como servicio ("SaaS") dirigido a clubes de pádel y tenis, que permite a
-un Club:
+Zetio Club es un software como servicio ("SaaS") dirigido a clubes de deportes de raqueta (pádel,
+tenis y otros), que permite a un Club:
 
 - Crear y administrar el perfil público de su Club (nombre, ubicación, canchas, identidad visual).
 - Crear, configurar y publicar Torneos: categorías, formato (grupos y/o eliminación directa),
@@ -141,9 +141,9 @@ la capacidad se amplía después, solo se cobra el incremento).
 
 | Plan | MXN/mes | Créditos/mes | Torneos Relámpago incluidos/mes |
 |---|--:|--:|--:|
-| Inicial | $999 | 80 | 2 |
-| Competidor | $2,299 | 220 | 5 |
-| Élite | $4,999 | 500 | 12 |
+| Inicial | $999 | 80 | 1 |
+| Competidor | $2,299 | 220 | 2 |
+| Élite | $4,999 | 500 | 4 |
 
 El plan anual se cobra como 10 meses de la tarifa mensual (equivalente a 2 meses sin costo).
 
