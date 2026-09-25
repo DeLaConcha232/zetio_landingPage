@@ -69,7 +69,7 @@ export default function ProblemSolution() {
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.55, ease: 'easeOut' }}
         >
-          Los deportes de raqueta todavía se organizan a la antigua
+          Conectar a tu comunidad deportiva sigue siendo un caos
         </motion.h2>
         <div className="relative grid grid-cols-1 sm:grid-cols-3 gap-6">
           {problems.map((c, i) => (

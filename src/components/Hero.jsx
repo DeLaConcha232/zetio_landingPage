@@ -39,13 +39,13 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <Pill tone="ghost" size="sm">
+          <Pill tone="ghost" size="md">
             <motion.span
               className="w-1.5 h-1.5 rounded-full bg-primary shrink-0"
               animate={{ scale: [1, 1.6, 1], opacity: [1, 0.5, 1] }}
               transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
             />
-            El único sistema completo de deportes de raqueta
+            Todo en una sola plataforma
           </Pill>
         </motion.div>
 
@@ -55,15 +55,20 @@ export default function Hero() {
         >
           <span className="block">
             <SplitText delay={0.25} stagger={0.05}>
-              Los deportes de raqueta están cambiando.
+              El ecosistema que conecta 
             </SplitText>
           </span>
           <span
             className="block bg-clip-text text-transparent"
-            style={{ backgroundImage: 'linear-gradient(90deg, var(--color-primary-light), var(--color-primary))' }}
+            style={{
+              backgroundImage: 'linear-gradient(90deg, var(--color-primary-light), var(--color-primary))',
+              transform: 'translateZ(0)',
+              WebkitBackfaceVisibility: 'hidden',
+              backfaceVisibility: 'hidden',
+            }}
           >
             <SplitText delay={0.45} stagger={0.05}>
-              Esto es apenas el comienzo.
+              Jugadores Coaches y Clubs
             </SplitText>
           </span>
         </h1>

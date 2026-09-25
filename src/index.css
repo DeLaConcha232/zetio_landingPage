@@ -128,3 +128,11 @@ body {
 .glow-border:hover::before {
   opacity: 1;
 }
+
+/* ─────────────────────────────────────────────
+   STORY PROGRESS FILL — Stories-style step bar
+   ───────────────────────────────────────────── */
+@keyframes story-progress-fill {
+  from { width: 0%; }
+  to   { width: 100%; }
+}

@@ -18,7 +18,10 @@ export default function ClubShowcase() {
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.55, ease: 'easeOut' }}
         >
-          <Pill tone="ghost" size="sm">Para clubes</Pill>
+          <div className="flex flex-wrap items-center gap-2">
+            <Pill tone="ghost" size="sm">Para clubes</Pill>
+            <Pill tone="mint" size="sm">100% gratis</Pill>
+          </div>
           <h2 className="font-extrabold text-white mt-5 mb-4" style={{ fontSize: 'clamp(1.9rem, 4vw, 2.75rem)', letterSpacing: '-0.03em' }}>
             Tu club,{' '}
             <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(90deg, var(--color-primary-light), var(--color-primary))' }}>
@@ -45,6 +48,13 @@ export default function ClubShowcase() {
           >
             Ingresar a Zetio Club
           </a>
+          <div
+            className="inline-flex items-center gap-2.5 mt-4 px-4 py-2.5 rounded-full"
+            style={{ background: 'rgba(22,194,79,0.10)', border: '1px solid rgba(22,194,79,0.3)' }}
+          >
+            <span aria-hidden="true">🎉</span>
+            <span className="text-[13px] text-white font-semibold">Regístrate y explora todo el sistema sin costo, sin tarjeta ni compromiso.</span>
+          </div>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: 24 }}

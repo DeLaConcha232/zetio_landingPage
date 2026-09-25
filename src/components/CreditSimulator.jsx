@@ -2,58 +2,7 @@ import { useState } from 'react'
 import { motion } from 'motion/react'
 import Pill from '../bits/Pill'
 import { CLUB_APP_URL } from '../lib/appLinks'
-
-/**
- * Precios vigentes — Zetio Club (ver Sección 6, Términos y Condiciones de Clubes).
- * Paquetes de créditos: pago único, sin vencimiento anticipado (12 meses de vigencia).
- * Suscripciones: créditos/mes + N torneos relámpago incluidos/mes según plan.
- * Anual = 10× la tarifa mensual (equivalente a 2 meses sin costo).
- */
-const CREDIT_PACKS = [
-  { name: 'Pack S', credits: 80, price: 1200 },
-  { name: 'Pack M', credits: 200, price: 2800 },
-  { name: 'Pack L', credits: 500, price: 6500 },
-  { name: 'Pack XL', credits: 1000, price: 12000 },
-]
-
-const CREDIT_SUBS = [
-  {
-    name: 'Inicial',
-    credits: 80,
-    torneosRelampago: 1,
-    monthly: 999,
-    annual: { monthlyEquivalent: 833, total: 9990 },
-  },
-  {
-    name: 'Competidor',
-    credits: 220,
-    torneosRelampago: 2,
-    monthly: 2299,
-    annual: { monthlyEquivalent: 1916, total: 22990 },
-  },
-  {
-    name: 'Élite',
-    credits: 500,
-    torneosRelampago: 4,
-    monthly: 4999,
-    annual: { monthlyEquivalent: 4166, total: 49990 },
-  },
-]
-
-function bestPackFor(credits) {
-  const fit = CREDIT_PACKS.find((p) => p.credits >= credits)
-  if (fit) return { label: fit.name, price: fit.price }
-  const xl = CREDIT_PACKS[CREDIT_PACKS.length - 1]
-  const n = Math.ceil(credits / xl.credits)
-  return { label: `${n}× ${xl.name}`, price: xl.price * n }
-}
-function bestSubFor(credits) {
-  return CREDIT_SUBS.find((s) => s.credits >= credits) || CREDIT_SUBS[CREDIT_SUBS.length - 1]
-}
-function subPrice(sub, billing) {
-  return billing === 'anual' ? sub.annual.monthlyEquivalent : sub.monthly
-}
-const fmt = (n) => '$' + n.toLocaleString('es-MX')
+import { bestPackFor, bestSubFor, subPrice, fmt } from '../lib/pricing'
 
 function DashCard({ label, value, sub, accent }) {
   return (
@@ -65,7 +14,7 @@ function DashCard({ label, value, sub, accent }) {
   )
 }
 
-function BillingToggle({ billing, onChange }) {
+export function BillingToggle({ billing, onChange }) {
   return (
     <div
       role="group"
@@ -93,38 +42,6 @@ function BillingToggle({ billing, onChange }) {
           </button>
         )
       })}
-    </div>
-  )
-}
-
-function PlanCard({ plan, billing, recommended }) {
-  const price = subPrice(plan, billing)
-  return (
-    <div
-      className={`relative rounded-2xl border px-4.5 py-4 ${recommended ? 'border-primary/50' : 'border-white/8'}`}
-      style={{ background: recommended ? 'rgba(22,194,79,0.06)' : 'rgba(255,255,255,0.03)' }}
-    >
-      {recommended && (
-        <span
-          className="absolute -top-2.5 left-4 rounded-full bg-primary text-black font-extrabold px-2.5 py-1"
-          style={{ fontSize: '10px', letterSpacing: '.05em' }}
-        >
-          RECOMENDADO
-        </span>
-      )}
-      <div className="font-bold text-sm text-white mb-1.5">{plan.name}</div>
-      <div className="flex items-baseline gap-1">
-        <span className="font-extrabold text-2xl text-white">{fmt(price)}</span>
-        <span className="text-xs text-white/40">/mes</span>
-      </div>
-      {billing === 'anual' && (
-        <div className="text-[11px] text-primary mt-1">{fmt(plan.annual.total)}/año</div>
-      )}
-      <div className="text-xs text-white/50 mt-2.5">{plan.credits} créditos/mes</div>
-      <div className="text-xs text-white/70 mt-1 flex items-center gap-1">
-        <span aria-hidden="true">⚡</span>
-        {plan.torneosRelampago} torneo{plan.torneosRelampago > 1 ? 's' : ''} relámpago incluido{plan.torneosRelampago > 1 ? 's' : ''}/mes
-      </div>
     </div>
   )
 }
@@ -186,18 +103,41 @@ export default function CreditSimulator() {
           <span>4 parejas</span><span>500 parejas</span>
         </div>
 
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2.5 mb-4">
-          <span className="text-xs text-white/40">Precio de suscripción mostrado:</span>
+        <div
+          className="relative rounded-2xl border border-primary/25 px-5 py-5 mb-6 flex items-center justify-between gap-4"
+          style={{ background: 'linear-gradient(135deg, rgba(22,194,79,0.14), rgba(22,194,79,0.03))' }}
+        >
+          <div>
+            <div className="text-[11px] text-white/50 mb-1.5" style={{ letterSpacing: '.1em' }}>JUGADORES EN TU TORNEO</div>
+            <div className="flex items-baseline gap-2">
+              <span className="font-extrabold text-4xl text-primary">{credits}</span>
+              <span className="text-sm text-white/50">jugadores</span>
+            </div>
+          </div>
+          <div className="text-right text-xs text-white/40 leading-relaxed">
+            {parejas} parejas × 2<br />= {credits} créditos
+          </div>
+        </div>
+
+        <div className="text-xs font-bold text-white/50 mb-3" style={{ letterSpacing: '.06em' }}>ASÍ LO PUEDES PAGAR</div>
+
+        <div className="hidden sm:flex sm:items-center sm:justify-between gap-2.5 mb-4">
+          <span className="text-xs text-white/40">Ciclo de la suscripción:</span>
           <BillingToggle billing={billing} onChange={setBilling} />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <DashCard label="CRÉDITOS NECESARIOS" value={credits} sub={`${parejas} parejas × 2`} />
-          <DashCard label="COSTO ESTIMADO" value={fmt(pack.price)} accent sub={`Con ${pack.label}`} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <DashCard label="PAGO ÚNICO" value={fmt(pack.price)} accent sub={`Con ${pack.label} · ${credits} jugadores`} />
+
+          <div className="flex sm:hidden items-center justify-between gap-2.5">
+            <span className="text-xs text-white/40">Ciclo de la suscripción:</span>
+            <BillingToggle billing={billing} onChange={setBilling} />
+          </div>
+
           <DashCard
             label="O EN SUSCRIPCIÓN"
             value={`${fmt(subPrice(sub, billing))}/mes`}
-            sub={`Plan ${sub.name} · ${sub.credits} créditos/mes · ⚡ ${sub.torneosRelampago} torneo${sub.torneosRelampago > 1 ? 's' : ''} relámpago/mes`}
+            sub={`Plan ${sub.name} · ${sub.credits} jugadores/mes · ⚡ ${sub.torneosRelampago} torneo${sub.torneosRelampago > 1 ? 's' : ''} relámpago gratuito${sub.torneosRelampago > 1 ? 's' : ''}/mes`}
           />
         </div>
 
@@ -206,15 +146,6 @@ export default function CreditSimulator() {
             🎁 Torneo relámpago de bienvenida: tu primer torneo de hasta 8 parejas es gratis, una sola vez y sin necesidad de suscripción. Para torneos relámpago gratis cada mes, elige un plan de suscripción abajo.
           </div>
         )}
-
-        <div className="mt-8">
-          <div className="text-sm font-bold text-white mb-3.5">Compara los planes de suscripción</div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {CREDIT_SUBS.map((plan) => (
-              <PlanCard key={plan.name} plan={plan} billing={billing} recommended={plan.name === sub.name} />
-            ))}
-          </div>
-        </div>
 
         <div className="text-center mt-8">
           <a

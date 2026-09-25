@@ -100,7 +100,7 @@ export default function Links() {
           />
           <img src="/brandIcon_claro.svg" alt="Zetio" className="h-6 w-auto mt-0.5" />
           <p className="text-white/45 text-[15px] leading-relaxed max-w-[320px]">
-            El sistema completo de deportes de raqueta. Organiza, juega, mejora.
+            El ecosistema que conecta jugadores, coaches y clubes. Organiza, juega, mejora.
           </p>
           <Pill tone="ghost" size="sm">
             <motion.span

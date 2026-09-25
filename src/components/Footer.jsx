@@ -64,7 +64,7 @@ export default function Footer() {
           <div className="max-w-60">
             <img src="/brandIcon_claro.svg" alt="Zetio" className="h-4.5 w-auto" />
             <p className="text-white/30 text-sm leading-relaxed mt-6">
-              La plataforma líder para la gestión y disfrute de los deportes de raqueta a nivel global.
+              El ecosistema líder que conecta a jugadores, coaches y clubes a nivel global.
             </p>
           </div>
 
