@@ -1,0 +1,31 @@
+# Zetio
+
+> Zetio es una app de pádel para jugadores, coaches y clubes en México. Los jugadores arman retas y siguen torneos, los coaches registran el desempeño de sus alumnos y los clubes organizan torneos desde un panel web. Es gratis para jugadores y coaches. Los clubes pagan por jugador inscrito en sus torneos: el primer torneo de hasta 8 parejas es gratis y después cuesta desde $12 MXN por jugador con paquetes de créditos, o una suscripción mensual desde $999 MXN.
+
+## Productos
+
+- [Zetio Play](https://zetio.app/#jugadores): retas de pádel 1 vs 1, 2 vs 2 o tríos, con confirmación de jugadores, marcador y tabla. Gratis.
+- [Zetio Coach](https://zetio.app/#coaches): registro de golpes en vivo, efectividad por tipo de golpe e historial por alumno. Gratis.
+- [Zetio Tour](https://zetio.app/#tour): búsqueda e inscripción a torneos, próximo partido, cuadros y resultados en vivo. Gratis.
+- [Zetio Clubs](https://zetio.app/#clubes): panel para clubes y organizadores con inscripciones, pagos, cuadros, grupos y resultados.
+
+## Precios para clubes
+
+- [Precios y calculadora](https://zetio.app/#precios): un crédito es un jugador inscrito; una pareja usa 2 créditos.
+- Paquetes de un solo pago, válidos 12 meses: Pack S 80 créditos $1,200 MXN; Pack M 200 créditos $2,800; Pack L 500 créditos $6,500; Pack XL 1,000 créditos $12,000.
+- Suscripción mensual: Inicial 80 jugadores al mes $999 MXN; Competidor 220 por $2,299; Élite 500 por $4,999. El pago anual equivale a 2 meses gratis.
+
+## Guías paso a paso
+
+- [Cómo funciona Zetio](https://zetio.app/como-funciona/)
+- [Cómo armar una reta en Zetio Play](https://zetio.app/como-funciona/play/)
+- [Cómo llevar a tus alumnos con Zetio Coach](https://zetio.app/como-funciona/coach/)
+- [Cómo inscribirte y seguir un torneo en Zetio Tour](https://zetio.app/como-funciona/tour/)
+- [Cómo organizar tu torneo con Zetio Clubs](https://zetio.app/como-funciona/clubs/)
+
+## Descarga y contacto
+
+- [App Store](https://apps.apple.com/mx/app/zetio/id6757622344)
+- [Google Play](https://play.google.com/store/apps/details?id=user.zetio.app)
+- [Panel de clubes](https://club.zetio.app/)
+- Contacto: info@zetio.app, soporte@zetio.app

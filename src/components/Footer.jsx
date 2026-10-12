@@ -10,9 +10,9 @@ function TiktokIcon({ className }) {
 }
 
 const productLinks = [
-  { label: 'Play', href: '#play' },
-  { label: 'Coach', href: '#coach' },
-  { label: 'Tour', href: '#tour' },
+  { label: 'Play', href: '/#jugadores' },
+  { label: 'Coach', href: '/#coaches' },
+  { label: 'Tour', href: '/#tour' },
   { label: 'Shop', to: '/shop' },
 ]
 const legalUsersLinks = [
