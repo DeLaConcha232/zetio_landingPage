@@ -1,1 +1,17 @@
-/* /index.html 200
+# Páginas que sigue sirviendo la app de React (app.html)
+/links          /app.html   200
+/shop           /app.html   200
+/privacy        /app.html   200
+/terms          /app.html   200
+/privacyclubs   /app.html   200
+/termsclubs     /app.html   200
+
+# Direcciones de la maqueta, por si alguien las guardó
+/como-funciona.html         /como-funciona/         301
+/como-funciona-play.html    /como-funciona/play/    301
+/como-funciona-coach.html   /como-funciona/coach/   301
+/como-funciona-tour.html    /como-funciona/tour/    301
+/como-funciona-clubs.html   /como-funciona/clubs/   301
+
+# Todo lo demás que no exista: página 404 real (antes devolvía la home con código 200)
+/*              /404.html   404

@@ -1,0 +1,945 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zetio: app de pádel para jugadores, coaches y clubes</title>
+<meta name="description" content="Arma retas, mide tus clases y organiza torneos de pádel desde una sola app. Gratis para jugadores y coaches; clubes desde $12 por jugador.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: un hero que cambia segun quien eres (jugador, coach, club), luego un cuarto por audiencia.
+   Los cuartos gratis son negros; el cuarto de pago (clubes) es crema para que se lea como otra conversacion. */
+:root{
+  color-scheme:dark;
+  --ink:#020202;
+  --surface:#0b0e0b;
+  --surface-2:#131813;
+  --cream:#e5e9dd;
+  --white:#ffffff;
+  --green:#16c24f;
+  --green-soft:#99cc99;
+  --green-deep:#1a9738;
+  --muted:rgba(229,233,221,.64);
+  --line:rgba(229,233,221,.13);
+  --ink-muted:rgba(2,2,2,.66);
+  --ink-line:rgba(2,2,2,.14);
+  --glow:rgba(22,194,79,.28);
+  --font:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --wrap:1180px;
+  --r-lg:28px;
+  --r-md:18px;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:calc(96px + env(safe-area-inset-top,0px))}
+body{background:var(--ink);color:var(--cream);font-family:var(--font);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;font-style:normal}
+em,i{font-style:normal}
+a{color:inherit;text-decoration:none}
+img{display:block;height:auto}
+h1,h2,h3,p,ul,ol{margin:0}
+ul,ol{padding:0;list-style:none}
+h1,h2,h3{text-wrap:balance;color:var(--white);font-weight:800;letter-spacing:-.035em;line-height:1.05}
+h1,.h1{font-size:clamp(2.4rem,5.6vw,4.1rem)}
+.hero-copy h1,.hero-copy .h1{font-size:clamp(2.2rem,4.6vw,3.5rem)}
+h2{font-size:clamp(2rem,4.2vw,3.3rem)}
+h3{font-size:1.2rem;letter-spacing:-.015em;line-height:1.25;font-weight:700}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+.num{font-variant-numeric:tabular-nums}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:6px}
+
+/* botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:52px;padding:0 26px;border-radius:999px;font-weight:700;font-size:1rem;border:1.5px solid transparent;cursor:pointer;font-family:inherit;transition:transform .15s ease,background .15s ease,box-shadow .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--green);color:var(--ink);box-shadow:0 0 36px var(--glow)}
+.btn-primary:hover{background:#2bd562}
+.btn-ghost{border-color:var(--line);color:var(--white)}
+.btn-ghost:hover{border-color:var(--green)}
+.btn-dark{background:var(--ink);color:var(--white)}
+.btn-dark:hover{background:#1a1f1a}
+.btn-outline-dark{border-color:var(--ink);color:var(--ink)}
+.btn-sm{min-height:42px;padding:0 18px;font-size:.92rem}
+.stores{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.dl{display:inline-flex;align-items:center;gap:10px;min-height:54px;padding:0 26px 0 20px;border-radius:999px;background:var(--green);color:var(--ink);font-weight:700;font-size:1rem;white-space:nowrap;transition:transform .15s ease,background .15s ease}
+.dl:hover{transform:translateY(-1px);background:#2bd562}
+.dl svg{width:22px;height:22px;fill:currentColor;flex:none}
+
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--green)}
+.eyebrow .pi{width:20px;height:20px;fill:currentColor;flex:none}
+.price-tag{display:inline-flex;align-items:center;min-height:30px;padding:0 12px;border-radius:999px;background:rgba(22,194,79,.14);color:var(--green);font-size:.82rem;font-weight:700;letter-spacing:.02em}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;padding-block:14px}
+.nav-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;background:rgba(8,11,8,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:999px;padding:8px 8px 8px 22px}
+.nav > .wrap{position:relative}
+.nav::before{content:"";position:absolute;left:0;right:0;top:0;height:52px;background:linear-gradient(var(--ink) 50%,rgba(2,2,2,0));opacity:0;transition:opacity .2s ease;pointer-events:none}
+.scrolled .nav::before{opacity:1}
+.nav-logo img{width:92px}
+.nav-links{display:flex;gap:28px;font-size:.95rem;font-weight:500;color:var(--muted)}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{display:flex;gap:8px}
+
+/* hero */
+.hero{position:relative;overflow:hidden;margin-top:-88px;padding-block:calc(88px + 16px) 40px;background:var(--ink);min-height:min(100svh,880px);display:flex;align-items:center}
+.hero > .wrap{position:relative;z-index:1;width:100%}
+.hero::before,.close-box::before{content:"";position:absolute;inset:-8%;background:url("/site/img/gradient-3.webp") center/cover no-repeat;animation:drift 16s ease-in-out infinite alternate;will-change:transform}
+.hero .hero-what{color:var(--white)}
+.hero .hero-copy p.lead{color:rgba(255,255,255,.88)}
+.hero .hero-note{color:rgba(255,255,255,.74)}
+.hero .who{background:rgba(2,2,2,.55)}
+.hero .hero-copy .ticks{border-top-color:rgba(255,255,255,.22)}
+.hero-what{font-size:1rem;font-weight:600;color:var(--green-soft);margin-bottom:22px}
+.who{display:inline-flex;flex-wrap:wrap;gap:4px;padding:5px;border:1px solid var(--line);border-radius:999px;background:var(--surface);margin-bottom:26px}
+.who-label{align-self:center;padding:0 12px 0 14px;font-size:.9rem;color:var(--muted);font-weight:500}
+.who button{font:inherit;font-weight:700;font-size:.98rem;color:var(--muted);background:transparent;border:0;border-radius:999px;min-height:44px;padding:0 20px;cursor:pointer;transition:background .15s ease,color .15s ease}
+.who button:hover{color:var(--white)}
+.who button[aria-selected="true"]{background:var(--green);color:var(--ink)}
+.who button:focus-visible{outline-offset:2px;border-radius:999px}
+.who button[aria-selected="true"]:focus-visible{outline:2px solid var(--ink);outline-offset:-5px}
+.hero-panel{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,5vw,72px);align-items:center;position:relative}
+.hero-copy{display:flex;flex-direction:column;gap:22px;align-items:flex-start;min-width:0}
+.hero-copy p.lead{font-size:clamp(1.08rem,1.6vw,1.28rem);color:var(--muted);max-width:33em}
+.hero-copy p.lead strong{color:var(--white);font-weight:600}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero-note{font-size:.92rem;color:var(--muted);margin-top:-8px}
+.hero-copy .ticks{padding-top:22px;border-top:1px solid var(--line);width:100%}
+.ticks{display:flex;flex-direction:column;gap:10px}
+.ticks li{display:flex;gap:12px;align-items:flex-start;font-weight:500;color:var(--cream)}
+.ticks li::before{content:"";flex:none;width:20px;height:20px;margin-top:3px;border-radius:50%;background:var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.4l3 3 6-6.6' fill='none' stroke='%23020202' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.hero-art{position:relative;display:flex;justify-content:center;min-width:0}
+.court{position:absolute;inset:4% 6%;border:1.5px solid rgba(153,204,153,.34);border-radius:6px;transform:perspective(900px) rotateX(52deg) scale(1.25);transform-origin:50% 70%}
+.court::before{content:"";position:absolute;inset:30% 0;border-block:1.5px solid rgba(153,204,153,.34)}
+.court::after{content:"";position:absolute;inset:30% 50% 30% auto;border-left:1.5px solid rgba(153,204,153,.34)}
+.phone{position:relative;width:min(272px,72%);filter:drop-shadow(0 30px 60px rgba(0,0,0,.6)) drop-shadow(0 0 50px rgba(22,194,79,.18))}
+.dash{position:relative;width:100%;border-radius:14px;border:1px solid var(--line);box-shadow:0 30px 70px rgba(0,0,0,.6),0 0 60px rgba(22,194,79,.14)}
+
+/* franja de hechos */
+.facts{border-block:1px solid var(--line);background:var(--surface)}
+.facts ul{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.facts li{padding:22px 20px;display:flex;flex-direction:column;gap:2px;border-left:1px solid var(--line)}
+.facts li:first-child{border-left:0;padding-left:0}
+.facts b{color:var(--white);font-weight:700;font-size:1.05rem;letter-spacing:-.01em}
+.facts span{color:var(--muted);font-size:.92rem}
+
+/* cuartos por audiencia */
+.room{padding-block:clamp(64px,9vw,120px)}
+.room-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,88px);align-items:center}
+.room-copy{display:flex;flex-direction:column;gap:26px;align-items:flex-start;min-width:0}
+.room-head{display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.room-head p{color:var(--muted);font-size:1.1rem;max-width:32em}
+.room-tags{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.feats{display:flex;flex-direction:column;width:100%}
+.feats li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 16px;padding-block:18px;border-top:1px solid var(--line)}
+.feats li:last-child{border-bottom:1px solid var(--line)}
+.feats svg{grid-row:span 2;width:26px;height:26px;margin-top:1px;stroke:var(--green);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.feats p{color:var(--muted);font-size:.98rem}
+.duo{position:relative;display:flex;justify-content:center;align-items:flex-start;min-width:0}
+.duo img{width:min(260px,46%);filter:drop-shadow(0 26px 50px rgba(0,0,0,.6))}
+.duo img:last-child{margin-left:-7%;margin-top:11%}
+.duo video{position:relative;width:min(360px,80%);height:auto;margin-block:-3%;filter:drop-shadow(0 26px 50px rgba(0,0,0,.6))}
+video.phone{width:min(370px,90%);width:min(370px,90%,38svh);height:auto}
+.duo::before{content:"";position:absolute;inset:12% 8%;background:radial-gradient(closest-side,rgba(22,194,79,.22),transparent 72%)}
+.duo figcaption,.shot figcaption{position:absolute;left:-9999px}
+.how{font-weight:700;color:var(--green)}
+.how:hover{color:#2bd562}
+.how-dark,.how-dark:hover{color:var(--green-deep)}
+.room-flip .room-copy{order:2}
+
+/* cuarto de clubes: crema */
+.clubs{background:var(--cream);color:var(--ink);border-radius:var(--r-lg) var(--r-lg) 0 0}
+.clubs h2,.clubs h3{color:var(--ink)}
+.clubs .eyebrow{color:var(--green-deep)}
+.clubs .room-head p{color:var(--ink-muted)}
+.clubs-top{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,72px);align-items:center}
+.clubs .shot{position:relative;margin:0;min-width:0}
+.clubs .shot img{width:min(880px,158%);max-width:none;border-radius:14px;box-shadow:0 30px 60px rgba(2,2,2,.28)}
+.clubs{overflow:hidden}
+.hero-art-wide{justify-content:flex-start}
+.hero-art-wide .dash{width:min(800px,160%);max-width:none}
+.free-box{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;border-radius:var(--r-md);background:var(--ink);color:var(--cream);width:100%}
+.free-box b{color:var(--white);display:block;font-size:1.05rem;letter-spacing:-.01em}
+.free-box span{font-size:.95rem;color:var(--muted)}
+.free-box::before{content:"$0";flex:none;display:grid;place-items:center;width:52px;height:52px;border-radius:14px;background:var(--green);color:var(--ink);font-weight:800;font-size:1.15rem;letter-spacing:-.03em}
+.club-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:clamp(40px,6vw,72px);border-top:1.5px solid var(--ink)}
+.club-grid li{padding:22px 22px 4px 0;display:flex;flex-direction:column;gap:8px}
+.club-grid li+li{padding-left:22px;border-left:1px solid var(--ink-line)}
+.club-grid p{color:var(--ink-muted);font-size:.97rem}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:clamp(40px,6vw,64px);counter-reset:s}
+.steps li{counter-increment:s;background:rgba(2,2,2,.055);border-radius:var(--r-md);padding:22px;display:flex;flex-direction:column;gap:8px}
+.steps li::before{content:"Paso " counter(s);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green-deep)}
+.steps p{color:var(--ink-muted);font-size:.97rem}
+
+/* precios */
+.pricing{background:var(--cream);color:var(--ink);padding-block:0 clamp(64px,9vw,112px)}
+.pricing-inner{background:var(--ink);color:var(--cream);border-radius:var(--r-lg);padding:clamp(24px,5vw,60px)}
+.pricing-head{display:flex;flex-direction:column;gap:14px;align-items:flex-start;margin-bottom:clamp(28px,4vw,44px)}
+.pricing-head h2 span{color:var(--green)}
+.pricing-head p{color:var(--muted);font-size:1.1rem;max-width:36em}
+.pricing-head-top{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;align-self:stretch;flex-wrap:wrap}
+.currency-toggle{display:inline-flex;padding:4px;border:1px solid var(--line);border-radius:999px;background:var(--surface);gap:2px}
+.currency-toggle button{font:inherit;font-size:.82rem;font-weight:700;color:var(--muted);background:transparent;border:0;border-radius:999px;min-height:32px;padding:0 10px 0 7px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.currency-toggle img{border-radius:3px;display:block;flex:none;object-fit:cover}
+.currency-toggle button[aria-pressed="true"]{background:var(--green);color:var(--ink)}
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden}
+.calc-in{padding:clamp(20px,3vw,34px);display:flex;flex-direction:column;gap:20px;background:var(--surface)}
+.calc-in label{font-weight:700;color:var(--white);font-size:1.05rem}
+.calc-big{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.calc-big output{font-size:clamp(3rem,7vw,4.4rem);font-weight:800;letter-spacing:-.05em;line-height:1;color:var(--white)}
+.calc-big span{color:var(--muted);font-weight:500}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:28px;background:transparent;cursor:pointer;margin:0}
+input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:999px;background:linear-gradient(90deg,var(--green) var(--fill,10%),rgba(229,233,221,.18) var(--fill,10%))}
+input[type=range]::-moz-range-track{height:6px;border-radius:999px;background:rgba(229,233,221,.18)}
+input[type=range]::-moz-range-progress{height:6px;border-radius:999px;background:var(--green)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:var(--white);border:5px solid var(--green);margin-top:-10px;box-shadow:0 0 18px var(--glow)}
+input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--white);border:5px solid var(--green)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips button{font:inherit;font-size:.9rem;font-weight:600;color:var(--cream);background:transparent;border:1px solid var(--line);border-radius:999px;min-height:38px;padding:0 14px;cursor:pointer}
+.chips button:hover,.chips button[aria-pressed="true"]{border-color:var(--green);color:var(--green)}
+.calc-eq{color:var(--muted);font-size:.98rem}
+.calc-eq b{color:var(--white)}
+.calc-out{padding:clamp(20px,3vw,34px);display:flex;flex-direction:column;gap:18px;background:var(--surface-2);border-left:1px solid var(--line)}
+.calc-out .k{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
+.calc-price{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.calc-price output{font-size:clamp(2.6rem,6vw,3.6rem);font-weight:800;letter-spacing:-.045em;line-height:1;color:var(--white)}
+.calc-price span{color:var(--muted)}
+.calc-lines{display:flex;flex-direction:column}
+.calc-lines li{display:flex;justify-content:space-between;gap:16px;padding-block:11px;border-top:1px solid var(--line);font-size:.98rem}
+.calc-lines li span:first-child{color:var(--muted)}
+.calc-lines li span:last-child{color:var(--white);font-weight:600;text-align:right;white-space:nowrap}
+.calc-free{padding:12px 14px;border-radius:12px;background:rgba(22,194,79,.14);color:var(--green-soft);font-size:.95rem;font-weight:500}
+.calc-alt{font-size:.95rem;color:var(--muted)}
+.calc-alt b{color:var(--white);font-weight:600}
+.tables{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,3vw,40px);margin-top:clamp(28px,4vw,48px)}
+.tbl{display:flex;flex-direction:column;gap:14px;min-width:0}
+.tbl > p{color:var(--muted);font-size:.97rem}
+.tbl-scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.98rem;font-variant-numeric:tabular-nums}
+th{text-align:left;font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:700;padding:0 12px 10px 0;white-space:nowrap}
+td{padding:14px 12px 14px 0;border-top:1px solid var(--line);white-space:nowrap}
+td:first-child{color:var(--white);font-weight:700}
+td.pp{color:var(--green);font-weight:700}
+th:last-child,td:last-child{text-align:right;padding-right:0}
+.tbl-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.cycle{display:inline-flex;padding:4px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.cycle button{font:inherit;font-size:.88rem;font-weight:700;color:var(--muted);background:transparent;border:0;border-radius:999px;min-height:36px;padding:0 14px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.cycle button span{font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;background:rgba(22,194,79,.16);color:var(--green)}
+.cycle button[aria-pressed="true"]{background:var(--green);color:var(--ink)}
+.cycle button[aria-pressed="true"] span{background:rgba(2,2,2,.16);color:var(--ink)}
+td.pp b{font-weight:700}
+td.pp small{display:block;font-size:.78rem;font-weight:500;color:var(--muted)}
+.fine{margin-top:22px;font-size:.9rem;color:var(--muted);max-width:60em}
+.pricing-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+
+/* testimonios */
+.voices{padding-block:clamp(64px,9vw,112px)}
+.voices h2{margin-bottom:clamp(28px,4vw,48px);max-width:14em}
+.voices ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.voices li{display:flex;flex-direction:column;justify-content:space-between;gap:28px;padding:26px;border-radius:var(--r-md);background:var(--surface);border:1px solid var(--line)}
+.voices blockquote{margin:0;font-size:1.14rem;line-height:1.4;color:var(--white);font-weight:500;letter-spacing:-.01em}
+.voices cite{font-style:normal;display:flex;flex-direction:column;font-size:.94rem;color:var(--muted)}
+.voices cite b{color:var(--green);font-weight:700}
+
+/* faq */
+.faq{padding-block:0 clamp(64px,9vw,112px)}
+.faq-grid{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:clamp(28px,5vw,72px)}
+.faq-list{display:flex;flex-direction:column}
+details{border-top:1px solid var(--line)}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;align-items:center;padding-block:20px;font-weight:700;font-size:1.08rem;color:var(--white);letter-spacing:-.01em}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:1px solid var(--line);color:var(--green);font-weight:500;font-size:1.2rem;line-height:1}
+details[open] summary::after{content:"\2212"}
+details p{color:var(--muted);padding-bottom:22px;max-width:44em}
+
+/* cierre */
+.close{padding-block:0 clamp(48px,7vw,88px)}
+.close-box{position:relative;overflow:hidden;border-radius:var(--r-lg);background:var(--ink);color:var(--white);padding:clamp(28px,6vw,72px);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(24px,4vw,56px);align-items:center}
+.close-box h2{color:var(--white)}
+.close-col,.close-club{position:relative;z-index:1}
+.close-col{display:flex;flex-direction:column;gap:18px;align-items:flex-start;min-width:0}
+.close-col p{font-size:1.1rem;font-weight:500;max-width:30em}
+.close-club{background:rgba(2,2,2,.6);border:1px solid var(--line);color:var(--cream);border-radius:var(--r-md);padding:24px;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.close-club h3{color:var(--white)}
+.close-club p{font-size:.98rem;color:var(--muted);font-weight:400}
+
+footer{border-top:1px solid var(--line);padding-block:40px 110px;color:var(--muted);font-size:.94rem}
+.foot{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;align-items:flex-start}
+.foot img{width:92px;margin-bottom:12px}
+.foot nav{display:flex;gap:22px;flex-wrap:wrap}
+.foot a:hover{color:var(--white)}
+.foot-legal{display:flex;gap:28px;flex-wrap:wrap}
+.foot-legal-h{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);opacity:.55;margin-bottom:10px}
+.foot-legal nav{display:flex;flex-direction:column;gap:9px}
+
+/* barra fija en movil */
+/* movimiento */
+@keyframes drift{from{transform:scale(1) translate(0,0)}to{transform:scale(1.14) translate(-3%,2.5%)}}
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(56px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes courtin{from{opacity:0;transform:perspective(900px) rotateX(64deg) scale(1.05)}to{opacity:1;transform:perspective(900px) rotateX(52deg) scale(1.25)}}
+.who{animation:up .6s cubic-bezier(.2,.7,.2,1) both}
+.hero-copy > *{animation:up .7s cubic-bezier(.2,.7,.2,1) both}
+.hero-copy > :nth-child(1){animation-delay:.06s}
+.hero-copy > :nth-child(2){animation-delay:.14s}
+.hero-copy > :nth-child(3){animation-delay:.22s}
+.hero-copy > :nth-child(4){animation-delay:.3s}
+.hero-copy > :nth-child(5){animation-delay:.38s}
+.hero-art .phone,.hero-art .dash{animation:rise .95s cubic-bezier(.2,.7,.2,1) .12s both,float 7s ease-in-out 1.1s infinite}
+.hero-art .court{animation:courtin 1.2s cubic-bezier(.2,.7,.2,1) .1s both}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
+.rv.in{opacity:1;transform:none}
+.duo img{transition:transform .5s cubic-bezier(.2,.7,.2,1),opacity .75s cubic-bezier(.2,.7,.2,1);transition-delay:0ms,var(--d,0ms)}
+.duo img.rv{transition-delay:var(--d,0ms)}
+.duo:hover img:first-child{transform:translateY(-8px) rotate(-1.5deg)}
+.duo:hover img:last-child{transform:translateY(-8px) rotate(1.5deg)}
+.shot img,.hero-art .dash{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.shot:hover img{transform:translateY(-6px)}
+.feats li svg{transition:transform .3s ease}
+.feats li:hover svg{transform:scale(1.15)}
+.nav-links a{position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+.nav-links a:hover::after{transform:scaleX(1)}
+
+.dock{display:none}
+
+@media (max-width:980px){
+  .hero{min-height:0;display:block;padding-bottom:48px}
+  .nav-links{display:none}
+  .hero-panel,.room-grid,.clubs-top,.calc,.tables,.faq-grid,.close-box{grid-template-columns:minmax(0,1fr)}
+  .room-flip .room-copy{order:0}
+  .phone{width:min(230px,60%)}
+  video.phone{width:min(330px,84%);margin-block:-10px -8px}
+  .hero-art-wide .dash,.clubs .shot img{width:140%}
+  .duo{margin-inline:0}
+  .duo video{width:min(320px,84%);margin-block:-22px -10px}
+  .facts ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facts li{border-left:0;padding-left:0}
+  .facts li:nth-child(even){padding-left:20px;border-left:1px solid var(--line)}
+  .facts li:nth-child(n+3){border-top:1px solid var(--line)}
+  .club-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .club-grid li:nth-child(3){padding-left:0;border-left:0}
+  .steps,.voices ul{grid-template-columns:minmax(0,1fr)}
+  .calc-out{border-left:0;border-top:1px solid var(--line)}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .who{width:100%;flex-wrap:nowrap}
+  .who-label{padding:0 4px 0 14px}
+  .who button{flex:1;padding:0 8px}
+  .club-grid{grid-template-columns:minmax(0,1fr)}
+  .club-grid li+li{padding-left:0;border-left:0;border-top:1px solid var(--ink-line)}
+  .stores{width:100%}
+  .stores{flex-wrap:nowrap;gap:8px}
+  .dl{flex:1 1 0;min-width:0;justify-content:center;padding:0 8px;gap:8px;font-size:.92rem;min-height:50px}
+  .dl svg{width:19px;height:19px}
+  .dock{display:flex;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(2,2,2,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+  .dock .btn{flex:1;min-height:48px;padding:0 12px;font-size:.95rem}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+<link rel="canonical" href="https://zetio.app/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#020202">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-itunes-app" content="app-id=6757622344">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Zetio">
+<meta property="og:locale" content="es_MX">
+<meta property="og:url" content="https://zetio.app/">
+<meta property="og:title" content="Zetio: app de pádel para jugadores, coaches y clubes">
+<meta property="og:description" content="Arma retas, mide tus clases y organiza torneos de pádel desde una sola app. Gratis para jugadores y coaches; clubes desde $12 por jugador.">
+<meta property="og:image" content="https://zetio.app/og/og-zetio.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Zetio: app de pádel para jugadores, coaches y clubes">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@zetioapp">
+<meta name="twitter:title" content="Zetio: app de pádel para jugadores, coaches y clubes">
+<meta name="twitter:description" content="Arma retas, mide tus clases y organiza torneos de pádel desde una sola app. Gratis para jugadores y coaches; clubes desde $12 por jugador.">
+<meta name="twitter:image" content="https://zetio.app/og/og-zetio.jpg">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="/site/img/gradient-3.webp" fetchpriority="high">
+<link rel="preload" as="image" href="/site/img/play-flujo-poster.webp">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://zetio.app/#org", "name": "Zetio", "url": "https://zetio.app/", "logo": "https://zetio.app/icon-512.png", "email": "info@zetio.app", "sameAs": ["https://www.instagram.com/zetio_oficial/", "https://www.tiktok.com/@zetioapp"]}, {"@type": "WebSite", "@id": "https://zetio.app/#web", "url": "https://zetio.app/", "name": "Zetio", "inLanguage": "es-MX", "publisher": {"@id": "https://zetio.app/#org"}}, {"@type": "SoftwareApplication", "name": "Zetio", "applicationCategory": "SportsApplication", "operatingSystem": "iOS, Android", "description": "App de pádel para armar retas, medir entrenamientos y jugar torneos.", "inLanguage": "es-MX", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "MXN", "description": "Gratis para jugadores y coaches"}, "installUrl": "https://apps.apple.com/mx/app/zetio/id6757622344", "publisher": {"@id": "https://zetio.app/#org"}}, {"@type": "Product", "name": "Zetio Clubs: créditos para torneos", "brand": {"@id": "https://zetio.app/#org"}, "description": "Créditos para organizar torneos de pádel. Un crédito es un jugador inscrito. El primer torneo de hasta 8 parejas es gratis.", "image": "https://zetio.app/og/og-zetio.jpg", "offers": {"@type": "AggregateOffer", "priceCurrency": "MXN", "lowPrice": "1200", "highPrice": "12000", "offerCount": "4", "url": "https://zetio.app/#precios"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Cuánto cuesta Zetio?", "acceptedAnswer": {"@type": "Answer", "text": "Para jugadores y coaches es gratis. Los clubes y organizadores pagan por jugador inscrito en sus torneos: desde $12 por jugador con paquetes, o una suscripción mensual si organizan seguido."}}, {"@type": "Question", "name": "Soy club, ¿puedo probarlo antes de pagar?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Registrar tu club es gratis y recibes un torneo de bienvenida de hasta 8 parejas, con el sistema completo y visible en la app de los jugadores. No pedimos tarjeta."}}, {"@type": "Question", "name": "¿Qué es un crédito?", "acceptedAnswer": {"@type": "Answer", "text": "Un crédito es un jugador inscrito en un torneo. Una pareja usa 2 créditos. Si compras un paquete y te sobran créditos, los usas en tu siguiente torneo."}}, {"@type": "Question", "name": "¿Cuánto duran mis créditos?", "acceptedAnswer": {"@type": "Answer", "text": "Los de paquetes y suscripción anual duran 12 meses. Los de suscripción mensual son para el mes en curso. Los torneos relámpago gratis de cada mes no se acumulan."}}, {"@type": "Question", "name": "¿Necesito saber organizar torneos o equipo especial?", "acceptedAnswer": {"@type": "Answer", "text": "No. Defines el formato y Zetio arma cuadros, grupos y resultados. Con un teléfono y la app puedes digitalizar tu torneo el mismo día."}}, {"@type": "Question", "name": "¿Para qué deportes funciona?", "acceptedAnswer": {"@type": "Answer", "text": "Los clubes pueden publicar torneos de pádel y de tenis de mesa. Zetio está disponible en México."}}, {"@type": "Question", "name": "¿Qué pasa con mis datos?", "acceptedAnswer": {"@type": "Answer", "text": "Tu historial y tus estadísticas son tuyos. No compartimos tu información con terceros."}}]}]}</script>
+<script src="/site/track.js?v=20261012" defer></script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLPQQHC2" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<header class="nav">
+  <div class="wrap">
+    <div class="nav-bar">
+      <a class="nav-logo" href="#inicio" aria-label="Zetio, inicio"><img src="/site/img/brandIcon_claro.svg" alt="Zetio" width="92" height="24"></a>
+      <nav class="nav-links" aria-label="Secciones">
+        <a href="#jugadores">Jugadores</a>
+        <a href="#coaches">Coaches</a>
+        <a href="#clubes">Clubes</a>
+        <a href="#precios">Precios</a>
+        <a href="/como-funciona/">Cómo funciona</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn btn-primary btn-sm" href="https://club.zetio.app/">Ingresar a Club</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="inicio">
+
+<!-- HERO: cambia segun quien eres. #jugador, #coach y #club abren su version (sirve como destino de anuncios). -->
+<section class="hero">
+  <div class="wrap">
+
+    <div class="who" role="tablist" aria-label="¿Quién eres?">
+      <span class="who-label">Soy</span>
+      <button type="button" role="tab" id="tab-jugador" aria-controls="hero-jugador" aria-selected="true" data-role="jugador">Jugador</button>
+      <button type="button" role="tab" id="tab-coach" aria-controls="hero-coach" aria-selected="false" data-role="coach">Coach</button>
+      <button type="button" role="tab" id="tab-club" aria-controls="hero-club" aria-selected="false" data-role="club">Club</button>
+    </div>
+
+    <div class="hero-panel" id="hero-jugador" role="tabpanel" aria-labelledby="tab-jugador">
+      <div class="hero-copy">
+        <h1>Arma tu reta de pádel en un minuto. Sin el caos del chat.</h1>
+        <p class="lead">Eliges formato, jugadores y cancha. Cada quien confirma su lugar y Zetio lleva el marcador y la tabla. <strong>Gratis, siempre.</strong></p>
+        <div class="stores">
+          <a class="dl" href="https://apps.apple.com/mx/app/zetio/id6757622344" aria-label="Descarga ahora en App Store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>Descarga ahora</a>
+          <a class="dl" href="https://play.google.com/store/apps/details?id=user.zetio.app" aria-label="Descarga ahora en Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg>Descarga ahora</a>
+        </div>
+        <p class="hero-note">Gratis para jugadores. Sin anuncios de pago ni tarjeta.</p>
+        <ul class="ticks">
+          <li>Retas 1 vs 1, 2 vs 2 o tríos, con parejas fijas o todos contra todos</li>
+          <li>Tu historial y tus resultados en un solo perfil</li>
+          <li>Torneos con Zetio Tour: te inscribes y sigues tu cuadro en vivo</li>
+        </ul>
+      </div>
+      <div class="hero-art"><div class="court" aria-hidden="true"></div><video class="phone" data-flow="play" muted loop playsinline preload="metadata" poster="/site/img/play-flujo-poster.webp" width="540" height="1080" aria-label="Recorrido animado de Zetio Play: crear una reta, sumar jugadores, capturar el marcador y ver la tabla actualizada"></video></div>
+    </div>
+
+    <div class="hero-panel" id="hero-coach" role="tabpanel" aria-labelledby="tab-coach" hidden>
+      <div class="hero-copy">
+        <h2 class="h1">Enséñale a tu alumno cuánto mejoró. Con datos.</h2>
+        <p class="lead">Registras cada acierto y cada error mientras juega. Al terminar la clase, los dos ven la efectividad de cada golpe. <strong>Gratis, siempre.</strong></p>
+        <div class="stores">
+          <a class="dl" href="https://apps.apple.com/mx/app/zetio/id6757622344" aria-label="Descarga ahora en App Store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>Descarga ahora</a>
+          <a class="dl" href="https://play.google.com/store/apps/details?id=user.zetio.app" aria-label="Descarga ahora en Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg>Descarga ahora</a>
+        </div>
+        <p class="hero-note">Gratis para coaches. Tus alumnos también entran gratis.</p>
+        <ul class="ticks">
+          <li>Un toque por golpe: saque, resto, fondo y red</li>
+          <li>Porcentaje de efectividad al terminar cada sesión</li>
+          <li>Historial por alumno para comparar su avance</li>
+        </ul>
+      </div>
+      <div class="hero-art"><div class="court" aria-hidden="true"></div><video class="phone" data-flow="coach" muted loop playsinline preload="metadata" poster="/site/img/coach-flujo-poster.webp" width="540" height="1080" aria-label="Recorrido animado de Zetio Coach: agenda, jugadores, registro de golpes en vivo y resultados con efectividad por golpe"></video></div>
+    </div>
+
+    <div class="hero-panel" id="hero-club" role="tabpanel" aria-labelledby="tab-club" hidden>
+      <div class="hero-copy">
+        <h2 class="h1">Tu torneo armado en una tarde, desde un solo panel.</h2>
+        <p class="lead">Inscripciones, pagos, cuadros y resultados en vivo en el mismo lugar. <strong>Tu primer torneo es gratis.</strong> Después pagas desde $12 por jugador, sin mensualidad obligatoria.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://club.zetio.app/">Crear mi primer torneo gratis</a>
+          <a class="btn btn-ghost" href="#precios">Calcular mi costo</a>
+        </div>
+        <p class="hero-note">Registro de club gratis. Sin tarjeta ni compromiso.</p>
+        <ul class="ticks">
+          <li>Cuadros, grupos y resultados que se arman solos</li>
+          <li>Tu torneo aparece en la app donde ya están los jugadores</li>
+          <li>Solo necesitas un teléfono o una computadora</li>
+        </ul>
+      </div>
+      <div class="hero-art hero-art-wide"><img class="dash" src="/site/img/clubs-dashboard.webp" alt="Panel de Zetio Clubs con un torneo abierto, inscripciones, horario e ingresos del día" width="620" height="335"></div>
+    </div>
+  </div>
+</section>
+
+<section class="facts" aria-label="Lo esencial">
+  <div class="wrap">
+    <ul>
+      <li><b>Gratis</b><span>para jugadores y coaches</span></li>
+      <li><b>iOS y Android</b><span>una app, un solo perfil</span></li>
+      <li><b>Primer torneo gratis</b><span>para clubes, hasta 8 parejas</span></li>
+      <li><b class="num">Desde $12 por jugador</b><span>para clubes, sin mensualidad obligatoria</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- JUGADORES -->
+<section class="room" id="jugadores">
+  <div class="wrap room-grid">
+    <div class="room-copy">
+      <div class="room-head">
+        <div class="room-tags"><span class="eyebrow"><svg class="pi" viewBox="0 0 121.73 165.15" aria-hidden="true"><path d="M48.7,165.15c-.74,0-1.49-.12-2.23-.36-2.86-.95-4.79-3.64-4.79-6.65v-49.44H7.01c-2.65,0-5.08-1.49-6.27-3.86-1.19-2.37-.95-5.21.64-7.34L71.74,2.82c1.9-2.56,5.29-3.49,8.24-2.33,2.95,1.18,4.74,4.21,4.35,7.37l-6.84,55.53h37.23c2.66,0,5.09,1.5,6.27,3.88,1.19,2.38.93,5.23-.67,7.35l-66.01,87.72c-1.35,1.79-3.45,2.79-5.6,2.79ZM20.97,94.66h27.74c3.88,0,7.01,3.14,7.01,7.01v35.47l44.94-59.72h-31.11c-2.01,0-3.92-.86-5.25-2.37-1.33-1.5-1.95-3.51-1.71-5.5l4.56-37.05-46.19,62.16Z"/></svg>Zetio Play · Jugadores</span><span class="price-tag">Gratis</span></div>
+        <h2>Juega más. Organiza menos.</h2>
+        <p>Todo lo que hoy resuelves entre el grupo de WhatsApp, una hoja y la memoria, en una app.</p>
+      </div>
+      <ul class="feats">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3>Reta lista en menos de un minuto</h3><p>Eliges formato, número de jugadores y canchas. Zetio arma los cruces.</p></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg><h3>Cada jugador confirma su lugar</h3><p>Ves quién va y quién no. Nadie tiene que preguntar en el chat.</p></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><h3>Marcador y tabla al momento</h3><p>Capturas el resultado y la tabla se actualiza sola. Cada partido suma a tu historial.</p></li>
+      </ul>
+      <div class="stores">
+        <a class="dl" href="https://apps.apple.com/mx/app/zetio/id6757622344" aria-label="Descarga ahora en App Store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>Descarga ahora</a>
+        <a class="dl" href="https://play.google.com/store/apps/details?id=user.zetio.app" aria-label="Descarga ahora en Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg>Descarga ahora</a>
+      </div>
+      <a class="how" href="/como-funciona/play/">Ver cómo funciona, paso a paso →</a>
+    </div>
+    <figure class="duo">
+      <video data-flow="play" muted loop playsinline preload="none" poster="/site/img/play-flujo-poster.webp" width="540" height="1080" aria-label="Recorrido animado de Zetio Play: crear una reta, sumar jugadores, capturar el marcador y ver la tabla actualizada"></video>
+      <figcaption>Zetio Play</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- COACHES -->
+<section class="room room-flip" id="coaches" style="padding-top:0">
+  <div class="wrap room-grid">
+    <div class="room-copy">
+      <div class="room-head">
+        <div class="room-tags"><span class="eyebrow"><svg class="pi" viewBox="0 0 144.1 144.1" aria-hidden="true"><path d="M72.05,144.1C32.32,144.1,0,111.78,0,72.04S32.32,0,72.05,0s72.04,32.32,72.04,72.04-32.32,72.05-72.04,72.05ZM72.05,14.03c-31.99,0-58.02,26.03-58.02,58.02s26.03,58.02,58.02,58.02,58.02-26.03,58.02-58.02S104.04,14.03,72.05,14.03Z"/><path d="M72.05,110.65c-21.29,0-38.6-17.31-38.6-38.6s17.31-38.59,38.6-38.59,38.59,17.31,38.59,38.59-17.31,38.6-38.59,38.6ZM72.05,47.48c-13.55,0-24.57,11.02-24.57,24.57s11.03,24.57,24.57,24.57,24.57-11.03,24.57-24.57-11.02-24.57-24.57-24.57Z"/><circle cx="72.05" cy="72.05" r="12.51"/></svg>Zetio Coach · Coaches</span><span class="price-tag">Gratis</span></div>
+        <h2>Tu clase termina con números, no con impresiones.</h2>
+        <p>El alumno que ve su avance regresa. Zetio convierte cada sesión en datos que los dos entienden.</p>
+      </div>
+      <ul class="feats">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="3"/><path d="M9 8h6M9 12h6M9 16h3"/></svg><h3>Registra cada punto en vivo</h3><p>Ace, primer saque, doble falta, fondo o red. Un toque por golpe, sin dejar de ver el partido.</p></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 019 9h-9z"/></svg><h3>Efectividad por tipo de golpe</h3><p>Al terminar ves aciertos y errores de cada golpe, y sabes qué trabajar la siguiente clase.</p></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l5-5 4 3 8-9M15 6h5v5"/></svg><h3>Historial de cada alumno</h3><p>Todas sus sesiones quedan guardadas para comparar su progreso semana a semana.</p></li>
+      </ul>
+      <div class="stores">
+        <a class="dl" href="https://apps.apple.com/mx/app/zetio/id6757622344" aria-label="Descarga ahora en App Store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>Descarga ahora</a>
+        <a class="dl" href="https://play.google.com/store/apps/details?id=user.zetio.app" aria-label="Descarga ahora en Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg>Descarga ahora</a>
+      </div>
+      <a class="how" href="/como-funciona/coach/">Ver cómo funciona, paso a paso →</a>
+    </div>
+    <figure class="duo">
+      <video data-flow="coach" muted loop playsinline preload="none" poster="/site/img/coach-flujo-poster.webp" width="540" height="1080" aria-label="Recorrido animado de Zetio Coach: agenda, jugadores, registro de golpes en vivo y resultados con efectividad por golpe"></video>
+      <figcaption>Zetio Coach</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- TOUR -->
+<section class="room" id="tour" style="padding-top:0">
+  <div class="wrap room-grid">
+    <div class="room-copy">
+      <div class="room-head">
+        <div class="room-tags"><span class="eyebrow"><svg class="pi" viewBox="0 0 149.59 150.29" aria-hidden="true"><path d="M146.27,28.14c-4.42-7.68-12.67-12.46-21.54-12.46h-2.53V7.01c0-3.88-3.14-7.01-7.01-7.01H34.17c-3.88,0-7.01,3.14-7.01,7.01v8.67h-2.29c-8.86,0-17.12,4.77-21.55,12.45-4.16,7.25-4.42,16.04-.68,23.52l2.28,4.56c4.24,8.47,12.76,13.74,22.23,13.74h5.66c7.01,13.03,19.94,22.39,35.15,24.56v41.75h-21c-3.88,0-7.01,3.14-7.01,7.01s3.14,7.01,7.01,7.01h56.02c3.88,0,7.01-3.14,7.01-7.01s-3.14-7.01-7.01-7.01h-21v-41.85c14.96-2.33,27.65-11.6,34.57-24.47h5.9c9.47,0,17.99-5.27,22.23-13.74l2.28-4.56c3.74-7.49,3.48-16.27-.69-23.51ZM27.14,55.93c-4.13,0-7.84-2.29-9.68-5.99l-2.28-4.56c-1.63-3.26-1.52-7.09.29-10.25,1.93-3.34,5.53-5.42,9.39-5.42h2.29v17.81c0,2.87.3,5.67.79,8.4h-.8ZM74.68,81.02c-13.66,0-25.39-8.24-30.6-20-.14-.48-.3-.93-.53-1.36-1.48-3.77-2.36-7.85-2.36-12.14v-23.64c.07-.4.24-.77.24-1.19s-.17-.79-.24-1.19v-7.48h66.98v33.5c0,18.46-15.03,33.49-33.49,33.49ZM134.41,45.38l-2.28,4.56c-1.84,3.69-5.55,5.99-9.68,5.99h-1.04c.49-2.73.79-5.53.79-8.4v-17.81h2.53c3.86,0,7.46,2.08,9.38,5.42,1.81,3.16,1.93,6.99.3,10.25Z"/></svg>Zetio Tour · Jugadores de competencia</span><span class="price-tag">Gratis</span></div>
+        <h2>Compite en serio. Tu torneo completo en el celular.</h2>
+        <p>Encuentras el torneo, te inscribes y sigues cada ronda sin preguntarle a nadie a qué hora ni en qué cancha juegas.</p>
+      </div>
+      <ul class="feats">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg><h3>Encuentra torneos e inscríbete</h3><p>Ves club, categoría, fecha, sede y costo de inscripción antes de apuntarte, con la convocatoria a la mano.</p></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><h3>Tu próximo partido, siempre visible</h3><p>Día, hora, cancha y rival en la pantalla de inicio, por fase y por categoría.</p></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10v5a5 5 0 01-10 0V4zM7 6H4v1a3 3 0 003 3M17 6h3v1a3 3 0 01-3 3M12 14v4M8 20h8"/></svg><h3>Cuadros y resultados en vivo</h3><p>Fase de grupos y eliminatorias con el marcador de cada set, actualizados al terminar cada partido.</p></li>
+      </ul>
+      <div class="stores">
+        <a class="dl" href="https://apps.apple.com/mx/app/zetio/id6757622344" aria-label="Descarga ahora en App Store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>Descarga ahora</a>
+        <a class="dl" href="https://play.google.com/store/apps/details?id=user.zetio.app" aria-label="Descarga ahora en Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg>Descarga ahora</a>
+      </div>
+      <a class="how" href="/como-funciona/tour/">Ver cómo funciona, paso a paso →</a>
+    </div>
+    <figure class="duo">
+      <video data-flow="tour" muted loop playsinline preload="none" poster="/site/img/tour-flujo-poster.webp" width="540" height="1080" aria-label="Recorrido animado de Zetio Tour: buscar un torneo, inscribirse en pareja, reservar lugar, seguir las eliminatorias y ver el resultado final"></video>
+      <figcaption>Zetio Tour</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- CLUBES -->
+<section class="room clubs" id="clubes">
+  <div class="wrap">
+    <div class="clubs-top">
+      <div class="room-copy">
+        <div class="room-head">
+          <span class="eyebrow">Zetio Clubs · Clubes y organizadores</span>
+          <h2>Deja el Excel. Tu torneo se arma en una tarde.</h2>
+          <p>Un panel para todo el torneo, desde la primera inscripción hasta la final. Hecho para quien organiza, no para quien programa.</p>
+        </div>
+        <div class="free-box"><div><b>Tu primer torneo es gratis</b><span>Hasta 8 parejas, con el sistema completo y visible en la app de los jugadores. Sin tarjeta.</span></div></div>
+        <div class="hero-actions">
+          <a class="btn btn-dark" href="https://club.zetio.app/">Crear mi primer torneo gratis</a>
+          <a class="btn btn-outline-dark" href="#precios">Ver precios</a>
+        </div>
+        <a class="how how-dark" href="/como-funciona/clubs/">Ver cómo funciona, paso a paso →</a>
+      </div>
+      <figure class="shot">
+        <img src="/site/img/clubs-dashboard.webp" alt="Panel de Zetio Clubs: torneo con inscripciones abiertas, parejas, categorías, horario e ingresos" width="640" height="346" loading="lazy">
+        <figcaption>Panel de Zetio Clubs</figcaption>
+      </figure>
+    </div>
+
+    <ul class="club-grid">
+      <li><h3>Inscripciones y pagos</h3><p>Las parejas se inscriben y tú llevas el control de quién pagó, en la misma pantalla.</p></li>
+      <li><h3>Cuadros y grupos automáticos</h3><p>Defines el formato. Zetio arma grupos, eliminatorias y calendario de partidos.</p></li>
+      <li><h3>Resultados en vivo</h3><p>Capturas el marcador y cada jugador ve su cuadro y su siguiente partido en la app.</p></li>
+      <li><h3>Tu equipo, con permisos</h3><p>Das acceso a tu staff con roles, para que cada quien haga solo lo que le toca.</p></li>
+    </ul>
+
+    <ol class="steps">
+      <li><h3>Registra tu club</h3><p>Es gratis y toma unos minutos. Recibes tu torneo de bienvenida.</p></li>
+      <li><h3>Publica tu torneo</h3><p>Categorías, fecha, costo de inscripción y sede. Queda visible para los jugadores.</p></li>
+      <li><h3>Juégalo</h3><p>Zetio lleva cuadros y resultados. Tú atiendes a tu gente.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- PRECIOS -->
+<section class="pricing" id="precios">
+  <div class="wrap">
+    <div class="pricing-inner">
+      <div class="pricing-head">
+        <div class="pricing-head-top">
+          <span class="eyebrow">Precios para clubes</span>
+          <div class="currency-toggle" role="group" aria-label="Moneda">
+            <button type="button" id="cur-mxn" aria-pressed="true" aria-label="Pesos mexicanos"><img src="/bandera_mexico.png" alt="" width="20" height="14" loading="lazy">MXN</button>
+            <button type="button" id="cur-usd" aria-pressed="false" aria-label="Dólares estadounidenses"><img src="/bandera_usa.png" alt="" width="20" height="14" loading="lazy">USD</button>
+          </div>
+        </div>
+        <h2>Desde <span class="num" id="o-floor">$12</span> por jugador. Sin mensualidad obligatoria.</h2>
+        <p>Compras créditos y los usas cuando quieras. 1 crédito es 1 jugador inscrito, así que una pareja son 2 créditos. Jugadores y coaches no pagan nada.</p>
+      </div>
+
+      <div class="calc">
+        <div class="calc-in">
+          <label for="parejas">¿Cuántas parejas juegan tu torneo?</label>
+          <div class="calc-big"><output id="o-parejas" for="parejas" class="num">16</output><span>parejas</span></div>
+          <input type="range" id="parejas" min="4" max="500" step="1" value="16" aria-describedby="o-eq">
+          <div class="chips" id="chips" aria-label="Tamaños frecuentes">
+            <button type="button" data-v="8">8 parejas</button>
+            <button type="button" data-v="16">16</button>
+            <button type="button" data-v="32">32</button>
+            <button type="button" data-v="64">64</button>
+            <button type="button" data-v="100">100</button>
+          </div>
+          <p class="calc-eq" id="o-eq"><b class="num">16 parejas</b> son <b class="num">32 jugadores</b>, es decir <b class="num">32 créditos</b>.</p>
+        </div>
+        <div class="calc-out" aria-live="polite">
+          <span class="k">Lo que pagas, una sola vez</span>
+          <div class="calc-price"><output id="o-price" class="num">$1,200</output><span id="o-pack">Pack S, 80 créditos</span></div>
+          <ul class="calc-lines">
+            <li><span>Usas en este torneo</span><span id="o-use" class="num">32 créditos</span></li>
+            <li><span>Te sobran para el siguiente</span><span id="o-left" class="num">48 créditos</span></li>
+            <li><span>Costo real por jugador</span><span id="o-pp" class="num">$15.00</span></li>
+          </ul>
+          <p class="calc-free" id="o-free" hidden>Si es tu primer torneo, este tamaño te sale gratis con el torneo de bienvenida.</p>
+          <p class="calc-alt" id="o-alt">¿Organizas cada mes? Con el plan <b>Inicial</b> pagas <b class="num">$999 al mes</b> y recibes <b class="num">80 créditos</b> cada mes.</p>
+        </div>
+      </div>
+
+      <div class="tables">
+        <div class="tbl">
+          <h3>Paquetes de créditos</h3>
+          <p>Un solo pago. Los créditos duran 12 meses y los repartes en los torneos que quieras.</p>
+          <div class="tbl-scroll">
+            <table>
+              <thead><tr><th>Paquete</th><th>Jugadores</th><th>Precio</th><th>Por jugador</th></tr></thead>
+              <tbody id="packs-body">
+                <tr><td>Pack S</td><td>80</td><td class="price">$1,200</td><td class="pp">$15</td></tr>
+                <tr><td>Pack M</td><td>200</td><td class="price">$2,800</td><td class="pp">$14</td></tr>
+                <tr><td>Pack L</td><td>500</td><td class="price">$6,500</td><td class="pp">$13</td></tr>
+                <tr><td>Pack XL</td><td>1,000</td><td class="price">$12,000</td><td class="pp">$12</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="tbl">
+          <div class="tbl-top">
+            <h3>Suscripción, si organizas cada mes</h3>
+            <div class="cycle" role="group" aria-label="Ciclo de pago">
+              <button type="button" id="cy-m" data-cycle="m" aria-pressed="true">Mensual</button>
+              <button type="button" id="cy-a" data-cycle="a" aria-pressed="false">Anual <span>2 meses gratis</span></button>
+            </div>
+          </div>
+          <p>Créditos nuevos cada mes y torneos relámpago gratis (hasta 8 parejas). Cancelas cuando quieras.</p>
+          <div class="tbl-scroll">
+            <table>
+              <thead><tr><th>Plan</th><th>Jugadores</th><th>Relámpago</th><th id="th-price">Al mes</th></tr></thead>
+              <tbody id="plans">
+                <tr><td>Inicial</td><td>80</td><td>1 al mes</td><td class="pp"><b>$999</b><small></small></td></tr>
+                <tr><td>Competidor</td><td>220</td><td>2 al mes</td><td class="pp"><b>$2,299</b><small></small></td></tr>
+                <tr><td>Élite</td><td>500</td><td>4 al mes</td><td class="pp"><b>$4,999</b><small></small></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <p class="fine" id="fine">Precios en pesos mexicanos. El plan anual se factura en un solo pago al año y equivale a 2 meses gratis. En plan mensual los créditos son del mes en curso; en plan anual y en paquetes duran 12 meses.</p>
+      <div class="pricing-cta">
+        <a class="btn btn-primary" href="https://club.zetio.app/">Crear mi primer torneo gratis</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="voices">
+  <div class="wrap">
+    <h2>Ya lo están jugando</h2>
+    <ul>
+      <li><blockquote>Por fin dejamos de discutir quién iba ganando. Zetio lleva la cuenta por nosotros.</blockquote><cite><b>Jugador</b>Diego Ramírez</cite></li>
+      <li><blockquote>Manejar mi agenda con mis alumnos ahora es más fácil y llevan registro de sus avances.</blockquote><cite><b>Coach</b>Fernanda Ruiz</cite></li>
+      <li><blockquote>Armé un torneo de 32 parejas en una tarde, cuadro incluido.</blockquote><cite><b>Organizador de torneos</b>Iván Torres</cite></li>
+    </ul>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="preguntas">
+  <div class="wrap faq-grid">
+    <div class="room-head">
+      <span class="eyebrow">Preguntas</span>
+      <h2>Lo que nos preguntan antes de empezar</h2>
+    </div>
+    <div class="faq-list">
+      <details open><summary>¿Cuánto cuesta Zetio?</summary><p>Para jugadores y coaches es gratis. Los clubes y organizadores pagan por jugador inscrito en sus torneos: desde $12 por jugador con paquetes, o una suscripción mensual si organizan seguido.</p></details>
+      <details><summary>Soy club, ¿puedo probarlo antes de pagar?</summary><p>Sí. Registrar tu club es gratis y recibes un torneo de bienvenida de hasta 8 parejas, con el sistema completo y visible en la app de los jugadores. No pedimos tarjeta.</p></details>
+      <details><summary>¿Qué es un crédito?</summary><p>Un crédito es un jugador inscrito en un torneo. Una pareja usa 2 créditos. Si compras un paquete y te sobran créditos, los usas en tu siguiente torneo.</p></details>
+      <details><summary>¿Cuánto duran mis créditos?</summary><p>Los de paquetes y suscripción anual duran 12 meses. Los de suscripción mensual son para el mes en curso. Los torneos relámpago gratis de cada mes no se acumulan.</p></details>
+      <details><summary>¿Necesito saber organizar torneos o equipo especial?</summary><p>No. Defines el formato y Zetio arma cuadros, grupos y resultados. Con un teléfono y la app puedes digitalizar tu torneo el mismo día.</p></details>
+      <details><summary>¿Para qué deportes funciona?</summary><p>Los clubes pueden publicar torneos de pádel y de tenis de mesa. Zetio está disponible en México.</p></details>
+      <details><summary>¿Qué pasa con mis datos?</summary><p>Tu historial y tus estadísticas son tuyos. No compartimos tu información con terceros.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section class="close" id="descargar">
+  <div class="wrap">
+    <div class="close-box">
+      <div class="close-col">
+        <h2>Tu próximo partido empieza aquí.</h2>
+        <p>Descarga Zetio y arma tu primera reta hoy. Gratis para jugadores y coaches.</p>
+        <div class="stores">
+          <a class="dl" href="https://apps.apple.com/mx/app/zetio/id6757622344" aria-label="Descarga ahora en App Store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>Descarga ahora</a>
+          <a class="dl" href="https://play.google.com/store/apps/details?id=user.zetio.app" aria-label="Descarga ahora en Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg>Descarga ahora</a>
+        </div>
+      </div>
+      <div class="close-club">
+        <span class="eyebrow">¿Tienes un club?</span>
+        <h3>Tu primer torneo es gratis</h3>
+        <p>Hasta 8 parejas, sin tarjeta. Después, desde $12 por jugador.</p>
+        <a class="btn btn-primary" href="https://club.zetio.app/">Crear mi torneo</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <img src="/site/img/brandIcon_claro.svg" alt="Zetio" width="92" height="24">
+      <p>La app de pádel para jugadores, coaches y clubes.</p>
+      <p>info@zetio.app · soporte@zetio.app</p>
+    </div>
+    <nav aria-label="Enlaces">
+      <a href="#jugadores">Jugadores</a>
+      <a href="#coaches">Coaches</a>
+      <a href="#clubes">Clubes</a>
+      <a href="#precios">Precios</a>
+      <a href="/como-funciona/">Cómo funciona</a>
+      <a href="https://www.instagram.com/zetio_oficial/">Instagram</a>
+      <a href="https://www.tiktok.com/@zetioapp">TikTok</a>
+    </nav>
+    <div class="foot-legal">
+      <div>
+        <p class="foot-legal-h">Zetio Users</p>
+        <nav aria-label="Legal Zetio Users">
+          <a href="/privacy">Privacidad</a>
+          <a href="/terms">Términos</a>
+        </nav>
+      </div>
+      <div>
+        <p class="foot-legal-h">Zetio Clubs</p>
+        <nav aria-label="Legal Zetio Clubs">
+          <a href="/privacyclubs">Privacidad</a>
+          <a href="/termsclubs">Términos</a>
+        </nav>
+      </div>
+    </div>
+    <p>© 2026 Zetio Racket Sports</p>
+  </div>
+</footer>
+
+<div class="dock">
+  <a class="btn btn-ghost" href="https://club.zetio.app/">Soy club</a>
+  <a class="btn btn-primary" href="#descargar">Descarga ahora</a>
+</div>
+
+<script>
+(function(){
+  /* al bajar, una franja oscura tapa lo que asoma por encima de la barra de navegación */
+  (function(){
+    var root=document.documentElement,tick=function(){root.classList.toggle("scrolled",(window.scrollY||root.scrollTop)>24)};
+    addEventListener("scroll",tick,{passive:true});tick();
+  })();
+
+  /* al abrir una página por un enlace, empezar arriba (o en su ancla); algunos visores conservan el scroll de la página anterior */
+  (function(){
+    var nav=performance.getEntriesByType&&performance.getEntriesByType("navigation")[0];
+    if(nav&&nav.type!=="navigate")return;
+    var done=false;
+    ["touchstart","pointerdown","wheel","keydown","mousedown"].forEach(function(ev){addEventListener(ev,function(){done=true},{passive:true,once:true})});
+    function place(){
+      if(done)return;
+      var id="";try{id=decodeURIComponent((location.hash||"").slice(1))}catch(e){}
+      var el=id&&document.getElementById(id),root=document.documentElement,prev=root.style.scrollBehavior;
+      root.style.scrollBehavior="auto";
+      if(el)el.scrollIntoView();else scrollTo(0,0);
+      root.style.scrollBehavior=prev;
+    }
+    var t0=Date.now();
+    place();addEventListener("load",place);addEventListener("pageshow",place);
+    [60,200,500,1000,2000].forEach(function(t){setTimeout(place,t)});
+    /* si algo mueve el scroll antes de que la persona toque la página, se corrige de nuevo */
+    addEventListener("scroll",function(){if(!done&&Date.now()-t0<30000)place()},{passive:true});
+  })();
+
+  /* video del flujo de Play: transparente, en bucle, solo se reproduce cuando está a la vista */
+  var ua=navigator.userAgent;
+  var webkit=/iP(hone|ad|od)/.test(ua)||(/Safari/.test(ua)&&!/Chrome|Chromium|Android/.test(ua));
+  var still=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var vids=[].slice.call(document.querySelectorAll("video[data-flow]"));
+  if(!still&&vids.length){
+    var start=function(v){
+      if(!v.src){v.src="/site/video/"+v.dataset.flow+"-flujo"+(webkit?".mov":".webm")}
+      var p=v.play();if(p&&p.catch)p.catch(function(){});
+    };
+    if("IntersectionObserver" in window){
+      var vo=new IntersectionObserver(function(es){
+        es.forEach(function(e){if(e.isIntersecting)start(e.target);else if(e.target.src)e.target.pause()});
+      },{threshold:.15});
+      vids.forEach(function(v){vo.observe(v)});
+    }else vids.forEach(start);
+  }
+
+  /* hero por audiencia */
+  var roles=["jugador","coach","club"];
+  var tabs=[].slice.call(document.querySelectorAll(".who button"));
+  function show(role,focus){
+    if(roles.indexOf(role)<0)return;
+    tabs.forEach(function(t){
+      var on=t.dataset.role===role;
+      t.setAttribute("aria-selected",on?"true":"false");
+      t.tabIndex=on?0:-1;
+      document.getElementById("hero-"+t.dataset.role).hidden=!on;
+      if(on&&focus)t.focus();
+    });
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener("click",function(){show(t.dataset.role)});
+    t.addEventListener("keydown",function(e){
+      if(e.key==="ArrowRight"||e.key==="ArrowLeft"){
+        e.preventDefault();
+        show(roles[(i+(e.key==="ArrowRight"?1:2))%3],true);
+      }
+    });
+  });
+  function fromHash(){show((location.hash||"").replace("#",""))}
+  window.addEventListener("hashchange",fromHash);fromHash();
+
+  /* calculadora de creditos */
+  var packs=[{n:"Pack S",c:80,p:1200},{n:"Pack M",c:200,p:2800},{n:"Pack L",c:500,p:6500},{n:"Pack XL",c:1000,p:12000}];
+  var plans=[{n:"Inicial",c:80,m:999,a:833,y:9990},{n:"Competidor",c:220,m:2299,a:1916,y:22990},{n:"Élite",c:500,m:4999,a:4166,y:49990}];
+  var cycle="m";
+  var currency="mxn",USD_RATE=15;
+  var money=function(v,d){
+    if(currency==="usd")return "US$"+(v/USD_RATE).toLocaleString("en-US",{minimumFractionDigits:d||0,maximumFractionDigits:d||0});
+    return "$"+v.toLocaleString("es-MX",{minimumFractionDigits:d||0,maximumFractionDigits:d||0})
+  };
+  var num=function(v){return v.toLocaleString("es-MX")};
+  var $=function(id){return document.getElementById(id)};
+  var packRows=[].slice.call(document.querySelectorAll("#packs-body tr"));
+  function renderPacks(){
+    packRows.forEach(function(r,i){
+      var p=packs[i];
+      r.querySelector(".price").textContent=money(p.p);
+      r.querySelector(".pp").textContent=money(p.p/p.c,currency==="usd"?2:0);
+    });
+  }
+  function setCurrency(c){
+    currency=c;
+    $("cur-mxn").setAttribute("aria-pressed",c==="mxn"?"true":"false");
+    $("cur-usd").setAttribute("aria-pressed",c==="usd"?"true":"false");
+    $("o-floor").textContent=money(12,c==="usd"?2:0);
+    $("fine").textContent=(c==="usd"?"Montos de referencia en dólares (tipo de cambio fijo de "+USD_RATE+" MXN por USD); los cobros se hacen en pesos mexicanos. ":"Precios en pesos mexicanos. ")+"El plan anual se factura en un solo pago al año y equivale a 2 meses gratis. En plan mensual los créditos son del mes en curso; en plan anual y en paquetes duran 12 meses.";
+    renderPacks();
+    setCycle(cycle);
+  }
+  var range=$("parejas"),chips=[].slice.call(document.querySelectorAll("#chips button"));
+  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function tween(el,to){
+    var from=+el.dataset.v||to;el.dataset.v=to;
+    if(reduce||from===to){el.textContent=money(to);return}
+    cancelAnimationFrame(el._raf);var t0=performance.now();
+    (function step(t){
+      var k=Math.min(1,(t-t0)/320),e=1-Math.pow(1-k,3);
+      el.textContent=money(Math.round(from+(to-from)*e));
+      if(k<1)el._raf=requestAnimationFrame(step);
+    })(t0);
+  }
+  function calc(){
+    var pairs=+range.value,players=pairs*2;
+    var pk=packs.filter(function(x){return x.c>=players})[0];
+    var price,label,credits;
+    if(pk){price=pk.p;credits=pk.c;label=pk.n+", "+num(pk.c)+" créditos"}
+    else{var xl=packs[3],k=Math.ceil(players/xl.c);price=xl.p*k;credits=xl.c*k;label=k+" × "+xl.n+", "+num(credits)+" créditos"}
+    range.style.setProperty("--fill",((pairs-4)/(500-4)*100)+"%");
+    $("o-parejas").textContent=num(pairs);
+    $("o-eq").innerHTML='<b class="num">'+num(pairs)+' parejas</b> son <b class="num">'+num(players)+' jugadores</b>, es decir <b class="num">'+num(players)+' créditos</b>.';
+    tween($("o-price"),price);
+    $("o-pack").textContent=label;
+    $("o-use").textContent=num(players)+" créditos";
+    $("o-left").textContent=num(credits-players)+" créditos";
+    $("o-pp").textContent=money(price/credits,2);
+    $("o-free").hidden=pairs>8;
+    var pl=plans.filter(function(x){return x.c>=players})[0];
+    $("o-alt").innerHTML=pl
+      ?'¿Organizas cada mes? Con el plan <b>'+pl.n+'</b> pagas <b class="num">'+(cycle==="a"?money(pl.y)+' al año</b> (equivale a '+money(pl.a)+' al mes)':money(pl.m)+' al mes</b>')+' y recibes <b class="num">'+num(pl.c)+' créditos</b> cada mes.'
+      :'Las suscripciones cubren hasta 500 jugadores al mes. Para este tamaño conviene el paquete.';
+    chips.forEach(function(b){b.setAttribute("aria-pressed",+b.dataset.v===pairs?"true":"false")});
+  }
+  var rows=[].slice.call(document.querySelectorAll("#plans tr"));
+  function setCycle(c){
+    cycle=c;
+    $("cy-m").setAttribute("aria-pressed",c==="m"?"true":"false");
+    $("cy-a").setAttribute("aria-pressed",c==="a"?"true":"false");
+    $("th-price").textContent=c==="a"?"Al mes, pago anual":"Al mes";
+    rows.forEach(function(r,i){
+      var p=plans[i],cell=r.lastElementChild;
+      cell.querySelector("b").textContent=money(c==="a"?p.a:p.m);
+      cell.querySelector("small").textContent=c==="a"?money(p.y)+" al año":"";
+    });
+    calc();
+  }
+  $("cy-m").addEventListener("click",function(){setCycle("m")});
+  $("cy-a").addEventListener("click",function(){setCycle("a")});
+  $("cur-mxn").addEventListener("click",function(){setCurrency("mxn")});
+  $("cur-usd").addEventListener("click",function(){setCurrency("usd")});
+  range.addEventListener("input",calc);
+  chips.forEach(function(b){b.addEventListener("click",function(){range.value=b.dataset.v;calc()})});
+  setCurrency("mxn");
+  /* aparicion al hacer scroll: solo lo que esta debajo de la primera pantalla */
+  if(!reduce&&"IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}});
+    },{threshold:.12,rootMargin:"0px 0px -6% 0px"});
+    var sel=".facts li,.room-head,.feats li,.room-copy > .stores,.duo img,.duo video,.free-box,.clubs .hero-actions,.shot,.club-grid li,.steps li,.pricing-head,.calc,.tbl,.fine,.pricing-cta,.voices h2,.voices li,.faq details,.close-box";
+    [].slice.call(document.querySelectorAll(sel)).forEach(function(el){
+      if(el.getBoundingClientRect().top<innerHeight*.9)return;
+      var i=[].indexOf.call(el.parentNode.children,el);
+      el.style.setProperty("--d",Math.min(i,5)*80+"ms");
+      el.classList.add("rv");io.observe(el);
+    });
+  }
+})();
+</script>
+</body>
+</html>

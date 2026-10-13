@@ -6,9 +6,9 @@ import { APP_STORE_URL, PLAY_STORE_URL, CLUB_APP_URL } from '../lib/appLinks'
 import StoreDropdown from './StoreDropdown'
 
 const navLinks = [
-  { label: 'Play', href: '#play' },
-  { label: 'Coach', href: '#coach' },
-  { label: 'Tour', href: '#tour' },
+  { label: 'Play', href: '/#jugadores' },
+  { label: 'Coach', href: '/#coaches' },
+  { label: 'Tour', href: '/#tour' },
 ]
 
 function ZetioLogo() {
@@ -32,7 +32,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const sectionHref = (hash) => (onHome ? hash : `/${hash}`)
+  const sectionHref = (href) => href
 
   return (
     <motion.div
