@@ -175,6 +175,11 @@ video.phone{width:min(370px,90%);width:min(370px,90%,38svh);height:auto}
 .pricing-head{display:flex;flex-direction:column;gap:14px;align-items:flex-start;margin-bottom:clamp(28px,4vw,44px)}
 .pricing-head h2 span{color:var(--green)}
 .pricing-head p{color:var(--muted);font-size:1.1rem;max-width:36em}
+.pricing-head-top{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;align-self:stretch;flex-wrap:wrap}
+.currency-toggle{display:inline-flex;padding:4px;border:1px solid var(--line);border-radius:999px;background:var(--surface);gap:2px}
+.currency-toggle button{font:inherit;font-size:.82rem;font-weight:700;color:var(--muted);background:transparent;border:0;border-radius:999px;min-height:32px;padding:0 10px 0 7px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.currency-toggle img{border-radius:3px;display:block;flex:none;object-fit:cover}
+.currency-toggle button[aria-pressed="true"]{background:var(--green);color:var(--ink)}
 .calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden}
 .calc-in{padding:clamp(20px,3vw,34px);display:flex;flex-direction:column;gap:20px;background:var(--surface)}
 .calc-in label{font-weight:700;color:var(--white);font-size:1.05rem}
@@ -262,6 +267,9 @@ footer{border-top:1px solid var(--line);padding-block:40px 110px;color:var(--mut
 .foot img{width:92px;margin-bottom:12px}
 .foot nav{display:flex;gap:22px;flex-wrap:wrap}
 .foot a:hover{color:var(--white)}
+.foot-legal{display:flex;gap:28px;flex-wrap:wrap}
+.foot-legal-h{font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);opacity:.55;margin-bottom:10px}
+.foot-legal nav{display:flex;flex-direction:column;gap:9px}
 
 /* barra fija en movil */
 /* movimiento */
@@ -587,8 +595,14 @@ footer{border-top:1px solid var(--line);padding-block:40px 110px;color:var(--mut
   <div class="wrap">
     <div class="pricing-inner">
       <div class="pricing-head">
-        <span class="eyebrow">Precios para clubes</span>
-        <h2>Desde <span class="num">$12</span> por jugador. Sin mensualidad obligatoria.</h2>
+        <div class="pricing-head-top">
+          <span class="eyebrow">Precios para clubes</span>
+          <div class="currency-toggle" role="group" aria-label="Moneda">
+            <button type="button" id="cur-mxn" aria-pressed="true" aria-label="Pesos mexicanos"><img src="/bandera_mexico.png" alt="" width="20" height="14" loading="lazy">MXN</button>
+            <button type="button" id="cur-usd" aria-pressed="false" aria-label="Dólares estadounidenses"><img src="/bandera_usa.png" alt="" width="20" height="14" loading="lazy">USD</button>
+          </div>
+        </div>
+        <h2>Desde <span class="num" id="o-floor">$12</span> por jugador. Sin mensualidad obligatoria.</h2>
         <p>Compras créditos y los usas cuando quieras. 1 crédito es 1 jugador inscrito, así que una pareja son 2 créditos. Jugadores y coaches no pagan nada.</p>
       </div>
 
@@ -626,11 +640,11 @@ footer{border-top:1px solid var(--line);padding-block:40px 110px;color:var(--mut
           <div class="tbl-scroll">
             <table>
               <thead><tr><th>Paquete</th><th>Jugadores</th><th>Precio</th><th>Por jugador</th></tr></thead>
-              <tbody>
-                <tr><td>Pack S</td><td>80</td><td>$1,200</td><td class="pp">$15</td></tr>
-                <tr><td>Pack M</td><td>200</td><td>$2,800</td><td class="pp">$14</td></tr>
-                <tr><td>Pack L</td><td>500</td><td>$6,500</td><td class="pp">$13</td></tr>
-                <tr><td>Pack XL</td><td>1,000</td><td>$12,000</td><td class="pp">$12</td></tr>
+              <tbody id="packs-body">
+                <tr><td>Pack S</td><td>80</td><td class="price">$1,200</td><td class="pp">$15</td></tr>
+                <tr><td>Pack M</td><td>200</td><td class="price">$2,800</td><td class="pp">$14</td></tr>
+                <tr><td>Pack L</td><td>500</td><td class="price">$6,500</td><td class="pp">$13</td></tr>
+                <tr><td>Pack XL</td><td>1,000</td><td class="price">$12,000</td><td class="pp">$12</td></tr>
               </tbody>
             </table>
           </div>
@@ -656,7 +670,7 @@ footer{border-top:1px solid var(--line);padding-block:40px 110px;color:var(--mut
           </div>
         </div>
       </div>
-      <p class="fine">Precios en pesos mexicanos. El plan anual se factura en un solo pago al año y equivale a 2 meses gratis. En plan mensual los créditos son del mes en curso; en plan anual y en paquetes duran 12 meses.</p>
+      <p class="fine" id="fine">Precios en pesos mexicanos. El plan anual se factura en un solo pago al año y equivale a 2 meses gratis. En plan mensual los créditos son del mes en curso; en plan anual y en paquetes duran 12 meses.</p>
       <div class="pricing-cta">
         <a class="btn btn-primary" href="https://club.zetio.app/">Crear mi primer torneo gratis</a>
       </div>
@@ -734,6 +748,22 @@ footer{border-top:1px solid var(--line);padding-block:40px 110px;color:var(--mut
       <a href="https://www.instagram.com/zetio_oficial/">Instagram</a>
       <a href="https://www.tiktok.com/@zetioapp">TikTok</a>
     </nav>
+    <div class="foot-legal">
+      <div>
+        <p class="foot-legal-h">Zetio Users</p>
+        <nav aria-label="Legal Zetio Users">
+          <a href="/privacy">Privacidad</a>
+          <a href="/terms">Términos</a>
+        </nav>
+      </div>
+      <div>
+        <p class="foot-legal-h">Zetio Clubs</p>
+        <nav aria-label="Legal Zetio Clubs">
+          <a href="/privacyclubs">Privacidad</a>
+          <a href="/termsclubs">Términos</a>
+        </nav>
+      </div>
+    </div>
     <p>© 2026 Zetio Racket Sports</p>
   </div>
 </footer>
@@ -819,9 +849,30 @@ footer{border-top:1px solid var(--line);padding-block:40px 110px;color:var(--mut
   var packs=[{n:"Pack S",c:80,p:1200},{n:"Pack M",c:200,p:2800},{n:"Pack L",c:500,p:6500},{n:"Pack XL",c:1000,p:12000}];
   var plans=[{n:"Inicial",c:80,m:999,a:833,y:9990},{n:"Competidor",c:220,m:2299,a:1916,y:22990},{n:"Élite",c:500,m:4999,a:4166,y:49990}];
   var cycle="m";
-  var money=function(v,d){return "$"+v.toLocaleString("es-MX",{minimumFractionDigits:d||0,maximumFractionDigits:d||0})};
+  var currency="mxn",USD_RATE=15;
+  var money=function(v,d){
+    if(currency==="usd")return "US$"+(v/USD_RATE).toLocaleString("en-US",{minimumFractionDigits:d||0,maximumFractionDigits:d||0});
+    return "$"+v.toLocaleString("es-MX",{minimumFractionDigits:d||0,maximumFractionDigits:d||0})
+  };
   var num=function(v){return v.toLocaleString("es-MX")};
   var $=function(id){return document.getElementById(id)};
+  var packRows=[].slice.call(document.querySelectorAll("#packs-body tr"));
+  function renderPacks(){
+    packRows.forEach(function(r,i){
+      var p=packs[i];
+      r.querySelector(".price").textContent=money(p.p);
+      r.querySelector(".pp").textContent=money(p.p/p.c,currency==="usd"?2:0);
+    });
+  }
+  function setCurrency(c){
+    currency=c;
+    $("cur-mxn").setAttribute("aria-pressed",c==="mxn"?"true":"false");
+    $("cur-usd").setAttribute("aria-pressed",c==="usd"?"true":"false");
+    $("o-floor").textContent=money(12,c==="usd"?2:0);
+    $("fine").textContent=(c==="usd"?"Montos de referencia en dólares (tipo de cambio fijo de "+USD_RATE+" MXN por USD); los cobros se hacen en pesos mexicanos. ":"Precios en pesos mexicanos. ")+"El plan anual se factura en un solo pago al año y equivale a 2 meses gratis. En plan mensual los créditos son del mes en curso; en plan anual y en paquetes duran 12 meses.";
+    renderPacks();
+    setCycle(cycle);
+  }
   var range=$("parejas"),chips=[].slice.call(document.querySelectorAll("#chips button"));
   var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
   function tween(el,to){
@@ -870,9 +921,11 @@ footer{border-top:1px solid var(--line);padding-block:40px 110px;color:var(--mut
   }
   $("cy-m").addEventListener("click",function(){setCycle("m")});
   $("cy-a").addEventListener("click",function(){setCycle("a")});
+  $("cur-mxn").addEventListener("click",function(){setCurrency("mxn")});
+  $("cur-usd").addEventListener("click",function(){setCurrency("usd")});
   range.addEventListener("input",calc);
   chips.forEach(function(b){b.addEventListener("click",function(){range.value=b.dataset.v;calc()})});
-  calc();
+  setCurrency("mxn");
   /* aparicion al hacer scroll: solo lo que esta debajo de la primera pantalla */
   if(!reduce&&"IntersectionObserver" in window){
     var io=new IntersectionObserver(function(es){
