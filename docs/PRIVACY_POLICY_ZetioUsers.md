@@ -494,6 +494,7 @@ Los siguientes datos se recopilan y **sí** están vinculados a tu cuenta, porqu
 | Contenido del usuario | Resultados, partidos, notas de coach, tickets de soporte | Funcionalidad deportiva y soporte |
 | Uso de la app | Eventos de sesión y uso interno | Analítica propia para mejorar el Servicio |
 | Compras | Historial de inscripciones pagadas | Funcionamiento del Servicio, recibos y obligaciones legales |
+| Información financiera | Datos de tarjeta capturados y procesados directamente por Stripe. Zetio no tiene acceso a ellos ni los almacena | Procesar el pago de inscripciones |
 
 ### 16.2 Datos NO vinculados a tu identidad (Data Not Linked to You)
 
