@@ -40,11 +40,11 @@ Cuando te registras y usas Zetio, recopilamos la siguiente información:
 
 | Categoría | Datos | Propósito |
 |-----------|-------|-----------|
-| **Ubicación del dispositivo** | Coordenadas aproximadas (latitud/longitud), ciudad, estado, país, código postal | Mostrarte torneos cercanos a tu zona dentro de la app. La ubicación se obtiene **únicamente tras tu consentimiento explícito** mediante el sistema de permisos del dispositivo (iOS/Android). La precisión es reducida (red/WiFi, no GPS fino) y se actualiza como máximo cada 24 horas. Puedes revocar este permiso en cualquier momento desde los ajustes del sistema operativo; al revocarlo, las funciones dependientes de ubicación dejarán de estar disponibles, sin afectar el resto del Servicio. |
+| **Ubicación del dispositivo** | Coordenadas (latitud/longitud), ciudad, estado, país, código postal | Mostrarte torneos cercanos a tu zona dentro de la app. La ubicación se obtiene **únicamente tras tu consentimiento explícito** mediante el sistema de permisos del dispositivo (iOS/Android). La app solicita la ubicación con precisión reducida (red/WiFi), pero las coordenadas se guardan tal como las entrega tu dispositivo y pueden ser precisas. Se actualiza como máximo cada 24 horas. Puedes revocar este permiso en cualquier momento desde los ajustes del sistema operativo; al revocarlo, las funciones dependientes de ubicación dejarán de estar disponibles, sin afectar el resto del Servicio. |
 | **Token de push** | Identificador único del dispositivo para notificaciones, plataforma (iOS/Android) | Enviarte notificaciones operativas sobre tus torneos, retas, partidos, invitaciones de amistad y de vínculo coach-jugador |
 | **Datos de sesión** | Token de sesión, identificador de sesión (UUID), timestamps de actividad | Mantener tu sesión activa y segura |
 | **Plataforma del dispositivo** | Sistema operativo utilizado (iOS, Android o web) | Compatibilidad técnica y estadísticas internas de uso |
-| **Código de país** | País derivado de tu ubicación aproximada (p. ej. MX, US, ES) | Personalización regional y estadísticas internas |
+| **Código de país** | País derivado de tu ubicación (p. ej. MX, US, ES) | Personalización regional y estadísticas internas |
 
 ### 1.3 Información de torneos, retas y partidos
 
@@ -117,7 +117,7 @@ Zetio procesa pagos en línea de inscripciones a torneos a través de **Stripe**
 
 Zetio Play permite acceder al módulo de retas casuales **sin necesidad de crear una cuenta**. En modo invitado:
 
-- **Datos que recopilamos:** Datos de sesión anónimos (sin vincular a un usuario identificado) y ubicación aproximada del dispositivo (únicamente si concedes el permiso). Nuestro sistema de analítica interna solo registra eventos vinculados a una cuenta autenticada; **hoy no se generan eventos de analítica en modo invitado**.
+- **Datos que recopilamos:** Datos de sesión anónimos (sin vincular a un usuario identificado) y ubicación del dispositivo (únicamente si concedes el permiso). Nuestro sistema de analítica interna solo registra eventos vinculados a una cuenta autenticada; **hoy no se generan eventos de analítica en modo invitado**.
 - **Datos que NO recopilamos:** Correo electrónico, contraseña, número de teléfono, fecha de nacimiento ni ningún otro dato de perfil personal.
 - **Unirse a una reta con código:** Un usuario en modo invitado puede unirse a una reta de Zetio Play utilizando únicamente el código de invitación (`invite_code`) y un **nombre temporal** introducido manualmente. Ese nombre se almacena asociado a la reta (no a un perfil) únicamente mientras la reta esté activa, y forma parte del historial agregado de la reta al cerrarse.
 - **El host puede removerte de la reta** en cualquier momento (ver sección 1.3, "Modificación de la lista de jugadores por el host"). Al ser removido como invitado, pierdes el acceso a la reta y, como tus datos de invitado no están vinculados a un perfil permanente, no quedará ninguna referencia identificable a ti en esa reta.
@@ -232,7 +232,7 @@ Zetio utiliza los siguientes servicios de terceros para operar. Cada uno tiene s
 | **Google OAuth** | Autenticación con cuenta Google | Correo, nombre, foto de perfil | [google.com/privacy](https://google.com/privacy) |
 | **Firebase Cloud Messaging (Google)** | Notificaciones push en Android | Token del dispositivo | [firebase.google.com/support/privacy](https://firebase.google.com/support/privacy) |
 | **Apple Push Notification service (APNs)** | Notificaciones push en iOS | Token del dispositivo | [apple.com/legal/privacy](https://www.apple.com/legal/privacy/) |
-| **OpenStreetMap / Nominatim** | Geocodificación inversa (convertir coordenadas en nombre de ciudad) | Coordenadas de ubicación aproximada | [osmfoundation.org/wiki/Privacy_Policy](https://osmfoundation.org/wiki/Privacy_Policy) |
+| **OpenStreetMap / Nominatim** | Geocodificación inversa (convertir coordenadas en nombre de ciudad) | Coordenadas de ubicación | [osmfoundation.org/wiki/Privacy_Policy](https://osmfoundation.org/wiki/Privacy_Policy) |
 | **Stripe** | Procesamiento de pagos y prevención de fraude | Datos de tu medio de pago (capturados directamente por Stripe), monto, datos técnicos de la conexión e información del torneo | [stripe.com/mx/privacy](https://stripe.com/mx/privacy) |
 | **Resend** | Envío de correos operativos, como códigos de vinculación | Correo electrónico, nombre y nombre del club | [resend.com/legal/privacy-policy](https://resend.com/legal/privacy-policy) |
 | **Capacitor In-App Review** | Calificación in-app (iOS SKStoreReviewController / Android Play In-App Reviews API) | Ningún dato personal — el prompt es nativo del sistema operativo | [capacitorjs.com/docs/apis/in-app-review](https://capacitorjs.com/docs/apis/in-app-review) |
@@ -262,7 +262,7 @@ La lista de países del selector de nacionalidad es una **lista estática inclui
 - **Dispositivo:** Se almacena localmente en tu dispositivo:
   - **Tu sesión de autenticación.** En **iOS y Android**, se guarda en almacenamiento cifrado a nivel de sistema operativo (**Keychain** en iOS, **Keystore** en Android, vía `@aparajita/capacitor-secure-storage`) — no en el almacenamiento web de la aplicación. En la **versión web/PWA**, se guarda en `localStorage` del navegador. Se elimina al cerrar sesión.
   - Preferencias de idioma, tema, módulo seleccionado por última vez, rol de coach elegido y estado de notificaciones
-  - Una caché de tu ubicación aproximada (máximo 24 horas)
+  - Una caché de tu ubicación (máximo 24 horas)
   - Un **recordatorio de tus últimas 3 cuentas usadas** en este dispositivo (correo electrónico, nombre para mostrar y método de acceso) para agilizar el inicio de sesión. Hoy no existe un control dentro de la app para borrar este recordatorio de forma individual; se elimina si borras los datos de la aplicación o la desinstalas.
   - Un dato **temporal de verificación pendiente** (tu correo electrónico y la marca de tiempo del registro) mientras confirmas tu cuenta con el código de verificación; se elimina automáticamente al verificar tu cuenta o al cancelar.
 - **Service Worker / PWA:** En la versión web y en la aplicación progresiva (PWA), un Service Worker (Workbox) almacena en caché archivos de la aplicación (JavaScript, CSS, fuentes, imágenes) para el funcionamiento sin conexión y un mejor rendimiento. Esta caché contiene únicamente activos estáticos de la aplicación, **no datos personales**.
@@ -401,7 +401,7 @@ Puedes desactivar los avisos de torneos cerca de ti en **Ajustes → Torneos cer
 
 ## 11. Analítica y publicidad
 
-- **Analítica propia:** Zetio utiliza un sistema de analítica **interno y propio** para medir el uso del Servicio. Registramos eventos de alto nivel como inicios de sesión, inscripciones a torneos, creación de retas en Zetio Play, partidos completados, invitaciones y aceptaciones de amigos, y eventos de la encuesta de experiencia — estos últimos pueden incluir el contenido concreto de tu respuesta (por ejemplo, la ciudad donde juegas) junto con el evento. Junto a cada evento se almacena el identificador de sesión, la plataforma del dispositivo y el código de país derivado de la ubicación aproximada. Estos eventos **requieren una cuenta autenticada** — el sistema de analítica no registra eventos en modo invitado. Estos datos se almacenan en nuestros propios servidores (Supabase) en la tabla `analytics_events`, **no se comparten con ningún tercero**, y se usan exclusivamente para mejorar el Servicio y entender cómo se utiliza. No utilizamos Google Analytics, Firebase Analytics, Mixpanel, Sentry, PostHog ni ninguna plataforma de analítica de terceros.
+- **Analítica propia:** Zetio utiliza un sistema de analítica **interno y propio** para medir el uso del Servicio. Registramos eventos de alto nivel como inicios de sesión, inscripciones a torneos, creación de retas en Zetio Play, partidos completados, invitaciones y aceptaciones de amigos, y eventos de la encuesta de experiencia — estos últimos pueden incluir el contenido concreto de tu respuesta (por ejemplo, la ciudad donde juegas) junto con el evento. Junto a cada evento se almacena el identificador de sesión, la plataforma del dispositivo y el código de país derivado de la ubicación. Estos eventos **requieren una cuenta autenticada** — el sistema de analítica no registra eventos en modo invitado. Estos datos se almacenan en nuestros propios servidores (Supabase) en la tabla `analytics_events`, **no se comparten con ningún tercero**, y se usan exclusivamente para mejorar el Servicio y entender cómo se utiliza. No utilizamos Google Analytics, Firebase Analytics, Mixpanel, Sentry, PostHog ni ninguna plataforma de analítica de terceros.
 - **Publicidad:** La aplicación Zetio **no muestra publicidad de terceros** ni utiliza SDKs publicitarios (no usamos AdMob, Facebook Ads ni similares). No compartimos datos de la aplicación con redes publicitarias. Las cookies opcionales del sitio web se describen en la sección 9.
 - **Rastreo:** Zetio **no rastrea** a sus usuarios según la definición del App Tracking Transparency (ATT) de Apple. Los datos de analítica que recopilamos son de uso estrictamente interno y no se combinan con datos de otras aplicaciones o sitios web.
 
@@ -416,7 +416,7 @@ Si resides en el estado de California (EE.UU.), la Ley de Privacidad del Consumi
 Categorías de información personal recopilada en los últimos 12 meses:
 - **Identificadores:** Correo electrónico, nombre, número de teléfono, identificador de dispositivo
 - **Información de perfil:** Fecha de nacimiento, sexo, preferencias deportivas, ciudad/estado
-- **Información de ubicación:** Ubicación aproximada (coarse location, no GPS preciso)
+- **Información de ubicación:** Ubicación del dispositivo (coordenadas que pueden ser precisas, ciudad, estado y país)
 - **Información de actividad en internet/app:** Eventos de sesión y uso del Servicio
 - **Información comercial:** Historial de inscripciones pagadas, montos y reembolsos
 - **Información profesional/deportiva:** Métricas de rendimiento, historial de entrenamientos, sesiones agendadas, estadísticas de partidos y notas del coach (Zetio Coach, únicamente con vínculo aceptado)
@@ -489,7 +489,7 @@ Los siguientes datos se recopilan y **sí** están vinculados a tu cuenta, porqu
 |--------------------------|-----------------|-----|
 | Información de contacto | Correo electrónico, nombre, teléfono | Autenticación, perfil, soporte |
 | Identificadores | Identificador de usuario, token de push | Funcionamiento del Servicio, notificaciones |
-| Ubicación aproximada | Coordenadas, ciudad, estado | Mostrar torneos cercanos (solo con consentimiento) |
+| Ubicación precisa y aproximada | Coordenadas, ciudad, estado | Mostrar torneos cercanos (solo con consentimiento) |
 | Datos de usuario | Fecha de nacimiento, sexo, ciudad/club/estilo de juego | Elegibilidad en categorías, personalización |
 | Contenido del usuario | Resultados, partidos, notas de coach, tickets de soporte | Funcionalidad deportiva y soporte |
 | Uso de la app | Eventos de sesión y uso interno | Analítica propia para mejorar el Servicio |
@@ -499,7 +499,7 @@ Los siguientes datos se recopilan y **sí** están vinculados a tu cuenta, porqu
 
 - Eventos de analítica en **Modo Invitado** (sin cuenta creada)
 - Métricas agregadas de uso a nivel de plataforma
-- Código de país derivado de la ubicación aproximada a efectos estadísticos
+- Código de país derivado de la ubicación a efectos estadísticos
 
 Estos datos **no permiten identificar personalmente al usuario**.
 
