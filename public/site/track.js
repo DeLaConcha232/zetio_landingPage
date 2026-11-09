@@ -61,11 +61,7 @@
     else if(/club\.zetio\.app/.test(href))track("club_click",{texto:el.textContent.trim(),ubicacion:place(el)});
     else if(/^\/como-funciona\//.test(href))track("guia_click",{guia:href,ubicacion:place(el)});
     else if(el.dataset&&el.dataset.role)track("perfil_elegido",{perfil:el.dataset.role});
-    else if(el.id==="cy-m"||el.id==="cy-a")track("precios_ciclo",{ciclo:el.id==="cy-a"?"anual":"mensual"});
-    else if(el.dataset&&el.dataset.v)track("calculadora_uso",{parejas:+el.dataset.v});
-  });
-  document.addEventListener("change",function(e){
-    if(e.target&&e.target.id==="parejas")track("calculadora_uso",{parejas:+e.target.value});
+    else if(el.dataset&&el.dataset.cycle)track("precios_ciclo",{ciclo:{m:"mensual",s:"semestral",a:"anual"}[el.dataset.cycle]});
   });
 
   /* Campañas: las etiquetas utm_ de la visita viajan a las tiendas y al panel de clubes */

@@ -1,6 +1,6 @@
 # Zetio
 
-> Zetio es una app de pádel para jugadores, coaches y clubes en México. Los jugadores arman retas y siguen torneos, los coaches registran el desempeño de sus alumnos y los clubes organizan torneos desde un panel web. Es gratis para jugadores y coaches. Los clubes pagan por jugador inscrito en sus torneos: el primer torneo de hasta 8 parejas es gratis y después cuesta desde $12 MXN por jugador con paquetes de créditos, o una suscripción mensual desde $999 MXN.
+> Zetio es una app de pádel para jugadores, coaches y clubes en México. Los jugadores arman retas y siguen torneos, los coaches registran el desempeño de sus alumnos y los clubes organizan torneos desde un panel web. Es gratis para jugadores y coaches. Los clubes tienen un plan Gratis y un plan Premium. Las inscripciones a torneos las fija cada club.
 
 ## Productos
 
@@ -11,9 +11,10 @@
 
 ## Precios para clubes
 
-- [Precios y calculadora](https://zetio.app/#precios): un crédito es un jugador inscrito; una pareja usa 2 créditos.
-- Paquetes de un solo pago, válidos 12 meses: Pack S 80 créditos $1,200 MXN; Pack M 200 créditos $2,800; Pack L 500 créditos $6,500; Pack XL 1,000 créditos $12,000.
-- Suscripción mensual: Inicial 80 jugadores al mes $999 MXN; Competidor 220 por $2,299; Élite 500 por $4,999. El pago anual equivale a 2 meses gratis.
+- [Precios](https://zetio.app/#precios): al crear un club se reciben 30 días de Premium sin tarjeta.
+- Plan Gratis: $0 MXN sin vencimiento; torneos ilimitados de hasta 16 jugadores y 1 miembro del equipo.
+- Plan Premium: $1,940 MXN al mes, $9,894 al semestre o $17,460 al año, IVA incluido; jugadores sin límite, hasta 10 miembros, administración de canchas, historial de pagos y ranking del club.
+- Cobros en línea en cualquier plan: el club recibe el 100% del precio en su cuenta de Stripe y el jugador paga un cargo por servicio. Los torneos de $0 tienen una tarifa de servicio de $50 MXN por inscripción desde la app.
 
 ## Guías paso a paso
 

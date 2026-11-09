@@ -1,10 +1,12 @@
 # Política de Privacidad — Zetio
 
-**Última actualización:** 11 de agosto de 2026
+**Última actualización:** 9 de noviembre de 2026
 
-Bienvenido a **Zetio**. Esta Política de Privacidad describe cómo Diego Diaz ("nosotros", "nuestro" o "Zetio") recopila, usa, almacena y protege tu información cuando utilizas la aplicación móvil Zetio y los servicios asociados (en conjunto, el "Servicio").
+Bienvenido a **Zetio**. Esta Política de Privacidad describe cómo **Luis Fernando Esparza Zarate**, persona física con actividad empresarial, con Registro Federal de Contribuyentes **EAZL9303222J7** y domicilio en Avenida Las Américas, número interior 104, exterior 110, colonia Las Américas, municipio de Aguascalientes, Aguascalientes, México ("nosotros", "nuestro" o "Zetio") recopila, usa, almacena y protege tu información cuando utilizas la aplicación móvil Zetio y los servicios asociados (en conjunto, el "Servicio").
 
-> **Alcance de este documento — Zetio Users.** Esta política cubre los productos orientados a jugadores y coaches individuales: **Zetio Tour**, **Zetio Play** y **Zetio Coach**. El tratamiento de datos de **Zetio Clubs** (dirigido a administradores de clubes/canchas) se documentará en una sección separada dentro de este mismo documento cuando ese producto esté disponible.
+Aunque la aplicación aparece en App Store y Google Play a nombre de Diego Diaz De La Concha, el responsable del tratamiento de tus datos personales es Luis Fernando Esparza Zarate.
+
+> **Alcance de este documento — Zetio Users.** Esta política cubre los productos orientados a jugadores y coaches individuales: **Zetio Tour**, **Zetio Play** y **Zetio Coach**. El tratamiento de datos en **Zetio Club** se describe en su propio [Aviso de Privacidad](https://zetio.app/privacyclubs).
 
 Zetio es una plataforma de deportes de raqueta (pádel, tenis y otros) compuesta por tres módulos, cada uno con tratamientos de datos específicos descritos en esta política:
 
@@ -38,7 +40,7 @@ Cuando te registras y usas Zetio, recopilamos la siguiente información:
 
 | Categoría | Datos | Propósito |
 |-----------|-------|-----------|
-| **Ubicación del dispositivo** | Coordenadas aproximadas (latitud/longitud), ciudad, estado, país, código postal | Mostrarte torneos cercanos a tu zona. La ubicación se obtiene **únicamente tras tu consentimiento explícito** mediante el sistema de permisos del dispositivo (iOS/Android). La precisión es reducida (red/WiFi, no GPS fino) y se actualiza como máximo cada 24 horas. Puedes revocar este permiso en cualquier momento desde los ajustes del sistema operativo; al revocarlo, las funciones dependientes de ubicación dejarán de estar disponibles, sin afectar el resto del Servicio. |
+| **Ubicación del dispositivo** | Coordenadas aproximadas (latitud/longitud), ciudad, estado, país, código postal | Mostrarte torneos cercanos a tu zona dentro de la app. La ubicación se obtiene **únicamente tras tu consentimiento explícito** mediante el sistema de permisos del dispositivo (iOS/Android). La precisión es reducida (red/WiFi, no GPS fino) y se actualiza como máximo cada 24 horas. Puedes revocar este permiso en cualquier momento desde los ajustes del sistema operativo; al revocarlo, las funciones dependientes de ubicación dejarán de estar disponibles, sin afectar el resto del Servicio. |
 | **Token de push** | Identificador único del dispositivo para notificaciones, plataforma (iOS/Android) | Enviarte notificaciones operativas sobre tus torneos, retas, partidos, invitaciones de amistad y de vínculo coach-jugador |
 | **Datos de sesión** | Token de sesión, identificador de sesión (UUID), timestamps de actividad | Mantener tu sesión activa y segura |
 | **Plataforma del dispositivo** | Sistema operativo utilizado (iOS, Android o web) | Compatibilidad técnica y estadísticas internas de uso |
@@ -54,6 +56,9 @@ Cuando participas en los módulos Zetio Tour y Zetio Play, generamos y almacenam
 - Resultados de partidos (marcadores por set)
 - Historial de partidos jugados
 - Estadísticas (participaciones, trofeos, posiciones en grupos y eliminatorias)
+- Horarios preferidos que indiques al inscribirte
+- Puntos y posición en el **ranking** de los clubes donde juegas
+- Historial que un club haya registrado antes de que tuvieras cuenta, si lo vinculas con el código que recibes en tu correo
 
 **Zetio Play (retas casuales):**
 - Retas que creas o en las que participas, con nombre, modalidad (número de jugadores), club indicado y estado
@@ -90,19 +95,23 @@ Al utilizar Zetio, aceptas que ciertos datos formen parte de la experiencia soci
 - Resultados de partidos
 - Estadísticas deportivas generadas en torneos, retas y coaching
 
-Estos datos pueden ser visibles para otros usuarios dentro del mismo contexto (torneos, retas o vínculo coach-jugador), pero nunca incluyen información privada como correo electrónico, teléfono o fecha de nacimiento. Esta visibilidad es parte esencial del funcionamiento del Servicio.
+Estos datos pueden ser visibles para otros usuarios dentro del mismo contexto (torneos, retas o vínculo coach-jugador), pero no incluyen información privada como correo electrónico, teléfono o fecha de nacimiento. Esta visibilidad es parte esencial del funcionamiento del Servicio.
 
-**Visibilidad de los datos de torneos y retas:** Los resultados de partidos, estadísticas y posiciones son visibles para otros usuarios registrados en Zetio que participen en el mismo torneo o reta. Tu nombre y estadísticas forman parte de tu perfil de jugador visible dentro de la plataforma. Tu información privada (correo electrónico, número de teléfono, fecha de nacimiento) **nunca es visible para otros usuarios**.
+**Visibilidad de los datos de torneos y retas:** Los resultados de partidos, estadísticas y posiciones son visibles para otros usuarios registrados en Zetio que participen en el mismo torneo o reta. Tu nombre y estadísticas forman parte de tu perfil de jugador visible dentro de la plataforma. Tu información privada (correo electrónico, número de teléfono, fecha de nacimiento) **no es visible para otros jugadores**.
+
+**Datos que recibe el club organizador.** Cuando te inscribes a un torneo, o un club te inscribe con tu código de amigo, el personal autorizado de ese club puede ver tu nombre, apellidos, sexo, fecha de nacimiento, teléfono, correo y fotografía, además de los datos de tu inscripción y pago, para validar tu categoría y organizar el torneo. El club conserva una ficha tuya en su lista de jugadores y trata estos datos como responsable independiente.
+
+El nombre, los puntos y la posición de los jugadores en el ranking de un club pueden ser visibles para otros usuarios.
 
 ### 1.4 Información de pagos
 
-Actualmente Zetio **no procesa pagos en línea** dentro de la aplicación:
+Zetio procesa pagos en línea de inscripciones a torneos a través de **Stripe**:
 
-- Las inscripciones a torneos se gestionan mediante un **flujo de reservación sin cobro** dentro de la app; cualquier pago asociado se coordina de forma externa entre el organizador del torneo y el jugador.
-- Los pagos de sesiones de Zetio Coach se registran internamente como una **herramienta de seguimiento para el coach** (marcar una sesión como "pendiente" o "pagada"), sin intervenir en ninguna transacción financiera real ni en el movimiento de dinero.
-- **Zetio no recopila, almacena ni tiene acceso a datos de tarjetas, cuentas bancarias, credenciales de pago ni ningún dato financiero sensible.**
-
-En caso de que en el futuro Zetio integre un procesador de pagos externo (por ejemplo, Stripe), actualizaremos esta Política de Privacidad con **al menos 30 días de anticipación** antes de activar dicha integración, describiendo qué datos se compartirán y con qué finalidad.
+- **Datos de tu tarjeta:** los captura y procesa directamente Stripe en su propia infraestructura. **Zetio no recopila ni almacena números de tarjeta ni credenciales de pago.**
+- **Datos que guardamos:** torneo, categorías, jugadores inscritos, montos (precio, cargo por servicio y total), estado del pago, reembolsos, contracargos, identificadores de Stripe y tu ticket de compra.
+- **Quién más recibe estos datos:** los cargos de un torneo con precio se realizan en la cuenta de Stripe del **club organizador**, que puede ver los datos del pago. La tarifa de servicio de un torneo de $0 se cobra en la cuenta de Stripe de Zetio.
+- **Pagos fuera de la app:** los que acuerdes directamente con un club no pasan por Zetio, aunque el club pueda registrar en su panel el monto y la forma de pago, por ejemplo en una reserva de cancha.
+- **Zetio Coach:** los pagos de sesiones se registran internamente como una **herramienta de seguimiento para el coach** (marcar una sesión como "pendiente" o "pagada"), sin intervenir en ninguna transacción financiera real ni en el movimiento de dinero.
 
 ### 1.5 Modo Invitado (Guest Mode)
 
@@ -168,9 +177,11 @@ Utilizamos tu información exclusivamente para:
 
 - **Proveer el Servicio:** Crear tu cuenta, gestionar tu perfil, inscribirte en torneos, organizar retas casuales, emparejar jugadores y registrar resultados.
 - **Funcionalidad de ubicación:** Mostrar torneos y eventos cercanos a tu zona geográfica.
+- **Pagos:** Procesar el cobro de inscripciones, apartar tu lugar, emitir tu ticket de compra, reflejar reembolsos y contracargos, prevenir fraude y cumplir obligaciones fiscales.
+- **Organización con clubes:** Compartir con el club organizador los datos necesarios para tu participación, y llevar el historial y el ranking de ese club.
 - **Gestión de coaching (Zetio Coach):** Facilitar la relación entre coaches y jugadores vinculados, registrar sesiones de entrenamiento, partidos supervisados y métricas deportivas, y enviar notificaciones operativas relacionadas con entrenamientos y partidos supervisados.
 - **Personalización mediante encuesta:** Las respuestas que aportas voluntariamente en la encuesta de onboarding y en las preguntas progresivas se utilizan para adaptar el contenido, sugerencias y funcionalidades que se te presentan dentro de la app (por ejemplo, mostrar torneos o eventos relevantes para tu zona de juego). En ningún caso estos datos se comparten con terceros ni se usan para publicidad.
-- **Notificaciones:** Informarte sobre actualizaciones de tus torneos, resultados de partidos, inscripciones, invitaciones de amistad, invitaciones de vínculo coach-jugador y eventos relevantes.
+- **Notificaciones:** Informarte sobre actualizaciones de tus torneos, recordatorios, cambios de horario, resultados de partidos, inscripciones, reservas de cancha, invitaciones de amistad, invitaciones de vínculo coach-jugador y torneos que se abran cerca de ti, si mantienes activo ese aviso.
 - **Mejora del Servicio:** Resolver problemas técnicos y mejorar la experiencia de usuario mediante analítica interna.
 - **Comunicación:** Responder a tickets de soporte y consultas.
 - **Feedback:** Permitirte calificar la aplicación mediante el sistema nativo de calificaciones del sistema operativo.
@@ -191,12 +202,13 @@ Para los usuarios sujetos al **Reglamento General de Protección de Datos (GDPR)
 |---------------------------|------------|
 | Crear y gestionar tu cuenta, inscribirte en torneos, participar en retas y registrar resultados | **Ejecución de contrato** (Art. 6.1.b) |
 | Gestionar la relación coach-jugador en Zetio Coach (vínculo, sesiones, métricas) | **Ejecución de contrato** (Art. 6.1.b) — solo tras aceptación explícita del vínculo por ambas partes |
+| Procesar el pago de tu inscripción y compartir con el club organizador los datos necesarios | **Ejecución de contrato** (Art. 6.1.b) |
 | Enviar notificaciones push sobre tus torneos, retas e invitaciones | **Consentimiento** (Art. 6.1.a) — otorgado al conceder el permiso de notificaciones |
 | Analítica interna para mejorar el Servicio | **Interés legítimo** (Art. 6.1.f) — sin afectar a tus derechos fundamentales |
 | Encuesta de experiencia y personalización | **Consentimiento** (Art. 6.1.a) — voluntario y revocable en cualquier momento |
 | Cumplir obligaciones fiscales y legales | **Obligación legal** (Art. 6.1.c) |
 
-Puedes retirar tu consentimiento en cualquier momento contactándonos en **soporte@zetio.app** o utilizando las opciones de opt-out descritas en esta política, sin que ello afecte a la licitud del tratamiento anterior a su retirada.
+Puedes retirar tu consentimiento en cualquier momento contactándonos en **zetioapp@gmail.com** o utilizando las opciones de opt-out descritas en esta política, sin que ello afecte a la licitud del tratamiento anterior a su retirada.
 
 **Usuarios en Latinoamérica.** Para usuarios en Latinoamérica (incluyendo México, Argentina, Chile, Colombia y otros países de la región), el tratamiento de datos se basa principalmente en:
 
@@ -221,6 +233,8 @@ Zetio utiliza los siguientes servicios de terceros para operar. Cada uno tiene s
 | **Firebase Cloud Messaging (Google)** | Notificaciones push en Android | Token del dispositivo | [firebase.google.com/support/privacy](https://firebase.google.com/support/privacy) |
 | **Apple Push Notification service (APNs)** | Notificaciones push en iOS | Token del dispositivo | [apple.com/legal/privacy](https://www.apple.com/legal/privacy/) |
 | **OpenStreetMap / Nominatim** | Geocodificación inversa (convertir coordenadas en nombre de ciudad) | Coordenadas de ubicación aproximada | [osmfoundation.org/wiki/Privacy_Policy](https://osmfoundation.org/wiki/Privacy_Policy) |
+| **Stripe** | Procesamiento de pagos y prevención de fraude | Datos de tu medio de pago (capturados directamente por Stripe), monto, datos técnicos de la conexión e información del torneo | [stripe.com/mx/privacy](https://stripe.com/mx/privacy) |
+| **Resend** | Envío de correos operativos, como códigos de vinculación | Correo electrónico, nombre y nombre del club | [resend.com/legal/privacy-policy](https://resend.com/legal/privacy-policy) |
 | **Capacitor In-App Review** | Calificación in-app (iOS SKStoreReviewController / Android Play In-App Reviews API) | Ningún dato personal — el prompt es nativo del sistema operativo | [capacitorjs.com/docs/apis/in-app-review](https://capacitorjs.com/docs/apis/in-app-review) |
 
 Servicios adicionales que se consultan pero **no reciben datos personales:**
@@ -228,9 +242,9 @@ Servicios adicionales que se consultan pero **no reciben datos personales:**
 
 La lista de países del selector de nacionalidad es una **lista estática incluida en la propia app** (no se consulta ningún servicio externo); el estado y la ciudad donde juegas se ingresan como texto libre. Zetio ya no depende de APIs externas de terceros para esta información.
 
-**Procesadores de pago.** Zetio **no utiliza actualmente ningún procesador de pagos externo** como parte del flujo operativo de la app (ver sección 1.4). Si en el futuro integramos un procesador (por ejemplo, Stripe), esta tabla y esta sección se actualizarán con al menos 30 días de anticipación.
+**Rol como encargados del tratamiento.** Salvo Stripe en lo que se indica abajo, los proveedores listados en la tabla anterior actúan como **encargados del tratamiento de datos (data processors)** en los términos del Art. 28 del GDPR y los artículos aplicables de la LFPDPPP. Procesan la información únicamente bajo las instrucciones de Zetio y para la prestación del Servicio.
 
-**Rol como encargados del tratamiento.** Todos los proveedores listados en la tabla anterior actúan como **encargados del tratamiento de datos (data processors)** en los términos del Art. 28 del GDPR y los artículos aplicables de la LFPDPPP. Procesan la información únicamente bajo las instrucciones de Zetio y para la prestación del Servicio. Zetio **no vende ni comparte datos personales con terceros para fines comerciales o publicitarios**, ni firma acuerdos de intercambio de datos para marketing cruzado entre aplicaciones.
+**Responsables independientes.** **Stripe** y el **club organizador** de tu torneo tratan los datos descritos en las secciones 1.3 y 1.4 como responsables independientes, para sus propias obligaciones y operación. Compartirlos con ellos es necesario para cumplir la relación que estableces al inscribirte, y cada uno es responsable de su propio tratamiento. Zetio **no vende ni comparte datos personales con terceros para fines comerciales o publicitarios**, ni firma acuerdos de intercambio de datos para marketing cruzado entre aplicaciones.
 
 **Transferencias internacionales.** Cuando los datos se transfieran fuera del Espacio Económico Europeo, se aplicarán las **Cláusulas Contractuales Tipo (SCCs)** aprobadas por la Comisión Europea o garantías equivalentes, según corresponda.
 
@@ -265,7 +279,7 @@ La lista de países del selector de nacionalidad es una **lista estática inclui
 
 ### 5.3 Retención de datos
 
-Conservamos tu información mientras mantengas una cuenta activa en Zetio. Si solicitas la eliminación de tu cuenta:
+Conservamos tu información mientras mantengas una cuenta activa en Zetio. A los **60 días** de finalizar un torneo se eliminan sus inscripciones, cuadros y partidos, y el club conserva un resumen con los primeros lugares de cada categoría. Si solicitas la eliminación de tu cuenta:
 
 - El **borrado lógico es inmediato** al confirmar la acción: tu cuenta deja de ser accesible y tu información no aparece en ningún flujo activo del Servicio.
 - El **borrado físico completo** (incluyendo copias de seguridad y réplicas de disaster recovery) se completa en un plazo máximo de **30 días naturales**.
@@ -284,7 +298,7 @@ De acuerdo con la Ley Federal de Protección de Datos Personales en Posesión de
 - **Cancelación:** Solicitar la eliminación de tu cuenta y datos personales.
 - **Oposición:** Oponerte al tratamiento de tus datos para fines específicos.
 
-Para ejercer tus derechos ARCO, envía un correo a **soporte@zetio.app** con:
+Para ejercer tus derechos ARCO, envía un correo a **zetioapp@gmail.com** con:
 - Tu nombre completo
 - El correo electrónico asociado a tu cuenta
 - Una descripción clara de tu solicitud
@@ -293,6 +307,10 @@ Para ejercer tus derechos ARCO, envía un correo a **soporte@zetio.app** con:
 La copia de identificación que nos proporciones se utilizará **exclusivamente para verificar tu identidad** y se eliminará de forma segura tras completar la verificación, en un plazo máximo de **30 días**. No se conservará, no se utilizará para ningún otro fin ni se compartirá con terceros.
 
 Responderemos en un plazo máximo de **20 días hábiles** conforme a la ley. Si tu solicitud procede, la haremos efectiva dentro de los **15 días hábiles** siguientes a la respuesta. Ambos plazos pueden ampliarse una sola vez por un período igual cuando las circunstancias del caso lo justifiquen.
+
+Si consideras que tu solicitud no fue atendida correctamente, puedes acudir ante la **Secretaría Anticorrupción y Buen Gobierno**, autoridad competente en México en materia de protección de datos personales en posesión de particulares.
+
+Los datos que un club tiene en su propia lista de jugadores, y los pagos registrados en su cuenta de Stripe, deben solicitarse también a ese club. Si nos escribes, te ayudaremos a canalizar tu solicitud.
 
 ### 6.2 Derechos extendidos (GDPR — Usuarios de la UE/EEE)
 
@@ -316,9 +334,10 @@ Al eliminar tu cuenta se realizan las siguientes acciones de forma inmediata e i
 - Se borrarán tus datos de perfil, historial de partidos, amigos, tokens de push, preferencias, tickets de soporte y respuestas de encuestas.
 - Se borrarán tus **métricas deportivas, sesiones de entrenamiento, partidos supervisados, notas del coach, registros internos de pagos de coaching y vínculos coach-jugador** asociados a tu cuenta (tanto si actuabas como coach como si eras jugador vinculado).
 - Los resultados de torneos y retas en los que participaste se **anonimizarán** (se elimina la referencia a tu usuario) para mantener la integridad histórica de los torneos y rankings.
+- La **ficha que un club tenga de ti** se desvincula de tu cuenta, pero permanece en la lista de ese club hasta que el club la elimine o se atienda tu solicitud.
 - Los datos que debamos conservar por obligación legal aplicable se almacenarán únicamente por el período mínimo requerido por la legislación correspondiente.
 
-Si tienes algún problema para eliminar tu cuenta desde la app, también puedes solicitarlo por correo a **soporte@zetio.app**.
+Si tienes algún problema para eliminar tu cuenta desde la app, también puedes solicitarlo por correo a **zetioapp@gmail.com**.
 
 **Importante:** *Ser removido de una reta por el host* (ver sección 1.3) **no es lo mismo que eliminar tu cuenta**. Si el host te remueve de una reta, simplemente dejas de tener acceso a esa reta en particular; tu cuenta de Zetio, tu perfil, tus amigos, tu historial en otros torneos/retas y todos tus demás datos **permanecen intactos**. La eliminación de cuenta descrita en esta sección es una acción que solo tú puedes iniciar desde tus Ajustes.
 
@@ -326,7 +345,7 @@ Si tienes algún problema para eliminar tu cuenta desde la app, también puedes 
 
 ## 7. Menores de edad
 
-Zetio está dirigido a personas de **13 años o más**. No recopilamos intencionadamente información de menores de 13 años. Si eres padre o tutor y crees que un menor de 13 años nos ha proporcionado datos personales, contáctanos a **soporte@zetio.app** y eliminaremos dicha información.
+Zetio está dirigido a personas de **13 años o más**. No recopilamos intencionadamente información de menores de 13 años. Si eres padre o tutor y crees que un menor de 13 años nos ha proporcionado datos personales, contáctanos a **zetioapp@gmail.com** y eliminaremos dicha información.
 
 Los usuarios entre 13 y 17 años solo pueden utilizar Zetio con el consentimiento de un padre, madre o tutor legal. Este consentimiento debe ser otorgado fuera de la plataforma y es responsabilidad del usuario y de su tutor. Zetio no verifica de forma independiente la obtención de dicho consentimiento, pero se reserva el derecho de restringir, suspender o eliminar cuentas si detecta uso indebido por menores sin autorización o sin cumplimiento de la edad mínima aplicable en la jurisdicción del usuario (p. ej. 16 años en algunos países de la UE conforme al GDPR Art. 8).
 
@@ -334,19 +353,19 @@ Los usuarios entre 13 y 17 años solo pueden utilizar Zetio con el consentimient
 
 - El **consentimiento explícito del padre, madre o tutor legal** es un requisito indispensable antes de que el jugador acepte la invitación de vínculo y antes de que el coach registre cualquier dato deportivo del menor.
 - El coach es **responsable de obtener y conservar evidencia** de dicho consentimiento, así como de informar al tutor sobre qué datos se registrarán y con qué finalidad.
-- El padre, madre o tutor legal puede en cualquier momento solicitar el acceso, rectificación o eliminación de los datos del menor escribiendo a **soporte@zetio.app**, y puede solicitar la ruptura del vínculo con el coach desde la propia app a través de la cuenta del menor.
+- El padre, madre o tutor legal puede en cualquier momento solicitar el acceso, rectificación o eliminación de los datos del menor escribiendo a **zetioapp@gmail.com**, y puede solicitar la ruptura del vínculo con el coach desde la propia app a través de la cuenta del menor.
 
 ---
 
 ## 8. Transferencias internacionales
 
-Tus datos pueden ser procesados en servidores ubicados fuera de México (principalmente, infraestructura de Supabase y los servicios de notificación push de Google/Apple). En todos los casos, estos proveedores mantienen estándares de seguridad equivalentes o superiores a los requeridos por la legislación mexicana y cumplen con certificaciones internacionales de protección de datos (incluyendo, según corresponda, las cláusulas contractuales tipo de la UE para transferencias de datos internacionales).
+Tus datos pueden ser procesados en servidores ubicados fuera de México (principalmente, infraestructura de Supabase, Stripe y los servicios de notificación push de Google/Apple). En todos los casos, estos proveedores mantienen estándares de seguridad equivalentes o superiores a los requeridos por la legislación mexicana y cumplen con certificaciones internacionales de protección de datos (incluyendo, según corresponda, las cláusulas contractuales tipo de la UE para transferencias de datos internacionales).
 
 ---
 
 ## 9. Cookies y tecnologías similares
 
-Zetio **no utiliza cookies propias de rastreo ni tecnologías de publicidad**. Utilizamos almacenamiento local del dispositivo exclusivamente para:
+La aplicación Zetio **no utiliza cookies de rastreo ni tecnologías de publicidad**. Utilizamos almacenamiento local del dispositivo exclusivamente para:
 
 - Mantener tu sesión activa — en Keychain/Keystore (iOS/Android nativo) o `localStorage` (web); ver sección 5.1 para el detalle.
 - Guardar tus preferencias de idioma y tema (claro/oscuro), módulo seleccionado, rol de coach y estado de notificaciones
@@ -356,29 +375,34 @@ Zetio **no utiliza cookies propias de rastreo ni tecnologías de publicidad**. U
 
 Estos datos son estrictamente funcionales y no se comparten con terceros. Los datos de sesión y de verificación pendiente se eliminan al cerrar sesión o completarse; las preferencias y el recordatorio de cuentas persisten hasta que borres los datos de la app o la desinstales.
 
+**Sitio web zetio.app.** El sitio informativo usa Google Tag Manager y puede cargar etiquetas de medición y publicidad de Google, Meta y TikTok. Estas cookies **solo se activan si las aceptas** en el aviso de cookies del sitio. Sirven para medir visitas y campañas, y no se usan dentro de la aplicación.
+
 ---
 
 ## 10. Notificaciones push
 
 Zetio envía notificaciones push sobre:
 - Actualizaciones de torneos y retas en los que participas
+- Recordatorios y cambios de horario de tus partidos
 - Resultados de partidos
+- Reservas de cancha registradas a tu nombre
+- Apertura de torneos cerca de ti, según el estado de tu perfil y los deportes que elijas
 - Confirmaciones de inscripción y de unión a retas
 - Solicitudes de amistad recibidas o aceptadas
 - Invitaciones de vínculo coach-jugador (y eventos operativos de Zetio Coach como sesiones agendadas)
 - Recordatorios de partidos y entrenamientos próximos
 - Información relevante sobre tus competencias
 
-Las notificaciones push son **operativas y no publicitarias**. No enviamos mensajes de marketing ni promociones sin tu consentimiento explícito.
+Estas notificaciones se relacionan con el uso del Servicio. No enviamos publicidad de terceros.
 
-Puedes desactivar las notificaciones en cualquier momento desde los ajustes de tu dispositivo. Al desactivarlas, el token de push se marca como inactivo en nuestros servidores.
+Puedes desactivar los avisos de torneos cerca de ti en **Ajustes → Torneos cerca de ti**, y todas las notificaciones en cualquier momento desde los ajustes de tu dispositivo. Al desactivarlas, el token de push se marca como inactivo en nuestros servidores.
 
 ---
 
 ## 11. Analítica y publicidad
 
 - **Analítica propia:** Zetio utiliza un sistema de analítica **interno y propio** para medir el uso del Servicio. Registramos eventos de alto nivel como inicios de sesión, inscripciones a torneos, creación de retas en Zetio Play, partidos completados, invitaciones y aceptaciones de amigos, y eventos de la encuesta de experiencia — estos últimos pueden incluir el contenido concreto de tu respuesta (por ejemplo, la ciudad donde juegas) junto con el evento. Junto a cada evento se almacena el identificador de sesión, la plataforma del dispositivo y el código de país derivado de la ubicación aproximada. Estos eventos **requieren una cuenta autenticada** — el sistema de analítica no registra eventos en modo invitado. Estos datos se almacenan en nuestros propios servidores (Supabase) en la tabla `analytics_events`, **no se comparten con ningún tercero**, y se usan exclusivamente para mejorar el Servicio y entender cómo se utiliza. No utilizamos Google Analytics, Firebase Analytics, Mixpanel, Sentry, PostHog ni ninguna plataforma de analítica de terceros.
-- **Publicidad:** Zetio **no muestra publicidad de terceros** ni utiliza SDKs publicitarios (no usamos AdMob, Facebook Ads ni similares). No compartimos datos con redes publicitarias.
+- **Publicidad:** La aplicación Zetio **no muestra publicidad de terceros** ni utiliza SDKs publicitarios (no usamos AdMob, Facebook Ads ni similares). No compartimos datos de la aplicación con redes publicitarias. Las cookies opcionales del sitio web se describen en la sección 9.
 - **Rastreo:** Zetio **no rastrea** a sus usuarios según la definición del App Tracking Transparency (ATT) de Apple. Los datos de analítica que recopilamos son de uso estrictamente interno y no se combinan con datos de otras aplicaciones o sitios web.
 
 ---
@@ -394,6 +418,7 @@ Categorías de información personal recopilada en los últimos 12 meses:
 - **Información de perfil:** Fecha de nacimiento, sexo, preferencias deportivas, ciudad/estado
 - **Información de ubicación:** Ubicación aproximada (coarse location, no GPS preciso)
 - **Información de actividad en internet/app:** Eventos de sesión y uso del Servicio
+- **Información comercial:** Historial de inscripciones pagadas, montos y reembolsos
 - **Información profesional/deportiva:** Métricas de rendimiento, historial de entrenamientos, sesiones agendadas, estadísticas de partidos y notas del coach (Zetio Coach, únicamente con vínculo aceptado)
 - **Información de inferencia:** Estilo de juego, frecuencia y preferencias (de encuesta voluntaria)
 
@@ -404,7 +429,7 @@ Como residente de California tienes derecho a:
 - **Optar por no participar** en la venta o el intercambio de información personal (Zetio **no realiza** dicha venta o intercambio).
 - **No ser discriminado** por ejercer cualquiera de estos derechos.
 
-Para ejercer tus derechos CCPA, contacta a **soporte@zetio.app**.
+Para ejercer tus derechos CCPA, contacta a **zetioapp@gmail.com**.
 
 **Señales de opt-out del navegador (Global Privacy Control).** Como Zetio no vende ni comparte información personal para publicidad conductual entre contextos, no hay ninguna venta/uso compartido del cual optar por no participar. Aun así, si tu navegador envía una señal de **Global Privacy Control (GPC)** u otra señal de preferencia de opt-out reconocida, la respetamos como si hubieras ejercido tu derecho a no participar — aunque, dado que no vendemos ni compartimos datos, esto no cambia ningún tratamiento activo de tu información.
 
@@ -423,8 +448,9 @@ Podemos actualizar esta Política de Privacidad ocasionalmente. Cuando lo hagamo
 
 Si tienes preguntas, comentarios o solicitudes relacionadas con esta Política de Privacidad o el tratamiento de tus datos personales, puedes contactarnos en:
 
-- **Email:** soporte@zetio.app
-- **Titular:** Diego Diaz
+- **Email:** zetioapp@gmail.com
+- **Responsable:** Luis Fernando Esparza Zarate, RFC EAZL9303222J7
+- **Domicilio:** Avenida Las Américas, número interior 104, exterior 110, colonia Las Américas, municipio de Aguascalientes, Aguascalientes, México
 - **Aplicación:** Zetio — plataforma de deportes de raqueta: torneos estructurados, retas casuales y gestión de coach-jugador
 - **Sitio web:** [https://zetio.app](https://zetio.app)
 
@@ -432,18 +458,18 @@ Si tienes preguntas, comentarios o solicitudes relacionadas con esta Política d
 
 ## 15. Legislación aplicable
 
-Esta Política de Privacidad se rige principalmente por la **Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)** de México y su Reglamento.
+Esta Política de Privacidad se rige principalmente por la **Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)** de México, publicada en el Diario Oficial de la Federación el 20 de marzo de 2025, y su normativa aplicable.
 
 Para usuarios en otras jurisdicciones, se aplicarán adicionalmente las siguientes leyes en la medida que sean aplicables:
 
 | Región | Ley aplicable | Derechos adicionales |
 |--------|---------------|----------------------|
 | **Unión Europea / EEE** | GDPR (Reglamento 2016/679) | Portabilidad, restricción del tratamiento, reclamación ante autoridad supervisora (sección 6.2) |
-| **Brasil** | LGPD (Lei Geral de Proteção de Dados — Lei nº 13.709/2018) | Derechos equivalentes al GDPR; contacto: soporte@zetio.app |
+| **Brasil** | LGPD (Lei Geral de Proteção de Dados — Lei nº 13.709/2018) | Derechos equivalentes al GDPR; contacto: zetioapp@gmail.com |
 | **California, EE.UU.** | CCPA / CPRA | Ver sección 12 |
 | **Argentina** | Ley 25.326 de Protección de Datos Personales (con estatus de adecuación reconocido por la Unión Europea desde enero de 2024) | Derechos de acceso, rectificación, supresión |
 | **Colombia** | Ley 1581 de 2012 | Derechos de acceso, corrección, supresión |
-| **Demás jurisdicciones** | Leyes locales de protección de datos aplicables | Contactar a soporte@zetio.app para solicitudes específicas |
+| **Demás jurisdicciones** | Leyes locales de protección de datos aplicables | Contactar a zetioapp@gmail.com para solicitudes específicas |
 
 En caso de conflicto entre legislaciones, se aplicará la normativa que otorgue mayor protección al usuario.
 
@@ -467,6 +493,7 @@ Los siguientes datos se recopilan y **sí** están vinculados a tu cuenta, porqu
 | Datos de usuario | Fecha de nacimiento, sexo, ciudad/club/estilo de juego | Elegibilidad en categorías, personalización |
 | Contenido del usuario | Resultados, partidos, notas de coach, tickets de soporte | Funcionalidad deportiva y soporte |
 | Uso de la app | Eventos de sesión y uso interno | Analítica propia para mejorar el Servicio |
+| Compras | Historial de inscripciones pagadas | Funcionamiento del Servicio, recibos y obligaciones legales |
 
 ### 16.2 Datos NO vinculados a tu identidad (Data Not Linked to You)
 
