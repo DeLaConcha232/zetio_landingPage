@@ -6,63 +6,76 @@
 persona física con actividad empresarial, con Registro Federal de Contribuyentes **EAZL9303222J7**
 y domicilio fiscal en Avenida Las Américas, número interior 104, exterior 110, colonia Las
 Américas, entre calle Ignacio T. Chávez, municipio de Aguascalientes, Aguascalientes, México (el
-"Proveedor", "Zetio", "nosotros"). El Servicio es accesible en **https://club.zetio.app/**, parte
-del ecosistema Zetio (**https://zetio.app/**).
+"Proveedor", "Zetio", "nosotros"). El Proveedor actúa con fines comerciales y empresariales. El
+Servicio es accesible en **https://club.zetio.app/**, parte del ecosistema Zetio
+(**https://zetio.app/**). Contacto: **zetioapp@gmail.com**.
 
-Zetio Club forma parte de un ecosistema de productos operados por la misma entidad, que incluye la
-aplicación móvil Zetio (jugadores, entrenadores y organización de partidos amistosos), un panel
+Zetio Club forma parte de un ecosistema de productos operados por el mismo Proveedor, que incluye
+la aplicación móvil Zetio (jugadores, entrenadores y organización de partidos amistosos), un panel
 interno de administración, y el sitio informativo de Zetio. **Estos Términos regulan
 exclusivamente el uso de Zetio Club**; el uso de la aplicación móvil Zetio (Usuarios) se rige por
 sus propios Términos y Condiciones, aun cuando ambas comparten la misma cuenta de usuario.
 
 1.2. **Cesión futura.** Zetio se reserva el derecho de ceder este contrato, sin necesidad de
 consentimiento adicional del Club, a la sociedad mercantil que el Proveedor llegue a constituir
-para continuar operando el Servicio, notificando dicha cesión conforme a la Sección 15. La cesión
+para continuar operando el Servicio, notificando dicha cesión conforme a la Sección 17. La cesión
 no implicará cambios en los términos económicos ni en las condiciones ya pactadas con el Club.
 
 ## 2. Definiciones
 
-- **Club**: la organización deportiva (club de deportes de raqueta: pádel, tenis, etc.) registrada en la Plataforma,
-  representada por al menos un Propietario.
+- **Club**: la organización deportiva (club de pádel, tenis o tenis de mesa) registrada en la
+  Plataforma, representada por un Propietario.
 - **Torneo**: evento deportivo organizado por un Club a través de la Plataforma, compuesto por una
   o más Categorías.
 - **Categoría**: subdivisión de un Torneo por nivel, sexo y/o edad, definida por el Club.
-- **Pareja**: dupla de dos Jugadores inscrita en una Categoría. Puede estar formada por Jugadores
-  con Cuenta propia en Zetio o por Jugadores sin cuenta ("genéricos"), registrados únicamente con
-  su nombre por el Club.
+- **Pareja**: el equipo inscrito en una Categoría, formado por uno o dos Jugadores según la
+  modalidad del Torneo. Puede incluir Jugadores con Cuenta propia en Zetio o Jugadores sin Cuenta
+  registrados por el Club.
 - **Jugador** o **Participante**: persona física inscrita en un Torneo, con o sin Cuenta propia.
 - **Cuenta**: perfil individual creado en Zetio (válido tanto para Zetio Club como para la
   aplicación móvil Zetio), asociado a un correo electrónico único, sujeto a la Sección 4.
 - **Personal del Club**: usuario con una membresía activa en un Club, con rol de Propietario,
   Administrador u Operador (Sección 5).
-- **Créditos**: unidad de consumo interna de la Plataforma que un Club utiliza para publicar
-  Torneos (Sección 6). Un crédito equivale a un Jugador inscrito; una Pareja equivale a 2 créditos.
-- **Suscripción**: plan de pago recurrente (mensual o anual) que otorga al Club una asignación
-  periódica de Créditos (Sección 6).
-- **Torneo Relámpago**: Torneo gratuito de hasta 8 Parejas (16 Jugadores) por mes, sujeto a la
-  Sección 6.4.
+- **Plan Gratis** y **Plan Premium**: los planes del Servicio descritos en la Sección 6.
+- **Suscripción**: contratación de pago recurrente del Plan Premium (mensual, semestral o anual).
+- **Cobros en Línea**: función que permite al Club recibir el pago de inscripciones de los
+  Jugadores a través de su propia cuenta de Stripe (Sección 8).
+- **Precio de Inscripción**: el importe que el Club fija por su Torneo.
+- **Cargo por Servicio**: importe adicional que paga el Jugador en una inscripción en línea con
+  Precio de Inscripción, y que cubre la comisión del procesador de pagos y la comisión de Zetio.
+- **Tarifa de Servicio**: importe fijo que Zetio cobra al Jugador por inscribirse desde la app a un
+  Torneo cuyo Precio de Inscripción es $0.
+- **Alta Manual**: inscripción que el Personal del Club registra desde la Plataforma, sin que el
+  Jugador pague en línea.
+- **Ficha de Jugador**: registro de un Jugador dentro de la lista de un Club.
+- **Ranking**: clasificación de Jugadores de un Club por Categoría y temporada (Sección 9).
 
 ## 3. Objeto y descripción del Servicio
 
-Zetio Club es un software como servicio ("SaaS") dirigido a clubes de deportes de raqueta (pádel,
-tenis y otros), que permite a un Club:
+3.1. Zetio Club es un software como servicio ("SaaS") dirigido a clubes y organizadores de pádel,
+tenis y tenis de mesa, que permite a un Club:
 
 - Crear y administrar el perfil público de su Club (nombre, ubicación, canchas, identidad visual).
 - Crear, configurar y publicar Torneos: categorías, formato (grupos y/o eliminación directa),
-  precio de inscripción visible a los Jugadores, calendario y canchas.
-- Recibir y administrar inscripciones de Parejas.
+  Precio de Inscripción, calendario y canchas.
+- Recibir y administrar inscripciones, incluidas las pagadas en línea y las Altas Manuales.
 - Generar automáticamente cuadros de eliminación directa y/o fases de grupos, y el calendario de
   partidos distribuido entre las canchas disponibles.
-- Capturar y publicar resultados de los partidos.
+- Capturar y publicar resultados de los partidos, y avisar a los Jugadores sobre recordatorios,
+  cambios de horario y resultados.
+- Administrar canchas, disponibilidad y reservas, incluida la renta de equipo (Plan Premium).
+- Llevar la lista de Jugadores del Club y su Ranking (Plan Premium).
 - Gestionar al Personal del Club mediante roles y permisos diferenciados (Sección 5).
 
-**Zetio Club no procesa el cobro de las inscripciones de los Jugadores a los Torneos.** Conforme al
-modelo de negocio vigente, cada Club es responsable de cobrar la cuota de inscripción a sus
-Jugadores por los medios que determine, fuera de la Plataforma. Lo que Zetio Club sí cobra —al
-propio Club, no al Jugador— es el uso del software, mediante Créditos y/o Suscripción (Sección 6).
+3.2. **El papel de Zetio en las inscripciones.** Cada Torneo lo organiza el Club, que es quien
+ofrece la inscripción al Jugador, fija su precio y sus condiciones, y responde por la realización
+del evento. Zetio proporciona la tecnología que conecta al Club con el Jugador y cobra por sus
+propios servicios (Secciones 6 y 8). Zetio no es organizador de los Torneos, no es institución
+financiera y, salvo la Tarifa de Servicio, no recibe ni custodia el dinero de las inscripciones:
+los cobros se hacen directamente en la cuenta de Stripe del Club.
 
-El Servicio se ofrece "tal cual" y puede evolucionar: Zetio podrá agregar, modificar o retirar
-funcionalidades, notificando cambios materiales conforme a la Sección 15.
+3.3. El Servicio se ofrece "tal cual" y puede evolucionar: Zetio podrá agregar, modificar o retirar
+funcionalidades, notificando cambios materiales conforme a la Sección 17.
 
 ## 4. Elegibilidad y Cuentas
 
@@ -70,11 +83,11 @@ funcionalidades, notificando cambios materiales conforme a la Sección 15.
 legislación mexicana (18 años), **salvo lo previsto en 4.2** para menores que participan como
 Jugadores.
 
-4.2. Un menor de edad puede tener una Cuenta propia a partir de los **13 años**, siempre que cuente
-con el consentimiento verificable de su padre, madre o tutor legal. Para menores por debajo de esa edad, o cuando no exista consentimiento del tutor, el
-menor puede participar en Torneos únicamente como Jugador registrado por un adulto responsable
-(el Club o su tutor) mediante el mecanismo de "Pareja con Jugador sin Cuenta" ya disponible en la
-Plataforma (solo nombre, sin datos de contacto propios, sin notificaciones directas).
+4.2. Un menor de edad puede tener una Cuenta propia a partir de los **13 años**, siempre que declare
+contar con la autorización de su padre, madre o tutor legal. Para menores por debajo de esa edad, o
+cuando no exista dicha autorización, el menor puede participar en Torneos únicamente como Jugador
+sin Cuenta, registrado por un adulto responsable (el Club o su tutor). En ese caso, los datos de
+contacto que se registren deben ser los del padre, madre o tutor.
 
 4.3. Cada persona debe operar con **su propia Cuenta y credenciales**; está prohibido compartir
 usuario y contraseña entre distintas personas, incluso dentro del mismo Club. La invitación de
@@ -95,84 +108,91 @@ Clubes distintos): **Propietario**, **Administrador** u **Operador**.
 
 | Capacidad | Propietario | Administrador | Operador |
 |---|:--:|:--:|:--:|
-| Ver el dashboard y los torneos del Club | Sí | Sí | Sí |
+| Ver el dashboard, los torneos y el calendario general del Club | Sí | Sí | Sí |
 | Capturar/editar resultados de partidos | Sí | Sí | Sí |
 | Crear y editar Torneos | Sí | Sí | No |
 | Eliminar Torneos (solo sin Parejas inscritas) | Sí | No | No |
-| Editar el calendario | Sí | Sí | No |
+| Editar el calendario de un Torneo | Sí | Sí | No |
 | Gestionar inscripciones y Parejas | Sí | Sí | No |
-| Gestionar canchas | Sí | Sí | No |
+| Gestionar canchas y reservas | Sí | Sí | No |
 | Configuración e identidad del Club | Sí | Sí | No |
-| Ver pagos, facturación y Suscripción | Sí | Sí | No |
+| Ver pagos, Plan y Suscripción | Sí | Sí | No |
 | Gestionar Personal del Club (invitar / cambiar rol / remover) | Sí | Sí | No |
+| Transferir la propiedad o eliminar el Club | Sí | No | No |
 | Puede ser degradado o removido del Club | No | Sí | Sí |
 
-5.2. El **Propietario** es la persona que creó el Club. Este rol es **intransferible**: no puede
-reasignarse a otra persona ni existir un segundo Propietario del mismo Club, ni dentro de la
-Plataforma ni por ningún otro medio.
+5.2. El **Propietario** es la persona que creó el Club o a quien se le transfirió la propiedad. Cada
+Club tiene un solo Propietario, y una Cuenta solo puede ser Propietaria de un Club. El Propietario
+puede transferir la propiedad a otra persona que ya sea parte del Personal del Club; al hacerlo,
+pasa a tener el rol de Administrador.
 
-5.3. El alta de Personal del Club se realiza por invitación desde la Plataforma. La invitación
-expira a los 7 días si no se acepta.
+5.3. El alta de Personal del Club se realiza por invitación desde la Plataforma, dentro del límite
+de miembros del plan del Club. La invitación expira a los 7 días si no se acepta.
 
 5.4. El Club es responsable de las acciones que su Personal realice dentro de la Plataforma,
 incluyendo la exactitud de la información de Torneos que publique y de los datos de Jugadores que
 registre.
 
-## 6. Precios, Créditos y Suscripción
+## 6. Planes y precios
 
-Los precios de esta sección son los vigentes a la fecha de este documento. Zetio se reserva el
-derecho de modificarlos conforme al aviso de cambios de la Sección 15, sin afectar Créditos ya
-adquiridos.
+Los precios de esta sección son los vigentes a la fecha de este documento y se expresan en pesos
+mexicanos. Zetio podrá modificarlos conforme a la Sección 17. Un cambio de precio de la Suscripción
+aplica desde la siguiente renovación, nunca al periodo ya pagado.
 
-6.1. **Unidad de Crédito.** Un Crédito equivale a un Jugador inscrito. Una Pareja inscrita consume
-2 Créditos. Un Torneo de *N* Parejas consume *2N* Créditos, cobrados al publicar el Torneo (y, si
-la capacidad se amplía después, solo se cobra el incremento).
+6.1. **Plan Gratis.** Sin costo y sin vigencia. Incluye:
 
-6.2. **Paquetes de Créditos** (pago único, sin vencimiento anticipado — ver 6.5 sobre expiración):
+- Torneos sin límite de cantidad, de hasta **16 Jugadores por Torneo**.
+- **1 miembro** del Personal del Club (el Propietario).
+- Altas Manuales de hasta el **10% del cupo** del Torneo, redondeado hacia arriba.
+- Cobros en Línea.
 
-| Paquete | Créditos | Precio de lista (MXN) |
-|---|--:|--:|
-| S | 80 | $1,200 |
-| M | 200 | $2,800 |
-| L | 500 | $6,500 |
-| XL | 1,000 | $12,000 |
+6.2. **Plan Premium.** Incluye, además de lo anterior:
 
-6.3. **Planes de Suscripción** (créditos incluidos por mes, cobro mensual o anual):
+- Jugadores por Torneo sin límite y Altas Manuales sin tope.
+- Hasta **10 miembros** del Personal del Club, contando al Propietario.
+- Administración de Canchas, historial de pagos y Ranking del Club.
 
-| Plan | MXN/mes | Créditos/mes | Torneos Relámpago incluidos/mes |
-|---|--:|--:|--:|
-| Inicial | $999 | 80 | 1 |
-| Competidor | $2,299 | 220 | 2 |
-| Élite | $4,999 | 500 | 4 |
+| Intervalo de pago | Precio (MXN) |
+|---|--:|
+| Mensual | $1,940 al mes |
+| Semestral (15% de descuento) | $9,894 cada 6 meses |
+| Anual (25% de descuento) | $17,460 al año |
 
-El plan anual se cobra como 10 meses de la tarifa mensual (equivalente a 2 meses sin costo).
+6.3. **Prueba de Premium.** Al crear su primer Club, cada Cuenta recibe **30 días de Plan Premium**,
+sin tarjeta y por una sola vez. Al terminar, si el Club no se suscribió, pasa al Plan Gratis sin
+ningún cargo. Si se suscribe durante la prueba, el primer cobro se realiza al terminar esta.
 
-6.4. **Torneo Relámpago.** Todo Club cuenta con Torneos Relámpago gratuitos mensuales (Torneos de
-hasta 8 Parejas), según lo indicado en su plan. Los Créditos del Torneo Relámpago no son
-acumulables entre meses y son independientes de los Créditos pagados.
+6.4. **Si el Club deja de tener Premium.** Los Torneos ya creados y sus datos se conservan, pero las
+funciones exclusivas de Premium dejan de estar disponibles y no se podrá aumentar el cupo de un
+Torneo por encima de los límites del Plan Gratis.
 
-6.5. **Vigencia y expiración de Créditos.** Los Créditos adquiridos mediante Paquete o
-Suscripción anual se acumulan y son válidos durante **12 meses** a partir de su otorgamiento; transcurrido
-ese plazo sin usarse, expiran sin derecho a reembolso.
+6.5. **Cupones y cortesías.** Zetio puede otorgar días de Premium, descuentos o cortesías mediante
+códigos o de forma directa, con la vigencia y condiciones que se indiquen en cada caso.
 
-6.6. **Saldo insuficiente.** Con saldo de Créditos en cero, el Club conserva acceso de solo lectura
-a sus Torneos existentes, pero no puede crear ni publicar Torneos nuevos, salvo el Torneo Relámpago
-gratuito disponible de bienvenida.
+6.6. **Programa de referidos.** Un Club referido recibe el descuento que se muestre en la Plataforma
+(10% a la fecha de este documento) en su primer pago de Suscripción. El Club que lo refirió recibe
+1 mes gratis, como saldo a favor en su Suscripción, cuando el referido paga por primera vez, con un
+máximo de 12 meses por año. Zetio podrá cancelar los beneficios obtenidos de forma fraudulenta.
 
-6.7. **Impuestos.** Los precios de lista de Paquetes y Suscripciones son precios finales, **con el
-Impuesto al Valor Agregado (IVA) incluido**.
+6.7. **Impuestos y facturación.** Los precios del Plan Premium incluyen el Impuesto al Valor
+Agregado (IVA). Para solicitar factura de lo pagado a Zetio, el Club debe escribir a
+**zetioapp@gmail.com** con sus datos fiscales y su recibo.
 
-## 7. Renovación automática, cancelación y reembolsos
+6.8. **Modelo anterior de créditos.** El sistema de Créditos, paquetes y planes Inicial, Competidor
+y Élite dejó de operar. El Club que conserve Créditos pagados sin usar y vigentes puede escribir a
+**zetioapp@gmail.com** para acordar su compensación.
+
+## 7. Renovación automática, cancelación y reembolsos del Plan Premium
 
 Esta sección se rige por el artículo 76 Bis de la Ley Federal de Protección al Consumidor, vigente
 desde el 13 de diciembre de 2025.
 
 7.1. **Divulgación de cargos recurrentes.** Antes de confirmar una Suscripción, la Plataforma
-informa de manera clara y visible: que se trata de un cargo recurrente, su periodicidad (mensual o
-anual), el monto exacto en pesos mexicanos, y la fecha de cada cargo.
+informa de manera clara y visible que se trata de un cargo recurrente, su periodicidad, el monto
+exacto en pesos mexicanos y la fecha de cada cargo.
 
-7.2. **Consentimiento expreso.** La Suscripción solo se activa tras el pago inicial mediante
-Stripe, lo que constituye el consentimiento expreso e informado del Club a los cargos recurrentes
+7.2. **Consentimiento expreso.** La Suscripción solo se activa tras confirmarla en la página de pago
+de Stripe, lo que constituye el consentimiento expreso e informado del Club a los cargos recurrentes
 descritos en 7.1.
 
 7.3. **Aviso previo a la renovación.** Zetio notificará al Club, por correo electrónico, con al
@@ -180,73 +200,135 @@ menos **5 días naturales** de anticipación a cada fecha de renovación de su S
 el monto y la fecha exacta del cargo.
 
 7.4. **Cancelación.** El Club puede cancelar su Suscripción en cualquier momento, sin penalización,
-desde la sección de **Facturación** dentro de Configuración del Club. La cancelación surte efecto
-al final del periodo ya pagado; el Club conserva el acceso y los Créditos ya otorgados hasta esa
-fecha, y no se generan cargos posteriores.
+desde **Administrar suscripción** en la sección Plan de la Plataforma. La cancelación surte efecto
+al final del periodo ya pagado; el Club conserva Premium hasta esa fecha y no se generan cargos
+posteriores.
 
-7.5. **Cambios de plan.** El Club puede mejorar (upgrade) o disminuir (downgrade) su plan de
-Suscripción desde la Plataforma. Una mejora de plan se cobra de inmediato de forma prorrateada; una
-disminución de plan surte efecto hasta el final del periodo vigente, sin reembolso del periodo en
-curso.
+7.5. **Cambios de intervalo.** El cambio a un intervalo más largo se aplica de inmediato y se cobra
+de forma prorrateada. El cambio a un intervalo más corto surte efecto al final del periodo vigente,
+sin saldo a favor.
 
-7.6. **Reembolso al eliminar un Torneo.** Si el Club elimina un Torneo **sin Parejas inscritas**
-(único caso permitido, exclusivo del Propietario, desde la Zona de Peligro de Configuración), se
-reembolsa a su saldo de Créditos el **50%** de los Créditos que se habían debitado al crear ese
-Torneo. Los Créditos gratuitos del Torneo Relámpago utilizados no se reembolsan bajo ningún
-supuesto.
+7.6. **Pagos fallidos.** Si no se puede cobrar una renovación, la Plataforma lo avisará para que el
+Club actualice su tarjeta. Si el pago no se regulariza, el Club pasará al Plan Gratis.
 
-7.7. **No reembolso general.** Fuera de los casos de las Secciones 6.5 (expiración), 7.6
-(eliminación de Torneo vacío) y 7.8 (errores de cobro), los Créditos y pagos de Suscripción no son
-reembolsables.
+7.7. **No reembolso general.** Fuera de lo previsto en 7.8, y salvo que la ley aplicable disponga
+otra cosa, los pagos de Suscripción no son reembolsables.
 
 7.8. **Errores de cobro.** Si un cargo se generó por un error atribuible a la Plataforma (por
 ejemplo, un monto duplicado o incorrecto), Zetio reembolsará el importe erróneo al medio de pago
 original una vez confirmado el error.
 
-## 8. Obligaciones del Club y del Personal del Club
+7.9. **Eliminación del Club.** Al eliminar su Club, la Suscripción activa se cancela de inmediato,
+sin reembolso del periodo en curso.
+
+## 8. Cobros en Línea e inscripciones
+
+8.1. **Cuenta de Stripe del Club.** Para usar Cobros en Línea, el Club debe abrir o vincular una
+cuenta de Stripe, disponible hoy en México. Stripe verifica la identidad del Club, y la relación
+entre ambos se rige por los contratos que el Club acepta directamente con Stripe. El Club administra
+esa cuenta desde su propio panel de Stripe.
+
+8.2. **Cómo funciona el cobro.** El Jugador paga desde la aplicación Zetio y el cargo se realiza
+directamente en la cuenta de Stripe del Club. Zetio no custodia esos fondos ni controla sus
+depósitos.
+
+8.3. **Cargo por Servicio.** Sobre el Precio de Inscripción, el Jugador paga un Cargo por Servicio
+que se le muestra antes de pagar. Este cargo cubre la comisión de Stripe y una comisión de Zetio
+(2% del Precio de Inscripción a la fecha de este documento), y el total se redondea al peso
+superior. El Club recibe el **100% del Precio de Inscripción**: si la comisión real de Stripe es
+mayor a la estimada, Zetio absorbe la diferencia.
+
+8.4. **Torneos con precio $0.** Inscribirse desde la app a un Torneo de $0 tiene una Tarifa de
+Servicio de **$50 MXN por inscripción**, sin importar el número de Jugadores o Categorías. La cobra
+Zetio en su propia cuenta, aplica a todos los planes y no se reembolsa al cancelar la inscripción.
+
+8.5. **Lugar apartado.** Mientras el Jugador paga, su lugar se aparta por el tiempo que se le indique
+(12 minutos a la fecha de este documento). Si al confirmarse el pago ya no hay lugar, la autorización
+se cancela y no se realiza ningún cargo.
+
+8.6. **Reembolsos y contracargos.** El Club es el único responsable de definir y atender los
+reembolsos y contracargos de sus inscripciones, y los gestiona desde su propio panel de Stripe.
+
+- El Club reembolsa únicamente el Precio de Inscripción. El Cargo por Servicio no se devuelve; si el
+  Club reembolsa también ese importe, la diferencia sale de su saldo.
+- Un reembolso total con las inscripciones abiertas da de baja a la Pareja y libera su lugar. Con las
+  inscripciones cerradas, la Pareja se mantiene en el cuadro y el Club decide cómo proceder.
+- Un contracargo perdido tiene los mismos efectos que un reembolso total.
+
+8.7. **Cancelación del Torneo.** Si el Club cancela o modifica de forma sustancial un Torneo, debe
+informarlo a los Jugadores y reembolsarles lo que corresponda conforme a la ley aplicable.
+
+8.8. **Obligaciones fiscales.** El Club es responsable de las obligaciones fiscales derivadas del
+Precio de Inscripción, incluida la emisión de comprobantes a los Jugadores. Si la legislación
+aplicable obliga a Zetio a retener impuestos o reportar información sobre esas operaciones, Zetio
+cumplirá con ello y lo notificará al Club.
+
+8.9. **Desvinculación.** El Club puede desvincular su cuenta de Stripe de Zetio cuando lo desee. Los
+pagos ya realizados, sus reembolsos y contracargos siguen siendo responsabilidad del Club.
+
+8.10. **Altas Manuales y reservas de cancha.** Lo que el Club registre en la Plataforma sobre pagos
+recibidos por fuera de ella (por ejemplo, en Altas Manuales o reservas de cancha y equipo) es solo
+un registro propio. Zetio no interviene en esos cobros ni los procesa.
+
+## 9. Lista de Jugadores y Ranking
+
+9.1. El Club puede dar de alta en su lista a Jugadores sin Cuenta, con su nombre, apellido, correo
+electrónico, sexo, fecha de nacimiento y, de forma opcional, teléfono. Debe contar con el
+consentimiento del Jugador (o de su tutor) para hacerlo.
+
+9.2. A solicitud del Club, la Plataforma envía al correo de la Ficha de Jugador un código para que
+esa persona vincule su historial con su Cuenta. El Club no ve ese código, salvo que el propio
+Jugador se lo proporcione.
+
+9.3. Las reglas de puntuación y las temporadas del Ranking las configura cada Club. Zetio no se hace
+responsable de las consecuencias deportivas de esa configuración ni de los resultados capturados por
+el Club.
+
+## 10. Obligaciones del Club y del Personal del Club
 
 El Club se obliga a:
 
 - Proporcionar información veraz y actualizada sobre sus Torneos (precio, ubicación, fechas,
-  categorías, restricciones de edad/sexo).
-- Ser el único responsable de cobrar, cuando aplique, la cuota de inscripción a sus Jugadores, y de
-  cumplir cualquier obligación fiscal derivada de esos cobros — Zetio no interviene en ellos.
+  categorías, restricciones de edad/sexo, política de cancelación y reembolso).
+- Realizar el Torneo en los términos publicados y atender las reclamaciones de los Jugadores sobre
+  su organización.
 - No subir a la Plataforma contenido (flyers, logotipos, nombres) que infrinja derechos de terceros,
   sea ofensivo, o no corresponda a una imagen real (fotografía o gráfico).
-- Ser responsable de la exactitud de los datos de los Jugadores "sin Cuenta" que registre
-  manualmente, incluyendo tener el consentimiento correspondiente para hacerlo en su nombre.
-- No intentar eludir el cobro de Créditos, ni usar la Plataforma para fines distintos a la
-  organización legítima de Torneos deportivos.
+- Usar los datos personales de los Jugadores solo para organizar sus Torneos y actividades, y
+  responder por el tratamiento que haga de ellos fuera de la Plataforma.
+- No intentar eludir los límites de su plan, el Cargo por Servicio o la Tarifa de Servicio, ni usar
+  la Plataforma para fines distintos a la organización legítima de actividades deportivas.
 
-## 9. Obligaciones del Jugador / Participante
+## 11. Obligaciones del Jugador / Participante
 
 El Jugador se obliga a:
 
 - Proporcionar información veraz al crear su Cuenta y al inscribirse en un Torneo.
 - Cumplir con las reglas deportivas y de conducta que determine cada Club para sus Torneos.
-- Reconocer que la inscripción y el pago de la cuota de participación, cuando exista, se gestionan
-  directamente con el Club organizador y no con Zetio.
-- Un Jugador registrado como "sin Cuenta" por un Club no recibe notificaciones de la Plataforma ni
-  acumula estadísticas propias; es responsabilidad del Club informarle directamente.
+- Reconocer que la inscripción es un acuerdo con el Club organizador, y que el pago en línea se rige
+  además por los Términos y Condiciones de la aplicación Zetio.
 
-## 10. Propiedad intelectual
+Un Jugador sin Cuenta no recibe notificaciones de la aplicación; es responsabilidad del Club
+informarle directamente.
 
-10.1. Zetio es titular de la marca "Zetio", el software de la Plataforma y su diseño. Ninguna
+## 12. Propiedad intelectual
+
+12.1. Zetio es titular de la marca "Zetio", el software de la Plataforma y su diseño. Ninguna
 disposición de estos Términos transfiere esos derechos al Club o al Jugador.
 
-10.2. El Club conserva la titularidad del contenido que sube (logotipos, flyers, nombre del Club),
+12.2. El Club conserva la titularidad del contenido que sube (logotipos, flyers, nombre del Club),
 y otorga a Zetio una licencia limitada para mostrarlo dentro de la Plataforma y del ecosistema
 Zetio (por ejemplo, en la app de Usuarios, para que los Jugadores vean la información del Torneo)
 mientras el contenido permanezca publicado.
 
-## 11. Protección de datos personales
+## 13. Protección de datos personales
 
 El tratamiento de datos personales de Clubes, Personal del Club y Jugadores se rige por el **Aviso
 de Privacidad de Zetio Club**, disponible en la Plataforma, que forma parte integral de estos
 Términos por referencia. Ante cualquier contradicción entre ambos documentos en materia de datos
 personales, prevalece el Aviso de Privacidad.
 
-## 12. Seguridad
+## 14. Seguridad
 
 Zetio implementa medidas técnicas y organizativas razonables para proteger la información alojada
 en la Plataforma, incluyendo control de acceso a nivel de base de datos (Row Level Security),
@@ -256,31 +338,35 @@ toda vulnerabilidad; el Club y el Jugador reconocen este riesgo inherente a cual
 línea. Zetio se compromete a atender de forma prioritaria cualquier incidente de seguridad que
 comprometa datos personales y a notificarlo conforme a la legislación aplicable.
 
-## 13. Limitación de responsabilidad
+## 15. Limitación de responsabilidad
 
 En la máxima medida permitida por la ley mexicana, y sin que esto excluya responsabilidad por dolo
 o mala fe (inválido conforme al artículo 2117 del Código Civil Federal), Zetio no será responsable
 por: (a) la veracidad de la información publicada por un Club sobre sus Torneos; (b) disputas entre
-el Club y sus Jugadores relacionadas con el cobro de inscripciones, reglas deportivas o resultados;
-(c) interrupciones del Servicio por causas de fuerza mayor o de terceros proveedores (Stripe,
-Supabase, u otros); ni (d) daños indirectos, incidentales o lucro cesante derivados del uso de la
-Plataforma.
+el Club y sus Jugadores relacionadas con cobros, reembolsos, contracargos, reglas deportivas o
+resultados; (c) la cancelación o realización de un Torneo; (d) interrupciones del Servicio por
+causas de fuerza mayor o de terceros proveedores (Stripe, Supabase, u otros); ni (e) daños
+indirectos, incidentales o lucro cesante derivados del uso de la Plataforma.
 
 En cualquier caso, y salvo dolo o mala fe, la responsabilidad total de Zetio frente a un Club por
 cualquier reclamación relacionada con el Servicio **no excederá el monto que dicho Club haya
 pagado a Zetio en los 12 meses anteriores al hecho que dio origen al reclamo**.
 
-## 14. Suspensión y terminación
+## 16. Suspensión y terminación
 
-14.1. Zetio podrá suspender o cancelar el acceso de un Club o Usuario que incumpla estos Términos,
+16.1. Zetio podrá suspender o cancelar el acceso de un Club o Usuario que incumpla estos Términos,
 proporcione información falsa, o utilice la Plataforma de forma fraudulenta, previa notificación
 cuando sea razonablemente posible.
 
-14.2. El Club puede solicitar la baja de su cuenta y la de su Club en cualquier momento, escribiendo
-a **zetioapp@gmail.com**. La eliminación de los datos personales asociados se rige por el
-procedimiento de derechos ARCO descrito en la Sección 8 del Aviso de Privacidad de Zetio Club.
+16.2. El Propietario puede eliminar su Club, y cualquier Usuario puede eliminar su Cuenta, desde la
+**Zona de Peligro** de Configuración. Para eliminar su Cuenta, quien sea Propietario debe antes
+transferir o eliminar su Club. También puede solicitarse por correo a **zetioapp@gmail.com**. La
+eliminación de datos personales se rige por el Aviso de Privacidad de Zetio Club.
 
-## 15. Modificaciones a estos Términos
+16.3. Las obligaciones pendientes con los Jugadores, incluidos reembolsos y contracargos de
+inscripciones ya pagadas, subsisten tras la baja del Club.
+
+## 17. Modificaciones a estos Términos
 
 Zetio podrá modificar estos Términos en cualquier momento. Los cambios materiales se notificarán
 por correo electrónico a todos los Usuarios con al menos **15 días naturales** de anticipación
@@ -288,16 +374,17 @@ antes de su entrada en vigor. Los cambios no materiales (correcciones de redacci
 pueden aplicarse sin aviso previo. El uso continuado del Servicio después de la entrada en vigor de
 un cambio material constituye aceptación de los Términos modificados.
 
-## 16. Ley aplicable y jurisdicción
+## 18. Ley aplicable y jurisdicción
 
 Estos Términos se rigen por las leyes de los Estados Unidos Mexicanos. Para cualquier controversia
 relacionada con estos Términos, las partes se someten a los tribunales competentes de la ciudad de
 **Aguascalientes, Aguascalientes**, renunciando a cualquier otro fuero que pudiera corresponderles.
 
-## 17. Contacto
+## 19. Contacto
 
 Para dudas sobre estos Términos: **zetioapp@gmail.com**.
 
 ---
 
-*Versión 1.0 — 16 de agosto de 2026.*
+*Versión 2.0 — noviembre de 2026. Entra en vigor 15 días naturales después de su notificación a los
+Usuarios. Sustituye a la Versión 1.0 del 16 de agosto de 2026.*
