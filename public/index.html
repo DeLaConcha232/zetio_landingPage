@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Zetio: app de pádel para jugadores, coaches y clubes</title>
-<meta name="description" content="Arma retas, mide tus clases y organiza torneos de pádel desde una sola app. Gratis para jugadores y coaches; clubes desde $12 por jugador.">
+<meta name="description" content="Arma retas, mide tus clases y organiza torneos de pádel desde una sola app. Gratis para jugadores y coaches; clubes con plan Gratis o Premium.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap">
 <style>
@@ -180,53 +180,22 @@ video.phone{width:min(370px,90%);width:min(370px,90%,38svh);height:auto}
 .currency-toggle button{font:inherit;font-size:.82rem;font-weight:700;color:var(--muted);background:transparent;border:0;border-radius:999px;min-height:32px;padding:0 10px 0 7px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
 .currency-toggle img{border-radius:3px;display:block;flex:none;object-fit:cover}
 .currency-toggle button[aria-pressed="true"]{background:var(--green);color:var(--ink)}
-.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden}
-.calc-in{padding:clamp(20px,3vw,34px);display:flex;flex-direction:column;gap:20px;background:var(--surface)}
-.calc-in label{font-weight:700;color:var(--white);font-size:1.05rem}
-.calc-big{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
-.calc-big output{font-size:clamp(3rem,7vw,4.4rem);font-weight:800;letter-spacing:-.05em;line-height:1;color:var(--white)}
-.calc-big span{color:var(--muted);font-weight:500}
-input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:28px;background:transparent;cursor:pointer;margin:0}
-input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:999px;background:linear-gradient(90deg,var(--green) var(--fill,10%),rgba(229,233,221,.18) var(--fill,10%))}
-input[type=range]::-moz-range-track{height:6px;border-radius:999px;background:rgba(229,233,221,.18)}
-input[type=range]::-moz-range-progress{height:6px;border-radius:999px;background:var(--green)}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:var(--white);border:5px solid var(--green);margin-top:-10px;box-shadow:0 0 18px var(--glow)}
-input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--white);border:5px solid var(--green)}
-.chips{display:flex;gap:8px;flex-wrap:wrap}
-.chips button{font:inherit;font-size:.9rem;font-weight:600;color:var(--cream);background:transparent;border:1px solid var(--line);border-radius:999px;min-height:38px;padding:0 14px;cursor:pointer}
-.chips button:hover,.chips button[aria-pressed="true"]{border-color:var(--green);color:var(--green)}
-.calc-eq{color:var(--muted);font-size:.98rem}
-.calc-eq b{color:var(--white)}
-.calc-out{padding:clamp(20px,3vw,34px);display:flex;flex-direction:column;gap:18px;background:var(--surface-2);border-left:1px solid var(--line)}
-.calc-out .k{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
-.calc-price{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
-.calc-price output{font-size:clamp(2.6rem,6vw,3.6rem);font-weight:800;letter-spacing:-.045em;line-height:1;color:var(--white)}
-.calc-price span{color:var(--muted)}
-.calc-lines{display:flex;flex-direction:column}
-.calc-lines li{display:flex;justify-content:space-between;gap:16px;padding-block:11px;border-top:1px solid var(--line);font-size:.98rem}
-.calc-lines li span:first-child{color:var(--muted)}
-.calc-lines li span:last-child{color:var(--white);font-weight:600;text-align:right;white-space:nowrap}
-.calc-free{padding:12px 14px;border-radius:12px;background:rgba(22,194,79,.14);color:var(--green-soft);font-size:.95rem;font-weight:500}
-.calc-alt{font-size:.95rem;color:var(--muted)}
-.calc-alt b{color:var(--white);font-weight:600}
-.tables{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,3vw,40px);margin-top:clamp(28px,4vw,48px)}
-.tbl{display:flex;flex-direction:column;gap:14px;min-width:0}
-.tbl > p{color:var(--muted);font-size:.97rem}
-.tbl-scroll{overflow-x:auto}
-table{width:100%;border-collapse:collapse;font-size:.98rem;font-variant-numeric:tabular-nums}
-th{text-align:left;font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:700;padding:0 12px 10px 0;white-space:nowrap}
-td{padding:14px 12px 14px 0;border-top:1px solid var(--line);white-space:nowrap}
-td:first-child{color:var(--white);font-weight:700}
-td.pp{color:var(--green);font-weight:700}
-th:last-child,td:last-child{text-align:right;padding-right:0}
-.tbl-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.cycle{display:inline-flex;padding:4px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.cycle{display:inline-flex;flex-wrap:wrap;padding:4px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
 .cycle button{font:inherit;font-size:.88rem;font-weight:700;color:var(--muted);background:transparent;border:0;border-radius:999px;min-height:36px;padding:0 14px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
 .cycle button span{font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;background:rgba(22,194,79,.16);color:var(--green)}
 .cycle button[aria-pressed="true"]{background:var(--green);color:var(--ink)}
 .cycle button[aria-pressed="true"] span{background:rgba(2,2,2,.16);color:var(--ink)}
-td.pp b{font-weight:700}
-td.pp small{display:block;font-size:.78rem;font-weight:500;color:var(--muted)}
+.plans{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(16px,2.4vw,28px)}
+.plan{display:flex;flex-direction:column;gap:16px;min-width:0;padding:clamp(20px,3vw,34px);border:1px solid var(--line);border-radius:var(--r-md,18px);background:var(--surface)}
+.plan-premium{border-color:var(--green);background:var(--surface-2)}
+.plan-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.plan-price{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.plan-price output{font-size:clamp(2.6rem,6vw,3.6rem);font-weight:800;letter-spacing:-.045em;line-height:1;color:var(--white)}
+.plan-price span{color:var(--muted)}
+.plan-note{color:var(--muted);font-size:.97rem}
+.online-pay{margin-top:clamp(16px,2.4vw,28px);padding:clamp(20px,3vw,30px);border-radius:var(--r-md,18px);background:rgba(22,194,79,.1);display:flex;flex-direction:column;gap:8px}
+.online-pay p{color:var(--muted);max-width:60em}
+.online-pay b{color:var(--white);font-weight:700}
 .fine{margin-top:22px;font-size:.9rem;color:var(--muted);max-width:60em}
 .pricing-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
 
@@ -306,7 +275,7 @@ footer{border-top:1px solid var(--line);padding-block:40px 110px;color:var(--mut
 @media (max-width:980px){
   .hero{min-height:0;display:block;padding-bottom:48px}
   .nav-links{display:none}
-  .hero-panel,.room-grid,.clubs-top,.calc,.tables,.faq-grid,.close-box{grid-template-columns:minmax(0,1fr)}
+  .hero-panel,.room-grid,.clubs-top,.plans,.faq-grid,.close-box{grid-template-columns:minmax(0,1fr)}
   .room-flip .room-copy{order:0}
   .phone{width:min(230px,60%)}
   video.phone{width:min(330px,84%);margin-block:-10px -8px}
@@ -320,7 +289,6 @@ footer{border-top:1px solid var(--line);padding-block:40px 110px;color:var(--mut
   .club-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .club-grid li:nth-child(3){padding-left:0;border-left:0}
   .steps,.voices ul{grid-template-columns:minmax(0,1fr)}
-  .calc-out{border-left:0;border-top:1px solid var(--line)}
 }
 @media (max-width:640px){
   body{font-size:16px}
@@ -351,7 +319,7 @@ footer{border-top:1px solid var(--line);padding-block:40px 110px;color:var(--mut
 <meta property="og:locale" content="es_MX">
 <meta property="og:url" content="https://zetio.app/">
 <meta property="og:title" content="Zetio: app de pádel para jugadores, coaches y clubes">
-<meta property="og:description" content="Arma retas, mide tus clases y organiza torneos de pádel desde una sola app. Gratis para jugadores y coaches; clubes desde $12 por jugador.">
+<meta property="og:description" content="Arma retas, mide tus clases y organiza torneos de pádel desde una sola app. Gratis para jugadores y coaches; clubes con plan Gratis o Premium.">
 <meta property="og:image" content="https://zetio.app/og/og-zetio.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -359,12 +327,12 @@ footer{border-top:1px solid var(--line);padding-block:40px 110px;color:var(--mut
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@zetioapp">
 <meta name="twitter:title" content="Zetio: app de pádel para jugadores, coaches y clubes">
-<meta name="twitter:description" content="Arma retas, mide tus clases y organiza torneos de pádel desde una sola app. Gratis para jugadores y coaches; clubes desde $12 por jugador.">
+<meta name="twitter:description" content="Arma retas, mide tus clases y organiza torneos de pádel desde una sola app. Gratis para jugadores y coaches; clubes con plan Gratis o Premium.">
 <meta name="twitter:image" content="https://zetio.app/og/og-zetio.jpg">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="/site/img/gradient-3.webp" fetchpriority="high">
 <link rel="preload" as="image" href="/site/img/play-flujo-poster.webp">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://zetio.app/#org", "name": "Zetio", "url": "https://zetio.app/", "logo": "https://zetio.app/icon-512.png", "email": "info@zetio.app", "sameAs": ["https://www.instagram.com/zetio_oficial/", "https://www.tiktok.com/@zetioapp"]}, {"@type": "WebSite", "@id": "https://zetio.app/#web", "url": "https://zetio.app/", "name": "Zetio", "inLanguage": "es-MX", "publisher": {"@id": "https://zetio.app/#org"}}, {"@type": "SoftwareApplication", "name": "Zetio", "applicationCategory": "SportsApplication", "operatingSystem": "iOS, Android", "description": "App de pádel para armar retas, medir entrenamientos y jugar torneos.", "inLanguage": "es-MX", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "MXN", "description": "Gratis para jugadores y coaches"}, "installUrl": "https://apps.apple.com/mx/app/zetio/id6757622344", "publisher": {"@id": "https://zetio.app/#org"}}, {"@type": "Product", "name": "Zetio Clubs: créditos para torneos", "brand": {"@id": "https://zetio.app/#org"}, "description": "Créditos para organizar torneos de pádel. Un crédito es un jugador inscrito. El primer torneo de hasta 8 parejas es gratis.", "image": "https://zetio.app/og/og-zetio.jpg", "offers": {"@type": "AggregateOffer", "priceCurrency": "MXN", "lowPrice": "1200", "highPrice": "12000", "offerCount": "4", "url": "https://zetio.app/#precios"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Cuánto cuesta Zetio?", "acceptedAnswer": {"@type": "Answer", "text": "Para jugadores y coaches es gratis. Los clubes y organizadores pagan por jugador inscrito en sus torneos: desde $12 por jugador con paquetes, o una suscripción mensual si organizan seguido."}}, {"@type": "Question", "name": "Soy club, ¿puedo probarlo antes de pagar?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Registrar tu club es gratis y recibes un torneo de bienvenida de hasta 8 parejas, con el sistema completo y visible en la app de los jugadores. No pedimos tarjeta."}}, {"@type": "Question", "name": "¿Qué es un crédito?", "acceptedAnswer": {"@type": "Answer", "text": "Un crédito es un jugador inscrito en un torneo. Una pareja usa 2 créditos. Si compras un paquete y te sobran créditos, los usas en tu siguiente torneo."}}, {"@type": "Question", "name": "¿Cuánto duran mis créditos?", "acceptedAnswer": {"@type": "Answer", "text": "Los de paquetes y suscripción anual duran 12 meses. Los de suscripción mensual son para el mes en curso. Los torneos relámpago gratis de cada mes no se acumulan."}}, {"@type": "Question", "name": "¿Necesito saber organizar torneos o equipo especial?", "acceptedAnswer": {"@type": "Answer", "text": "No. Defines el formato y Zetio arma cuadros, grupos y resultados. Con un teléfono y la app puedes digitalizar tu torneo el mismo día."}}, {"@type": "Question", "name": "¿Para qué deportes funciona?", "acceptedAnswer": {"@type": "Answer", "text": "Los clubes pueden publicar torneos de pádel y de tenis de mesa. Zetio está disponible en México."}}, {"@type": "Question", "name": "¿Qué pasa con mis datos?", "acceptedAnswer": {"@type": "Answer", "text": "Tu historial y tus estadísticas son tuyos. No compartimos tu información con terceros."}}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://zetio.app/#org", "name": "Zetio", "url": "https://zetio.app/", "logo": "https://zetio.app/icon-512.png", "email": "info@zetio.app", "sameAs": ["https://www.instagram.com/zetio_oficial/", "https://www.tiktok.com/@zetioapp"]}, {"@type": "WebSite", "@id": "https://zetio.app/#web", "url": "https://zetio.app/", "name": "Zetio", "inLanguage": "es-MX", "publisher": {"@id": "https://zetio.app/#org"}}, {"@type": "SoftwareApplication", "name": "Zetio", "applicationCategory": "SportsApplication", "operatingSystem": "iOS, Android", "description": "App de pádel para armar retas, medir entrenamientos y jugar torneos.", "inLanguage": "es-MX", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "MXN", "description": "Gratis para jugadores y coaches"}, "installUrl": "https://apps.apple.com/mx/app/zetio/id6757622344", "publisher": {"@id": "https://zetio.app/#org"}}, {"@type": "Product", "name": "Zetio Clubs Premium", "brand": {"@id": "https://zetio.app/#org"}, "description": "Plan para organizar torneos de pádel, tenis y tenis de mesa sin límite de jugadores, con administración de canchas y ranking del club. Incluye 30 días de prueba sin tarjeta.", "image": "https://zetio.app/og/og-zetio.jpg", "offers": {"@type": "AggregateOffer", "priceCurrency": "MXN", "lowPrice": "1940", "highPrice": "17460", "offerCount": "3", "url": "https://zetio.app/#precios"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Cuánto cuesta Zetio?", "acceptedAnswer": {"@type": "Answer", "text": "Para jugadores y coaches la app es gratis. Los clubes tienen un plan Gratis con torneos de hasta 16 jugadores, y Premium desde $1,455 al mes con pago anual. Si un torneo se paga en línea, el jugador paga el precio que fija el club más un cargo por servicio."}}, {"@type": "Question", "name": "Soy club, ¿puedo probarlo antes de pagar?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Al crear tu club recibes 30 días de Premium, sin tarjeta. Al terminar sigues en el plan Gratis, sin cargos."}}, {"@type": "Question", "name": "¿Puedo cobrar las inscripciones en línea?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, en cualquier plan. Conectas tu cuenta de Stripe y recibes el 100% del precio que fijas. El jugador paga además un cargo por servicio. Los torneos de $0 tienen una tarifa de servicio de $50 por inscripción desde la app."}}, {"@type": "Question", "name": "¿Puedo cancelar Premium?", "acceptedAnswer": {"@type": "Answer", "text": "Cuando quieras, desde tu panel. Conservas Premium hasta el final del periodo pagado y después pasas al plan Gratis."}}, {"@type": "Question", "name": "¿Necesito saber organizar torneos o equipo especial?", "acceptedAnswer": {"@type": "Answer", "text": "No. Defines el formato y Zetio arma cuadros, grupos y resultados. Con un teléfono y la app puedes digitalizar tu torneo el mismo día."}}, {"@type": "Question", "name": "¿Para qué deportes funciona?", "acceptedAnswer": {"@type": "Answer", "text": "Los clubes pueden publicar torneos de pádel, tenis y tenis de mesa. Zetio está disponible en México."}}, {"@type": "Question", "name": "¿Qué pasa con mis datos?", "acceptedAnswer": {"@type": "Answer", "text": "Tu historial y tus estadísticas son tuyos. Compartimos con el club organizador lo necesario para tu inscripción, y con proveedores como Stripe para procesar pagos. No vendemos tu información."}}]}]}</script>
 <script src="/site/track.js?v=20261012" defer></script>
 </head>
 <body>
@@ -443,10 +411,10 @@ footer{border-top:1px solid var(--line);padding-block:40px 110px;color:var(--mut
     <div class="hero-panel" id="hero-club" role="tabpanel" aria-labelledby="tab-club" hidden>
       <div class="hero-copy">
         <h2 class="h1">Tu torneo armado en una tarde, desde un solo panel.</h2>
-        <p class="lead">Inscripciones, pagos, cuadros y resultados en vivo en el mismo lugar. <strong>Tu primer torneo es gratis.</strong> Después pagas desde $12 por jugador, sin mensualidad obligatoria.</p>
+        <p class="lead">Inscripciones, pagos, cuadros y resultados en vivo en el mismo lugar. <strong>Empieza con 30 días de Premium, sin tarjeta.</strong> Después sigues gratis con torneos de hasta 16 jugadores, o pasas a Premium.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://club.zetio.app/">Crear mi primer torneo gratis</a>
-          <a class="btn btn-ghost" href="#precios">Calcular mi costo</a>
+          <a class="btn btn-ghost" href="#precios">Ver precios</a>
         </div>
         <p class="hero-note">Registro de club gratis. Sin tarjeta ni compromiso.</p>
         <ul class="ticks">
@@ -465,8 +433,8 @@ footer{border-top:1px solid var(--line);padding-block:40px 110px;color:var(--mut
     <ul>
       <li><b>Gratis</b><span>para jugadores y coaches</span></li>
       <li><b>iOS y Android</b><span>una app, un solo perfil</span></li>
-      <li><b>Primer torneo gratis</b><span>para clubes, hasta 8 parejas</span></li>
-      <li><b class="num">Desde $12 por jugador</b><span>para clubes, sin mensualidad obligatoria</span></li>
+      <li><b>Plan Gratis</b><span>para clubes, hasta 16 jugadores por torneo</span></li>
+      <li><b class="num">Premium desde $1,455 al mes</b><span>con pago anual, IVA incluido</span></li>
     </ul>
   </div>
 </section>
@@ -562,7 +530,7 @@ footer{border-top:1px solid var(--line);padding-block:40px 110px;color:var(--mut
           <h2>Deja el Excel. Tu torneo se arma en una tarde.</h2>
           <p>Un panel para todo el torneo, desde la primera inscripción hasta la final. Hecho para quien organiza, no para quien programa.</p>
         </div>
-        <div class="free-box"><div><b>Tu primer torneo es gratis</b><span>Hasta 8 parejas, con el sistema completo y visible en la app de los jugadores. Sin tarjeta.</span></div></div>
+        <div class="free-box"><div><b>Empieza con 30 días de Premium</b><span>Al crear tu club, sin tarjeta. Al terminar sigues en el plan Gratis, con torneos de hasta 16 jugadores.</span></div></div>
         <div class="hero-actions">
           <a class="btn btn-dark" href="https://club.zetio.app/">Crear mi primer torneo gratis</a>
           <a class="btn btn-outline-dark" href="#precios">Ver precios</a>
@@ -583,7 +551,7 @@ footer{border-top:1px solid var(--line);padding-block:40px 110px;color:var(--mut
     </ul>
 
     <ol class="steps">
-      <li><h3>Registra tu club</h3><p>Es gratis y toma unos minutos. Recibes tu torneo de bienvenida.</p></li>
+      <li><h3>Registra tu club</h3><p>Es gratis y toma unos minutos. Recibes 30 días de Premium.</p></li>
       <li><h3>Publica tu torneo</h3><p>Categorías, fecha, costo de inscripción y sede. Queda visible para los jugadores.</p></li>
       <li><h3>Juégalo</h3><p>Zetio lleva cuadros y resultados. Tú atiendes a tu gente.</p></li>
     </ol>
@@ -602,83 +570,57 @@ footer{border-top:1px solid var(--line);padding-block:40px 110px;color:var(--mut
             <button type="button" id="cur-usd" aria-pressed="false" aria-label="Dólares estadounidenses"><img src="/bandera_usa.png" alt="" width="20" height="14" loading="lazy">USD</button>
           </div>
         </div>
-        <h2>Desde <span class="num" id="o-floor">$12</span> por jugador. Sin mensualidad obligatoria.</h2>
-        <p>Compras créditos y los usas cuando quieras. 1 crédito es 1 jugador inscrito, así que una pareja son 2 créditos. Jugadores y coaches no pagan nada.</p>
+        <h2>Empieza <span>gratis</span>. Crece con Premium.</h2>
+        <p>Al crear tu club recibes 30 días de Premium, sin tarjeta. Al terminar sigues en el plan Gratis, sin cargos. Jugadores y coaches usan la app gratis.</p>
       </div>
 
-      <div class="calc">
-        <div class="calc-in">
-          <label for="parejas">¿Cuántas parejas juegan tu torneo?</label>
-          <div class="calc-big"><output id="o-parejas" for="parejas" class="num">16</output><span>parejas</span></div>
-          <input type="range" id="parejas" min="4" max="500" step="1" value="16" aria-describedby="o-eq">
-          <div class="chips" id="chips" aria-label="Tamaños frecuentes">
-            <button type="button" data-v="8">8 parejas</button>
-            <button type="button" data-v="16">16</button>
-            <button type="button" data-v="32">32</button>
-            <button type="button" data-v="64">64</button>
-            <button type="button" data-v="100">100</button>
-          </div>
-          <p class="calc-eq" id="o-eq"><b class="num">16 parejas</b> son <b class="num">32 jugadores</b>, es decir <b class="num">32 créditos</b>.</p>
-        </div>
-        <div class="calc-out" aria-live="polite">
-          <span class="k">Lo que pagas, una sola vez</span>
-          <div class="calc-price"><output id="o-price" class="num">$1,200</output><span id="o-pack">Pack S, 80 créditos</span></div>
-          <ul class="calc-lines">
-            <li><span>Usas en este torneo</span><span id="o-use" class="num">32 créditos</span></li>
-            <li><span>Te sobran para el siguiente</span><span id="o-left" class="num">48 créditos</span></li>
-            <li><span>Costo real por jugador</span><span id="o-pp" class="num">$15.00</span></li>
+      <div class="plans">
+        <article class="plan">
+          <h3>Gratis</h3>
+          <div class="plan-price"><output id="p-free" class="num">$0</output><span>sin vencimiento</span></div>
+          <p class="plan-note">Para organizar torneos pequeños sin pagar nada.</p>
+          <ul class="ticks">
+            <li>Torneos ilimitados de hasta 16 jugadores</li>
+            <li>1 miembro del equipo, el propietario</li>
+            <li>Inscripciones manuales de hasta 10% del cupo</li>
+            <li>Cobros en línea con tu cuenta de Stripe</li>
           </ul>
-          <p class="calc-free" id="o-free" hidden>Si es tu primer torneo, este tamaño te sale gratis con el torneo de bienvenida.</p>
-          <p class="calc-alt" id="o-alt">¿Organizas cada mes? Con el plan <b>Inicial</b> pagas <b class="num">$999 al mes</b> y recibes <b class="num">80 créditos</b> cada mes.</p>
-        </div>
-      </div>
-
-      <div class="tables">
-        <div class="tbl">
-          <h3>Paquetes de créditos</h3>
-          <p>Un solo pago. Los créditos duran 12 meses y los repartes en los torneos que quieras.</p>
-          <div class="tbl-scroll">
-            <table>
-              <thead><tr><th>Paquete</th><th>Jugadores</th><th>Precio</th><th>Por jugador</th></tr></thead>
-              <tbody id="packs-body">
-                <tr><td>Pack S</td><td>80</td><td class="price">$1,200</td><td class="pp">$15</td></tr>
-                <tr><td>Pack M</td><td>200</td><td class="price">$2,800</td><td class="pp">$14</td></tr>
-                <tr><td>Pack L</td><td>500</td><td class="price">$6,500</td><td class="pp">$13</td></tr>
-                <tr><td>Pack XL</td><td>1,000</td><td class="price">$12,000</td><td class="pp">$12</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="tbl">
-          <div class="tbl-top">
-            <h3>Suscripción, si organizas cada mes</h3>
+        </article>
+        <article class="plan plan-premium">
+          <div class="plan-top">
+            <h3>Premium</h3>
             <div class="cycle" role="group" aria-label="Ciclo de pago">
               <button type="button" id="cy-m" data-cycle="m" aria-pressed="true">Mensual</button>
-              <button type="button" id="cy-a" data-cycle="a" aria-pressed="false">Anual <span>2 meses gratis</span></button>
+              <button type="button" id="cy-s" data-cycle="s" aria-pressed="false">Semestral <span>-15%</span></button>
+              <button type="button" id="cy-a" data-cycle="a" aria-pressed="false">Anual <span>-25%</span></button>
             </div>
           </div>
-          <p>Créditos nuevos cada mes y torneos relámpago gratis (hasta 8 parejas). Cancelas cuando quieras.</p>
-          <div class="tbl-scroll">
-            <table>
-              <thead><tr><th>Plan</th><th>Jugadores</th><th>Relámpago</th><th id="th-price">Al mes</th></tr></thead>
-              <tbody id="plans">
-                <tr><td>Inicial</td><td>80</td><td>1 al mes</td><td class="pp"><b>$999</b><small></small></td></tr>
-                <tr><td>Competidor</td><td>220</td><td>2 al mes</td><td class="pp"><b>$2,299</b><small></small></td></tr>
-                <tr><td>Élite</td><td>500</td><td>4 al mes</td><td class="pp"><b>$4,999</b><small></small></td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+          <div class="plan-price"><output id="p-price" class="num">$1,940</output><span id="p-per">al mes</span></div>
+          <p class="plan-note" id="p-eq">Cancelas cuando quieras.</p>
+          <ul class="ticks">
+            <li>Jugadores por torneo sin límite</li>
+            <li>Hasta 10 miembros en tu equipo</li>
+            <li>Inscripciones manuales sin tope</li>
+            <li>Administración de canchas y reservas</li>
+            <li>Historial de pagos y ranking del club</li>
+          </ul>
+        </article>
       </div>
-      <p class="fine" id="fine">Precios en pesos mexicanos. El plan anual se factura en un solo pago al año y equivale a 2 meses gratis. En plan mensual los créditos son del mes en curso; en plan anual y en paquetes duran 12 meses.</p>
+
+      <div class="online-pay">
+        <h3>Cobra inscripciones en línea, en cualquier plan</h3>
+        <p>Conectas tu cuenta de Stripe y recibes el <b>100% del precio</b> que fijas. El jugador paga además un cargo por servicio, que ve antes de pagar. En torneos de $0, inscribirse desde la app tiene una tarifa de servicio de <b id="p-fee" class="num">$50</b> por inscripción.</p>
+      </div>
+
+      <p class="fine" id="fine">Precios en pesos mexicanos, con IVA incluido. Premium se renueva automáticamente y se cancela desde tu panel.</p>
       <div class="pricing-cta">
-        <a class="btn btn-primary" href="https://club.zetio.app/">Crear mi primer torneo gratis</a>
+        <a class="btn btn-primary" href="https://club.zetio.app/">Crear mi club gratis</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIOS -->
+<!-- TESTIMONIOS --><!-- TESTIMONIOS -->
 <section class="voices">
   <div class="wrap">
     <h2>Ya lo están jugando</h2>
@@ -698,13 +640,13 @@ footer{border-top:1px solid var(--line);padding-block:40px 110px;color:var(--mut
       <h2>Lo que nos preguntan antes de empezar</h2>
     </div>
     <div class="faq-list">
-      <details open><summary>¿Cuánto cuesta Zetio?</summary><p>Para jugadores y coaches es gratis. Los clubes y organizadores pagan por jugador inscrito en sus torneos: desde $12 por jugador con paquetes, o una suscripción mensual si organizan seguido.</p></details>
-      <details><summary>Soy club, ¿puedo probarlo antes de pagar?</summary><p>Sí. Registrar tu club es gratis y recibes un torneo de bienvenida de hasta 8 parejas, con el sistema completo y visible en la app de los jugadores. No pedimos tarjeta.</p></details>
-      <details><summary>¿Qué es un crédito?</summary><p>Un crédito es un jugador inscrito en un torneo. Una pareja usa 2 créditos. Si compras un paquete y te sobran créditos, los usas en tu siguiente torneo.</p></details>
-      <details><summary>¿Cuánto duran mis créditos?</summary><p>Los de paquetes y suscripción anual duran 12 meses. Los de suscripción mensual son para el mes en curso. Los torneos relámpago gratis de cada mes no se acumulan.</p></details>
+      <details open><summary>¿Cuánto cuesta Zetio?</summary><p>Para jugadores y coaches la app es gratis. Los clubes tienen un plan Gratis con torneos de hasta 16 jugadores, y Premium desde $1,455 al mes con pago anual. Si un torneo se paga en línea, el jugador paga el precio que fija el club más un cargo por servicio.</p></details>
+      <details><summary>Soy club, ¿puedo probarlo antes de pagar?</summary><p>Sí. Al crear tu club recibes 30 días de Premium, sin tarjeta. Al terminar sigues en el plan Gratis, sin cargos.</p></details>
+      <details><summary>¿Puedo cobrar las inscripciones en línea?</summary><p>Sí, en cualquier plan. Conectas tu cuenta de Stripe y recibes el 100% del precio que fijas. El jugador paga además un cargo por servicio. Los torneos de $0 tienen una tarifa de servicio de $50 por inscripción desde la app.</p></details>
+      <details><summary>¿Puedo cancelar Premium?</summary><p>Cuando quieras, desde tu panel. Conservas Premium hasta el final del periodo pagado y después pasas al plan Gratis.</p></details>
       <details><summary>¿Necesito saber organizar torneos o equipo especial?</summary><p>No. Defines el formato y Zetio arma cuadros, grupos y resultados. Con un teléfono y la app puedes digitalizar tu torneo el mismo día.</p></details>
-      <details><summary>¿Para qué deportes funciona?</summary><p>Los clubes pueden publicar torneos de pádel y de tenis de mesa. Zetio está disponible en México.</p></details>
-      <details><summary>¿Qué pasa con mis datos?</summary><p>Tu historial y tus estadísticas son tuyos. No compartimos tu información con terceros.</p></details>
+      <details><summary>¿Para qué deportes funciona?</summary><p>Los clubes pueden publicar torneos de pádel, tenis y tenis de mesa. Zetio está disponible en México.</p></details>
+      <details><summary>¿Qué pasa con mis datos?</summary><p>Tu historial y tus estadísticas son tuyos. Compartimos con el club organizador lo necesario para tu inscripción, y con proveedores como Stripe para procesar pagos. No vendemos tu información.</p></details>
     </div>
   </div>
 </section>
@@ -723,8 +665,8 @@ footer{border-top:1px solid var(--line);padding-block:40px 110px;color:var(--mut
       </div>
       <div class="close-club">
         <span class="eyebrow">¿Tienes un club?</span>
-        <h3>Tu primer torneo es gratis</h3>
-        <p>Hasta 8 parejas, sin tarjeta. Después, desde $12 por jugador.</p>
+        <h3>Empieza gratis</h3>
+        <p>Empieza con 30 días de Premium, sin tarjeta. Después sigues en el plan Gratis o pasas a Premium.</p>
         <a class="btn btn-primary" href="https://club.zetio.app/">Crear mi torneo</a>
       </div>
     </div>
@@ -845,86 +787,40 @@ footer{border-top:1px solid var(--line);padding-block:40px 110px;color:var(--mut
   function fromHash(){show((location.hash||"").replace("#",""))}
   window.addEventListener("hashchange",fromHash);fromHash();
 
-  /* calculadora de creditos */
-  var packs=[{n:"Pack S",c:80,p:1200},{n:"Pack M",c:200,p:2800},{n:"Pack L",c:500,p:6500},{n:"Pack XL",c:1000,p:12000}];
-  var plans=[{n:"Inicial",c:80,m:999,a:833,y:9990},{n:"Competidor",c:220,m:2299,a:1916,y:22990},{n:"Élite",c:500,m:4999,a:4166,y:49990}];
+  /* precios: Premium por ciclo y moneda */
+  var prices={m:{t:1940,n:1,per:"al mes"},s:{t:9894,n:6,per:"cada 6 meses"},a:{t:17460,n:12,per:"al año"}};
   var cycle="m";
   var currency="mxn",USD_RATE=15;
   var money=function(v,d){
     if(currency==="usd")return "US$"+(v/USD_RATE).toLocaleString("en-US",{minimumFractionDigits:d||0,maximumFractionDigits:d||0});
     return "$"+v.toLocaleString("es-MX",{minimumFractionDigits:d||0,maximumFractionDigits:d||0})
   };
-  var num=function(v){return v.toLocaleString("es-MX")};
   var $=function(id){return document.getElementById(id)};
-  var packRows=[].slice.call(document.querySelectorAll("#packs-body tr"));
-  function renderPacks(){
-    packRows.forEach(function(r,i){
-      var p=packs[i];
-      r.querySelector(".price").textContent=money(p.p);
-      r.querySelector(".pp").textContent=money(p.p/p.c,currency==="usd"?2:0);
-    });
+  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function renderPrices(){
+    var p=prices[cycle];
+    $("p-price").textContent=money(p.t);
+    $("p-per").textContent=p.per;
+    $("p-eq").textContent=p.n>1?"Equivale a "+money(Math.round(p.t/p.n))+" al mes. Cancelas cuando quieras.":"Cancelas cuando quieras.";
+    $("p-free").textContent=money(0);
+    $("p-fee").textContent=money(50,currency==="usd"?2:0);
+    $("fine").textContent=(currency==="usd"?"Montos de referencia en dólares (tipo de cambio fijo de "+USD_RATE+" MXN por USD); los cobros se hacen en pesos mexicanos, con IVA incluido. ":"Precios en pesos mexicanos, con IVA incluido. ")+"Premium se renueva automáticamente y se cancela desde tu panel.";
   }
   function setCurrency(c){
     currency=c;
     $("cur-mxn").setAttribute("aria-pressed",c==="mxn"?"true":"false");
     $("cur-usd").setAttribute("aria-pressed",c==="usd"?"true":"false");
-    $("o-floor").textContent=money(12,c==="usd"?2:0);
-    $("fine").textContent=(c==="usd"?"Montos de referencia en dólares (tipo de cambio fijo de "+USD_RATE+" MXN por USD); los cobros se hacen en pesos mexicanos. ":"Precios en pesos mexicanos. ")+"El plan anual se factura en un solo pago al año y equivale a 2 meses gratis. En plan mensual los créditos son del mes en curso; en plan anual y en paquetes duran 12 meses.";
-    renderPacks();
-    setCycle(cycle);
+    renderPrices();
   }
-  var range=$("parejas"),chips=[].slice.call(document.querySelectorAll("#chips button"));
-  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
-  function tween(el,to){
-    var from=+el.dataset.v||to;el.dataset.v=to;
-    if(reduce||from===to){el.textContent=money(to);return}
-    cancelAnimationFrame(el._raf);var t0=performance.now();
-    (function step(t){
-      var k=Math.min(1,(t-t0)/320),e=1-Math.pow(1-k,3);
-      el.textContent=money(Math.round(from+(to-from)*e));
-      if(k<1)el._raf=requestAnimationFrame(step);
-    })(t0);
-  }
-  function calc(){
-    var pairs=+range.value,players=pairs*2;
-    var pk=packs.filter(function(x){return x.c>=players})[0];
-    var price,label,credits;
-    if(pk){price=pk.p;credits=pk.c;label=pk.n+", "+num(pk.c)+" créditos"}
-    else{var xl=packs[3],k=Math.ceil(players/xl.c);price=xl.p*k;credits=xl.c*k;label=k+" × "+xl.n+", "+num(credits)+" créditos"}
-    range.style.setProperty("--fill",((pairs-4)/(500-4)*100)+"%");
-    $("o-parejas").textContent=num(pairs);
-    $("o-eq").innerHTML='<b class="num">'+num(pairs)+' parejas</b> son <b class="num">'+num(players)+' jugadores</b>, es decir <b class="num">'+num(players)+' créditos</b>.';
-    tween($("o-price"),price);
-    $("o-pack").textContent=label;
-    $("o-use").textContent=num(players)+" créditos";
-    $("o-left").textContent=num(credits-players)+" créditos";
-    $("o-pp").textContent=money(price/credits,2);
-    $("o-free").hidden=pairs>8;
-    var pl=plans.filter(function(x){return x.c>=players})[0];
-    $("o-alt").innerHTML=pl
-      ?'¿Organizas cada mes? Con el plan <b>'+pl.n+'</b> pagas <b class="num">'+(cycle==="a"?money(pl.y)+' al año</b> (equivale a '+money(pl.a)+' al mes)':money(pl.m)+' al mes</b>')+' y recibes <b class="num">'+num(pl.c)+' créditos</b> cada mes.'
-      :'Las suscripciones cubren hasta 500 jugadores al mes. Para este tamaño conviene el paquete.';
-    chips.forEach(function(b){b.setAttribute("aria-pressed",+b.dataset.v===pairs?"true":"false")});
-  }
-  var rows=[].slice.call(document.querySelectorAll("#plans tr"));
-  function setCycle(c){
-    cycle=c;
-    $("cy-m").setAttribute("aria-pressed",c==="m"?"true":"false");
-    $("cy-a").setAttribute("aria-pressed",c==="a"?"true":"false");
-    $("th-price").textContent=c==="a"?"Al mes, pago anual":"Al mes";
-    rows.forEach(function(r,i){
-      var p=plans[i],cell=r.lastElementChild;
-      cell.querySelector("b").textContent=money(c==="a"?p.a:p.m);
-      cell.querySelector("small").textContent=c==="a"?money(p.y)+" al año":"";
+  ["m","s","a"].forEach(function(c){
+    $("cy-"+c).addEventListener("click",function(){
+      cycle=c;
+      ["m","s","a"].forEach(function(x){$("cy-"+x).setAttribute("aria-pressed",x===c?"true":"false")});
+      renderPrices();
     });
-    calc();
-  }
-  $("cy-m").addEventListener("click",function(){setCycle("m")});
-  $("cy-a").addEventListener("click",function(){setCycle("a")});
+  });
   $("cur-mxn").addEventListener("click",function(){setCurrency("mxn")});
   $("cur-usd").addEventListener("click",function(){setCurrency("usd")});
-  range.addEventListener("input",calc);
-  chips.forEach(function(b){b.addEventListener("click",function(){range.value=b.dataset.v;calc()})});
   setCurrency("mxn");
   /* aparicion al hacer scroll: solo lo que esta debajo de la primera pantalla */
   if(!reduce&&"IntersectionObserver" in window){
