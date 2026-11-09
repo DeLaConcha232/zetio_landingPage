@@ -4,6 +4,8 @@
 
 Bienvenido a **Zetio**. Esta Política de Privacidad describe cómo **Luis Fernando Esparza Zarate**, persona física con actividad empresarial, con Registro Federal de Contribuyentes **EAZL9303222J7** y domicilio en Avenida Las Américas, número interior 104, exterior 110, colonia Las Américas, municipio de Aguascalientes, Aguascalientes, México ("nosotros", "nuestro" o "Zetio") recopila, usa, almacena y protege tu información cuando utilizas la aplicación móvil Zetio y los servicios asociados (en conjunto, el "Servicio").
 
+Aunque la aplicación aparece en App Store y Google Play a nombre de Diego Diaz De La Concha, el responsable del tratamiento de tus datos personales es Luis Fernando Esparza Zarate.
+
 > **Alcance de este documento — Zetio Users.** Esta política cubre los productos orientados a jugadores y coaches individuales: **Zetio Tour**, **Zetio Play** y **Zetio Coach**. El tratamiento de datos en **Zetio Club** se describe en su propio [Aviso de Privacidad](https://zetio.app/privacyclubs).
 
 Zetio es una plataforma de deportes de raqueta (pádel, tenis y otros) compuesta por tres módulos, cada uno con tratamientos de datos específicos descritos en esta política:

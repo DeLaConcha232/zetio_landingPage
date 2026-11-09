@@ -4,6 +4,8 @@
 
 Estos Términos y Condiciones ("Términos") regulan el uso de la aplicación móvil Zetio y los servicios asociados (el "Servicio"), operados por **Luis Fernando Esparza Zarate**, persona física con actividad empresarial, con Registro Federal de Contribuyentes **EAZL9303222J7** y domicilio en Avenida Las Américas, número interior 104, exterior 110, colonia Las Américas, municipio de Aguascalientes, Aguascalientes, México ("nosotros", "nuestro" o "Zetio"), quien actúa con fines comerciales y empresariales. Al crear una cuenta, usar el Servicio en Modo Invitado, o de cualquier otra forma acceder a Zetio, aceptas estos Términos. Si no estás de acuerdo, no utilices el Servicio.
 
+La aplicación Zetio se distribuye en App Store y Google Play mediante la cuenta de desarrollador de Diego Diaz De La Concha, quien aparece en esas tiendas como desarrollador. El proveedor del Servicio es Luis Fernando Esparza Zarate, con los datos indicados en estos Términos. Cualquier solicitud o aclaración sobre el Servicio debe dirigirse a zetioapp@gmail.com.
+
 Estos Términos deben leerse junto con nuestra [Política de Privacidad](https://zetio.app/privacy), que describe cómo tratamos tus datos personales y que forma parte integral de este acuerdo por referencia.
 
 > **Alcance de este documento — Zetio Users.** Estos Términos cubren los productos orientados a jugadores y coaches individuales: **Zetio Tour**, **Zetio Play** y **Zetio Coach**. El uso de **Zetio Club** por parte de clubes y organizadores se rige por sus propios [Términos y Condiciones](https://zetio.app/termsclubs).
